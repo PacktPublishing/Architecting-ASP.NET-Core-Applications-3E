@@ -1,0 +1,12 @@
+﻿@model ICreateOrEditModel
+
+<div class="form-group">
+    @Html.LabelFor(x => x.Employee.FirstName, new { @class = "control-label" })
+    @Html.TextBoxFor(x => x.Employee.FirstName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Employee.FirstName, null, new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(x => x.Employee.LastName, new { @class = "control-label" })
+    @Html.TextBoxFor(x => x.Employee.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Employee.LastName, null, new { @class = "text-danger" })
+</div>

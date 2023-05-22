@@ -1,0 +1,22 @@
+﻿@model CreateStudentViewModel
+
+@{
+    ViewData["Title"] = "Create a student";
+}
+
+<h2>Create a student</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            
+            <partial name="_CreateOrEdit" />
+
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-default">Cancel</a>
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+

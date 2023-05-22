@@ -1,0 +1,14 @@
+﻿@page
+@model TransformTemplateView.Pages.BookStore.IndexModel
+@{
+    ViewData["Title"] = "My BookStore";
+}
+
+<section class="card">
+    <h1 class="card-header">@ViewData["Title"]</h1>
+    <ul class="list-group list-group-flush">
+        @Html.DisplayFor(x => x.Components)
+    </ul>
+</section>
+
+

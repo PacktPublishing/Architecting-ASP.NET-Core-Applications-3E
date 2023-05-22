@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "VerticalApp": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "products",
+      "applicationUrl": "https://localhost:14001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

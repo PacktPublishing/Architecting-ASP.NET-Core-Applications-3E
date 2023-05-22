@@ -1,0 +1,14 @@
+﻿@model PageController.Pages.Components.EmployeeCountUsingTagHelper.EmployeeCountViewModel
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">
+            Employee Count
+            <small class="badge badge-dark">UsingTagHelper</small>
+        </h5>
+        <p class="card-text">
+            <pluralize count="Model.Count" singular="{0} Employee" plural="{0} Employees" />
+        </p>
+        <a asp-page="Employees/Index" class="card-link">Employees list</a>
+    </div>
+</div>

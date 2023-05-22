@@ -1,0 +1,18 @@
+﻿@model BookComposite
+
+<li class="list-group-item">
+    <section class="card">
+        <h5 class="card-header">
+            @Model.Name
+            <span class="badge badge-secondary float-right">@Model.Count()</span>
+        </h5>
+
+        <ul class="list-group list-group-flush">
+            @Html.DisplayFor(x => x.Components)
+        </ul>
+
+        <div class="card-footer text-muted">
+            <small class="text-muted text-right">@Model.Type</small>
+        </div>
+    </section>
+</li>

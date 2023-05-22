@@ -1,0 +1,12 @@
+﻿@model ICreateOrEditModel
+
+<div class="form-group">
+    <label asp-for="Employee.FirstName" class="control-label"></label>
+    <input asp-for="Employee.FirstName" class="form-control" />
+    <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Employee.LastName" class="control-label"></label>
+    <input asp-for="Employee.LastName" class="form-control" />
+    <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+</div>

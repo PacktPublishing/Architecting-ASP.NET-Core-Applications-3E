@@ -1,0 +1,47 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: DotNetCoreInstaller@1
+  displayName: Install .Net Core SDK
+  inputs:
+    packageType: 'sdk'
+    version: '5.x' 
+    includePreviewVersions: true
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: Bash@3
+  displayName: Test
+  inputs:
+      targetType: inline
+      script: find . -name "*.Tests.csproj" -exec dotnet test '{}' --configuration $(buildConfiguration) --filter "FailureExpected!=true" --collect "Code coverage" --logger trx --results-directory $(Agent.TempDirectory) \;
+      failOnStderr: true
+
+- task: DotNetCoreCLI@2
+  displayName: Test (old)
+  enabled: false
+  inputs:
+    command: test
+    projects: '**/*.Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage" --logger trx --results-directory $(Agent.TempDirectory)'
+
+- task: PublishTestResults@2
+  displayName: Publish test results
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
+    searchFolder: '$(Agent.TempDirectory)'

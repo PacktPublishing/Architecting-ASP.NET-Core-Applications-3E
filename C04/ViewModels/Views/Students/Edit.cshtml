@@ -1,0 +1,39 @@
+﻿@model EditStudentViewModel
+
+@{
+    ViewData["Title"] = "Edit a student";
+}
+
+<h2>Edit a student</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h3>Form</h3>
+        <form asp-action="Edit">
+
+            <partial name="_CreateOrEdit" for="Form" />
+
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-default">Cancel</a>
+                <input type="submit" value="Update" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <h3>Classes</h3>
+        @if (Model!.Classes.Count() > 0)
+        {
+            <ul class="list-group">
+                @foreach (var className in Model.Classes)
+                {
+                    <li class="list-group-item">@className</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <text>No class associated with this student!</text>
+        }
+    </div>
+</div>
+

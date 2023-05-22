@@ -1,0 +1,45 @@
+name: Build and Test
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #   paths-ignore:
+  #     - README.md
+  #     - CODE_OF_CONDUCT.md
+  #     - LICENSE
+
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths-ignore:
+  #     - README.md
+  #     - CODE_OF_CONDUCT.md
+  #     - LICENSE
+
+  workflow_dispatch:
+
+env:
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        dotnet: ['6.0.x']
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+          # include-prerelease: true
+
+      - name: Build
+        run: find . -name "*.csproj" -exec dotnet build '{}' --configuration ${{ env.BUILD_CONFIGURATION }} \;
+
+      - name: Test
+        run: find . -name "*.csproj" -exec dotnet test '{}' --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --filter "FailureExpected!=true" \;

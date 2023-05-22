@@ -1,0 +1,17 @@
+﻿@model StudentListViewModel
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Students list</h2>
+<p><a asp-action="Create" class="btn btn-default">Create a student</a></p>
+<ul class="list-group">
+    @foreach (var item in Model!.Students)
+    {
+        <li class="list-group-item">
+            <span class="badge">@Html.DisplayFor(modelItem => item.ClassCount)</span>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-xs btn-default">Edit</a>
+            @Html.DisplayFor(modelItem => item.Name)
+        </li>
+    }
+</ul>

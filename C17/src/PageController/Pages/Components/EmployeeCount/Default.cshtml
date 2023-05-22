@@ -1,0 +1,12 @@
+﻿@model PageController.Pages.Components.EmployeeCount.EmployeeCountViewModel
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Employee Count</h5>
+        <p class="card-text">
+            @Model.Count
+            @(Model.Count > 1 ? "Employees" : "Employee")
+        </p>
+        <a asp-page="Employees/Index" class="card-link">Employees list</a>
+    </div>
+</div>

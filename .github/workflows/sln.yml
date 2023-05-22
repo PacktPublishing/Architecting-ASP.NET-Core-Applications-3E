@@ -1,0 +1,51 @@
+name: Build and Test One Solution
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - LICENSE
+      - '**.yml'
+
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - LICENSE
+      - '**.yml'
+
+  workflow_dispatch:
+
+env:
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        dotnet: ['6.0.x']
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+          # include-prerelease: true
+
+      - name: Create solution
+        run: dotnet new sln -n "Atypical ASP.NET 6"
+
+      - name: Add all projects to solutions
+        run: find . -name "*.csproj" -exec dotnet sln "Atypical ASP.NET 6.sln" add '{}' \;
+
+      - name: Build
+        run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }}
+
+      - name: Test
+        run: dotnet test --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --filter "FailureExpected!=true"

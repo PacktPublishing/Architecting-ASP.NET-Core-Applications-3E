@@ -1,0 +1,10 @@
+﻿@page "/mvu-counter"
+
+@inherits StatorComponent
+@inject IState<Counter.State> State
+
+<h1>MVU Counter</h1>
+<p>Current count: @State.Current.Count</p>
+
+<button class="btn btn-primary" @onclick="() => DispatchAsync(new Counter.Increment())">+</button>
+<button class="btn btn-primary" @onclick="() => DispatchAsync(new Counter.Decrement())">-</button>

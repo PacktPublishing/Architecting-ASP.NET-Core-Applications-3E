@@ -1,0 +1,11 @@
+{
+  "EventId": 0,
+  "LogLevel": "Information",
+  "Category": "root",
+  "Message": "You hit the root URL!",
+  "State": {
+    "Message": "You hit the root URL!",
+    "category": "root",
+    "{OriginalFormat}": "You hit the {category} URL!"
+  }
+}

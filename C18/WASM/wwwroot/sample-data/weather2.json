@@ -1,0 +1,32 @@
+[
+  {
+    "Date": "2020-11-28T10:24:39.2933025-05:00",
+    "TemperatureC": 34,
+    "TemperatureF": 93,
+    "Summary": "Sweltering"
+  },
+  {
+    "Date": "2020-11-29T10:24:39.2933025-05:00",
+    "TemperatureC": 11,
+    "TemperatureF": 51,
+    "Summary": "Balmy"
+  },
+  {
+    "Date": "2020-11-30T10:24:39.2933025-05:00",
+    "TemperatureC": 25,
+    "TemperatureF": 76,
+    "Summary": "Bracing"
+  },
+  {
+    "Date": "2020-12-01T10:24:39.2933025-05:00",
+    "TemperatureC": 5,
+    "TemperatureF": 40,
+    "Summary": "Sweltering"
+  },
+  {
+    "Date": "2020-12-02T10:24:39.2933025-05:00",
+    "TemperatureC": 51,
+    "TemperatureF": 123,
+    "Summary": "Balmy"
+  }
+]
