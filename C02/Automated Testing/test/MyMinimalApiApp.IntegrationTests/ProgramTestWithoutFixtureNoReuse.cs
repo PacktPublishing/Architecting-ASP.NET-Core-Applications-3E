@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace MyMinimalApiApp;
