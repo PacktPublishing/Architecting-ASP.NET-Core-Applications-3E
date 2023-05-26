@@ -12,7 +12,7 @@ public class ProgramTestWithoutFixtureNoReuse
         public async Task Should_respond_a_status_200_OK()
         {
             // Arrange
-            await using var webAppFactory = new WebApplicationFactory<SomeOtherClass>();
+            await using var webAppFactory = new WebApplicationFactory<Program>();
             var httpClient = webAppFactory.CreateClient();
 
             // Act
@@ -26,7 +26,7 @@ public class ProgramTestWithoutFixtureNoReuse
         public async Task Should_respond_hello_world()
         {
             // Arrange
-            await using var webAppFactory = new WebApplicationFactory<SomeOtherClass>();
+            await using var webAppFactory = new WebApplicationFactory<Program>();
             var httpClient = webAppFactory.CreateClient();
 
             // Act

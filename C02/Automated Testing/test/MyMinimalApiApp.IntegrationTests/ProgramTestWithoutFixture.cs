@@ -6,12 +6,12 @@ namespace MyMinimalApiApp;
 
 public class ProgramTestWithoutFixture : IAsyncDisposable
 {
-    private readonly WebApplicationFactory<SomeOtherClass> _webApplicationFactory;
+    private readonly WebApplicationFactory<Program> _webApplicationFactory;
     private readonly HttpClient _httpClient;
 
     public ProgramTestWithoutFixture()
     {
-        _webApplicationFactory = new WebApplicationFactory<SomeOtherClass>();
+        _webApplicationFactory = new WebApplicationFactory<Program>();
         _httpClient = _webApplicationFactory.CreateClient();
     }
 
