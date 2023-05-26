@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace MyMinimalApiApp.IntegrationTests;
+namespace MyMinimalApiApp;
 
 public class ArrangeActAssert
 {
