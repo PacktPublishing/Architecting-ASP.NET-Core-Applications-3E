@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace NinjaOCP;
 
-public class Ninja : IAttackable, IAttacker
+public class Ninja : IAttacker
 {
     private readonly Weapon _meleeWeapon;
     private readonly Weapon _rangedWeapon;

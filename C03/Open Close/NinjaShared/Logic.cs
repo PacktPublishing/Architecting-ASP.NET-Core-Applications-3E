@@ -3,7 +3,7 @@
 public static class Logic
 {
     public static async Task ExecuteSequenceAsync<T>(T theBluePhantom, T theUnseenMirage, Func<string, Task> writeAsync)
-        where T : IAttackable, IAttacker
+        where T : IAttacker
     {
         // The Blue Phantom attacks The Unseen Mirage with a first attack
         var result = theBluePhantom.Attack(theUnseenMirage);
