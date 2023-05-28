@@ -28,7 +28,7 @@ public class ContravarianceTest
 
 public interface IContravariant<in T>
 {
-    void Set(T a);
+    void Set(T value);
 }
 
 public class WeaponSetter : IContravariant<Weapon>
