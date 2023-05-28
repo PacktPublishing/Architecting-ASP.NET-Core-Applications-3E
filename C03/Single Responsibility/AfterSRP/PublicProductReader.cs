@@ -1,6 +1,6 @@
 ﻿namespace AfterSRP;
 
-public class PublicProductDataReader
+public class PublicProductReader
 {
     public ValueTask<IEnumerable<Product>> GetAllAsync()
         => throw new NotImplementedException();

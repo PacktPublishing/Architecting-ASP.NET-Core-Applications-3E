@@ -1,5 +1,5 @@
 ﻿namespace AfterSRP;
-public class PrivateProductDataRepository
+public class PrivateProductRepository
 {
     public ValueTask<IEnumerable<Product>> GetAllAsync()
         => throw new NotImplementedException();
