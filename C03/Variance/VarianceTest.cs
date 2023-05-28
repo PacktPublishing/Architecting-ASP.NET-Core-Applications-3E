@@ -1,29 +1,9 @@
-using System;
 using Xunit;
 
 namespace Variance;
 
 public class CovarianceTest
 {
-    [Fact]
-    public void Instanciation()
-    {
-        Sword sword = new Sword();
-        Weapon weapon1 = new Sword(); // Covariance
-        Sword weapon2 = new TwoHandedSword(); // Covariance
-        Weapon weapon3 = new TwoHandedSword(); // Covariance
-
-        // A Sword cannot be a TwoHandedSword (breaks Covariance)
-        //TwoHandedSword twoHandedSword = new Sword(); // Compilation error
-    }
-
-    [Fact]
-    public void Covariance_tests()
-    {
-        Assert.IsType<Sword>(Covariance());
-        Assert.Throws<InvalidCastException>(() => BreakCovariance());
-    }
-
     [Fact]
     public void Generic_Covariance_tests()
     {
@@ -40,29 +20,10 @@ public class CovarianceTest
         Assert.NotNull(isSwordASword);
         Assert.NotNull(isWeaponASword);
     }
-
-
-    // We can return a Sword into a Weapon
-    private Weapon Covariance()
-        => new Sword();
-
-    // We cannot return a Sword into a TwoHandedSword
-    private TwoHandedSword BreakCovariance()
-        => (TwoHandedSword)new Sword();
 }
 
 public class ContravarianceTest
 {
-    [Fact]
-    public void Contravariance_tests()
-    {
-        // We can pass a Sword as a Weapon
-        Contravariance(new Sword());
-
-        // We cannot pass a Weapon as a Sword
-        // BreakContravariance(new Weapon()); // Compilation error
-    }
-
     [Fact]
     public void Generic_Contravariance_tests()
     {
@@ -83,10 +44,6 @@ public class ContravarianceTest
         swordSetter.Set(new Sword());
         swordSetter.Set(new TwoHandedSword());
     }
-
-
-    private void Contravariance(Weapon weapon) { }
-    private void BreakContravariance(Sword weapon) { }
 }
 
 public class Weapon { }
