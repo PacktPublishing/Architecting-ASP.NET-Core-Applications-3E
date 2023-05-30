@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dotnet: ['6.0.x']
+        dotnet: ['8.0.x']
     steps:
       - uses: actions/checkout@v1
 
@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ matrix.dotnet }}
-          # include-prerelease: true
+          include-prerelease: true
 
       - name: Create solution
         run: dotnet new sln -n "Atypical ASP.NET 6"
