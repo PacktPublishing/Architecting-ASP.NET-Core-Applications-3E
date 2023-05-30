@@ -39,10 +39,10 @@ jobs:
           include-prerelease: true
 
       - name: Create solution
-        run: dotnet new sln -n "Atypical ASP.NET 6"
+        run: dotnet new sln -n "ADPG"
 
       - name: Add all projects to solutions
-        run: find . -name "*.csproj" -exec dotnet sln "Atypical ASP.NET 6.sln" add '{}' \;
+        run: find . -name "*.csproj" -exec dotnet sln "ADPG.sln" add '{}' \;
 
       - name: Build
         run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }}
