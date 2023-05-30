@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open Close", "Open Close.csproj", "{33F78506-33C5-4669-B2F5-864BB0CD2154}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface segregation", "Interface segregation.csproj", "{06BF897B-6C14-4EA5-8DCB-6150CDA1CB0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{33F78506-33C5-4669-B2F5-864BB0CD2154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33F78506-33C5-4669-B2F5-864BB0CD2154}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33F78506-33C5-4669-B2F5-864BB0CD2154}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33F78506-33C5-4669-B2F5-864BB0CD2154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BF897B-6C14-4EA5-8DCB-6150CDA1CB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BF897B-6C14-4EA5-8DCB-6150CDA1CB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BF897B-6C14-4EA5-8DCB-6150CDA1CB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BF897B-6C14-4EA5-8DCB-6150CDA1CB0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
