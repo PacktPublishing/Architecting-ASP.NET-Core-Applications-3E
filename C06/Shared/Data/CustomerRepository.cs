@@ -24,8 +24,22 @@ public class CustomerRepository : ICustomerRepository
 
     public Task<Customer> CreateAsync(Customer customer, CancellationToken cancellationToken)
     {
-        MemoryDataStore.Customers.Add(customer);
-        return Task.FromResult(customer);
+        var lastId = FindLastCustomerId();
+        var lastContractId = FindLastContractId();
+        var contracts = customer.Contracts
+            .Select(contract => contract with {
+                Id = ++lastContractId
+            })
+            .ToList()
+        ;
+
+        var newCustomer = customer with {
+            Id = lastId + 1,
+            Contracts = contracts
+        };
+
+        MemoryDataStore.Customers.Add(newCustomer);
+        return Task.FromResult(newCustomer);
     }
 
     public Task<Customer?> UpdateAsync(Customer customer, CancellationToken cancellationToken)
@@ -49,5 +63,28 @@ public class CustomerRepository : ICustomerRepository
         var customer = MemoryDataStore.Customers[index];
         MemoryDataStore.Customers.RemoveAt(index);
         return Task.FromResult<Customer?>(customer);
+    }
+
+    private int FindLastCustomerId()
+    {
+        if (MemoryDataStore.Customers.Count == 0)
+        {
+            return 0;
+        }
+        return MemoryDataStore.Customers.Max(x => x.Id);
+    }
+
+    private int FindLastContractId()
+    {
+        if (MemoryDataStore.Customers.Count == 0)
+        {
+            return 0;
+        }
+        var contracts = MemoryDataStore.Customers.SelectMany(c => c.Contracts).Select(x => x.Id);
+        if (!contracts.Any())
+        {
+            return 0;
+        }
+        return contracts.Max();
     }
 }

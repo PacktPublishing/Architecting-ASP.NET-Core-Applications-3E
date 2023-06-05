@@ -3,11 +3,11 @@ using Shared.Data;
 
 namespace Minimal.API;
 
-public static class CustomerEndpoints
+public static class CustomersEndpoints
 {
-    public static void MapCustomerEndpoints (this IEndpointRouteBuilder routes)
+    public static void MapCustomerEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/api/Customer").WithTags(nameof(Customer));
+        var group = routes.MapGroup("/api/Customers").WithTags(nameof(Customer));
 
         group.MapGet("/", async (ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {

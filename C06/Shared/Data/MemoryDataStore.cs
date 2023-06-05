@@ -15,7 +15,7 @@ internal static class MemoryDataStore
                 new Contract(
                     Id: 1,
                     Name: "First contract",
-                    Description: "This is the first contract of Jonny Boy Inc.",
+                    Description: "This is the first contract.",
                     PrimaryContact: new ContactInformation(
                         FirstName: "John",
                         LastName: "Doe",
@@ -29,7 +29,7 @@ internal static class MemoryDataStore
                 new Contract(
                     Id: 2,
                     Name: "Some other contract",
-                    Description: "This is another contract of Jonny Boy Inc.",
+                    Description: "This is another contract.",
                     PrimaryContact: new ContactInformation(
                         FirstName: "Jane",
                         LastName: "Doe",
@@ -50,7 +50,7 @@ internal static class MemoryDataStore
                 new Contract(
                     Id: 3,
                     Name: "Huge contract",
-                    Description: "This is a huge contract of Some mega-corporation.",
+                    Description: "This is a huge contract.",
                     PrimaryContact: new ContactInformation(
                         FirstName: "Kory",
                         LastName: "O'Neill",

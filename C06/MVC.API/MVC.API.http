@@ -1,0 +1,51 @@
+﻿@MVC.API_HostAddress = https://localhost:7011
+
+GET {{MVC.API_HostAddress}}/api/customers
+
+###
+
+POST {{MVC.API_HostAddress}}/api/customers
+Content-Type: application/json
+
+{
+  "id": 456,
+  "name": "Jane Doe Inc.",
+  "contracts": [
+    {
+      "id": 123,
+      "name": "Snow blowing",
+      "description": "A seasonal snow blowing contract",
+      "status": {
+        "totalWork": 6,
+        "workDone": 0,
+        "state": "New"
+      },
+      "primaryContact": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "jane.doe@janedoe.com"
+      }
+    }
+  ]
+}
+
+###
+
+GET {{MVC.API_HostAddress}}/api/customers/1
+
+###
+
+PUT {{MVC.API_HostAddress}}/api/customers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Some new name",
+  "contracts": []
+}
+
+###
+
+DELETE {{MVC.API_HostAddress}}/api/customers/1
+
+###
