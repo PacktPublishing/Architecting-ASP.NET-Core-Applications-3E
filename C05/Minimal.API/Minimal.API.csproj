@@ -16,4 +16,10 @@
         <ProjectReference Include="..\..\C06\Shared\Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="SwaggerDark.css">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

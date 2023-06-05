@@ -18,14 +18,24 @@ public static class CustomersEndpoints
 
         group.MapGet("/{id}", async (int id, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            return await customerRepository.FindAsync(id, cancellationToken);
+            var customer = await customerRepository.FindAsync(id, cancellationToken);
+            if (customer == null)
+            {
+                return Results.NotFound();
+            }
+            return Results.Ok(customer);
         })
         .WithName("GetCustomerById")
         .WithOpenApi();
 
         group.MapPut("/{id}", async (int id, Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            await customerRepository.UpdateAsync(input, cancellationToken);
+            var updatedCustomer = await customerRepository.UpdateAsync(input, cancellationToken);
+            if (updatedCustomer == null)
+            {
+                return Results.NotFound();
+            }
+            return Results.Ok(updatedCustomer);
         })
         .WithName("UpdateCustomer")
         .WithOpenApi();
@@ -41,6 +51,10 @@ public static class CustomersEndpoints
         group.MapDelete("/{id}", async (int id, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
             var deletedCustomer = await customerRepository.DeleteAsync(id, cancellationToken);
+            if (deletedCustomer == null)
+            {
+                return Results.NotFound();
+            }
             return TypedResults.Ok(deletedCustomer);
         })
         .WithName("DeleteCustomer")
