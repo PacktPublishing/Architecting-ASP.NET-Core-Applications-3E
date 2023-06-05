@@ -2,7 +2,7 @@ using Shared;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSharedServices();
+builder.Services.AddCustomerRepository();
 
 builder.Services
     .AddControllers()

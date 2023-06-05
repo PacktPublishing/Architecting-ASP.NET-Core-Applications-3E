@@ -1,4 +1,4 @@
-using Shared;
+using SharedDTO;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSharedServices();
 

@@ -7,7 +7,7 @@ using Shared.Data;
 namespace Shared;
 public static  class StartupExtensions
 {
-    public static IServiceCollection AddSharedServices(this IServiceCollection services)
+    public static IServiceCollection AddCustomerRepository(this IServiceCollection services)
     {
         services.AddSingleton<ICustomerRepository, CustomerRepository>();
         return services;

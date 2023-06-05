@@ -2,7 +2,7 @@ using Shared;
 using Minimal.API;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSharedServices();
+builder.Services.AddCustomerRepository();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
