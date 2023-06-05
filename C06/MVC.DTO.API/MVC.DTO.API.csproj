@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharedDTO\SharedDTO.csproj" />
+    <ProjectReference Include="..\Shared.DTO\Shared.DTO.csproj" />
   </ItemGroup>
 
   <ItemGroup>

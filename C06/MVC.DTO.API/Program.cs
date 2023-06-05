@@ -1,6 +1,6 @@
-using SharedDTO;
+using Shared;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSharedServices();
+builder.Services.AddCustomerRepository();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
