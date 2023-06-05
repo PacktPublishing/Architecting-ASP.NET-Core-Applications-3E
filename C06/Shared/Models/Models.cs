@@ -1,4 +1,4 @@
-﻿namespace MVC.Models;
+﻿namespace Shared.Models;
 
 public record class Customer(
     int Id,

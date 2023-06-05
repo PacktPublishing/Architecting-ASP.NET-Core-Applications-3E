@@ -1,11 +1,11 @@
-﻿using MVC.Models;
+﻿using Shared.Models;
 
-namespace MVC.Data;
+namespace Shared.Data;
 public interface ICustomerRepository
 {
-    Task<IEnumerable<Customer>> AllAsync();
-    Task CreateAsync(Customer customer);
-    Task DeleteAsync(int customerId);
-    Task<Customer?> FindAsync(int customerId);
-    Task UpdateAsync(Customer customer);
+    Task<IEnumerable<Customer>> AllAsync(CancellationToken cancellationToken);
+    Task<Customer> CreateAsync(Customer customer, CancellationToken cancellationToken);
+    Task<Customer?> DeleteAsync(int customerId, CancellationToken cancellationToken);
+    Task<Customer?> FindAsync(int customerId, CancellationToken cancellationToken);
+    Task<Customer?> UpdateAsync(Customer customer, CancellationToken cancellationToken);
 }

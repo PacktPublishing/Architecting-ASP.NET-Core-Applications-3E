@@ -1,6 +1,6 @@
-﻿using MVC.Models;
+﻿using Shared.Models;
 
-namespace MVC.Data;
+namespace Shared.Data;
 internal static class MemoryDataStore
 {
     public static List<Customer> Customers { get; } = new();
