@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.DTO.API", "MVC.DTO.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{01902AC1-E468-4815-B497-2262EE4E3CCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.API", "..\C05\Minimal.API\Minimal.API.csproj", "{83510589-99DD-4338-8A1A-319094599141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{01902AC1-E468-4815-B497-2262EE4E3CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01902AC1-E468-4815-B497-2262EE4E3CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01902AC1-E468-4815-B497-2262EE4E3CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83510589-99DD-4338-8A1A-319094599141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83510589-99DD-4338-8A1A-319094599141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83510589-99DD-4338-8A1A-319094599141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83510589-99DD-4338-8A1A-319094599141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
