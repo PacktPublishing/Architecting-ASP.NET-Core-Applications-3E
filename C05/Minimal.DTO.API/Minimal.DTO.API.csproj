@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\C06\Shared.DTO\Shared.DTO.csproj" />
+    <ProjectReference Include="..\..\C06\Shared\Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
