@@ -1,10 +1,10 @@
-﻿@MVC.API_HostAddress = https://localhost:7011
+﻿@MVC.API.BaseAddress = https://localhost:7011/raw
 
-GET {{MVC.API_HostAddress}}/api/customers
+GET {{MVC.API.BaseAddress}}/customers
 
 ###
 
-POST {{MVC.API_HostAddress}}/api/customers
+POST {{MVC.API.BaseAddress}}/customers
 Content-Type: application/json
 
 {
@@ -31,11 +31,11 @@ Content-Type: application/json
 
 ###
 
-GET {{MVC.API_HostAddress}}/api/customers/1
+GET {{MVC.API.BaseAddress}}/customers/1
 
 ###
 
-PUT {{MVC.API_HostAddress}}/api/customers/1
+PUT {{MVC.API.BaseAddress}}/customers/1
 Content-Type: application/json
 
 {
@@ -46,6 +46,6 @@ Content-Type: application/json
 
 ###
 
-DELETE {{MVC.API_HostAddress}}/api/customers/1
+DELETE {{MVC.API.BaseAddress}}/customers/1
 
 ###

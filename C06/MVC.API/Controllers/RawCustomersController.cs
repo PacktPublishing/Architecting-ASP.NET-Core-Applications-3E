@@ -2,20 +2,20 @@
 using Shared.Data;
 using Shared.Models;
 
-namespace MVC.API.Controllers;
+namespace MVC.API.Controllers.Raw;
 
-[Route("api/[controller]")]
+[Route("raw/[controller]")]
 [ApiController]
 public class CustomersController : ControllerBase
 {
-    // GET: api/<CustomerController>
+    // GET: raw/customers
     [HttpGet]
     public async Task<IEnumerable<Customer>> GetAllAsync(ICustomerRepository customerRepository)
     {
         return await customerRepository.AllAsync(HttpContext.RequestAborted);
     }
 
-    // GET api/<CustomerController>/5
+    // GET raw/customers/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Customer>> GetOneAsync(int id, ICustomerRepository customerRepository)
     {
@@ -27,7 +27,7 @@ public class CustomersController : ControllerBase
         return customer;
     }
 
-    // POST api/<CustomerController>
+    // POST raw/customers
     [HttpPost]
     public async Task<ActionResult> PostAsync([FromBody] Customer value, ICustomerRepository customerRepository)
     {
@@ -35,7 +35,7 @@ public class CustomersController : ControllerBase
         return Created($"api/customers/{customer.Id}", customer);
     }
 
-    // PUT api/<CustomerController>/5
+    // PUT raw/customers/5
     [HttpPut("{id}")]
     public async Task<ActionResult<Customer>> PutAsync(int id, [FromBody] Customer value, ICustomerRepository customerRepository)
     {
@@ -47,7 +47,7 @@ public class CustomersController : ControllerBase
         return customer;
     }
 
-    // DELETE api/<CustomerController>/5
+    // DELETE raw/customers/5
     [HttpDelete("{id}")]
     public async Task<ActionResult<Customer>> DeleteAsync(int id, ICustomerRepository customerRepository)
     {
