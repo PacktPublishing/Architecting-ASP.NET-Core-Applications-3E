@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "..\C06\Shared\Sha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC.API", "..\C06\MVC.API\MVC.API.csproj", "{FE54E97C-47E3-492C-92B4-F429021DDC94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal.DTO.API", "Minimal.DTO.API\Minimal.DTO.API.csproj", "{D00A09E6-F3A4-43D7-924E-50B9ED7198BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.DTO.API", "..\C06\MVC.DTO.API\MVC.DTO.API.csproj", "{5C11E99E-63C6-4618-AB47-BB8AADEF8519}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{FE54E97C-47E3-492C-92B4-F429021DDC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE54E97C-47E3-492C-92B4-F429021DDC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE54E97C-47E3-492C-92B4-F429021DDC94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D00A09E6-F3A4-43D7-924E-50B9ED7198BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D00A09E6-F3A4-43D7-924E-50B9ED7198BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D00A09E6-F3A4-43D7-924E-50B9ED7198BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D00A09E6-F3A4-43D7-924E-50B9ED7198BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C11E99E-63C6-4618-AB47-BB8AADEF8519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C11E99E-63C6-4618-AB47-BB8AADEF8519}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C11E99E-63C6-4618-AB47-BB8AADEF8519}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C11E99E-63C6-4618-AB47-BB8AADEF8519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
