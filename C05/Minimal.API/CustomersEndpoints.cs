@@ -7,7 +7,7 @@ public static class CustomersEndpoints
 {
     public static void MapCustomerEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/api/Customers").WithTags(nameof(Customer));
+        var group = routes.MapGroup("/raw/customers").WithTags(nameof(Customer));
 
         group.MapGet("/", async (ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
@@ -16,9 +16,9 @@ public static class CustomersEndpoints
         .WithName("GetAllCustomers")
         .WithOpenApi();
 
-        group.MapGet("/{id}", async (int id, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
+        group.MapGet("/{customerId}", async (int customerId, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            var customer = await customerRepository.FindAsync(id, cancellationToken);
+            var customer = await customerRepository.FindAsync(customerId, cancellationToken);
             if (customer == null)
             {
                 return Results.NotFound();
@@ -28,7 +28,7 @@ public static class CustomersEndpoints
         .WithName("GetCustomerById")
         .WithOpenApi();
 
-        group.MapPut("/{id}", async (int id, Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
+        group.MapPut("/{customerId}", async (int customerId, Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
             var updatedCustomer = await customerRepository.UpdateAsync(input, cancellationToken);
             if (updatedCustomer == null)
@@ -40,17 +40,17 @@ public static class CustomersEndpoints
         .WithName("UpdateCustomer")
         .WithOpenApi();
 
-        group.MapPost("/", async (Customer model, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
+        group.MapPost("/", async (Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            var createdCustomer = await customerRepository.CreateAsync(model, cancellationToken);
+            var createdCustomer = await customerRepository.CreateAsync(input, cancellationToken);
             return TypedResults.Created($"/api/Customers/{createdCustomer.Id}", createdCustomer);
         })
         .WithName("CreateCustomer")
         .WithOpenApi();
 
-        group.MapDelete("/{id}", async (int id, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
+        group.MapDelete("/{customerId}", async (int customerId, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            var deletedCustomer = await customerRepository.DeleteAsync(id, cancellationToken);
+            var deletedCustomer = await customerRepository.DeleteAsync(customerId, cancellationToken);
             if (deletedCustomer == null)
             {
                 return Results.NotFound();

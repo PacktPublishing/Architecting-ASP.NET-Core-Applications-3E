@@ -13,6 +13,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseDarkSwaggerUI();
 }
+
 app.MapCustomerEndpoints();
+app.MapCustomerDtoEndpoints();
+
 app.InitializeSharedDataStore();
+
 app.Run();
