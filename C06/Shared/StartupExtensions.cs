@@ -24,7 +24,6 @@ public static  class StartupExtensions
         // SwaggerDark.css source: https://dev.to/amoenus/turn-swagger-theme-to-the-dark-mode-4l5f
         app.UseSwaggerUI(c =>
         {
-            //c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAPI");
             c.InjectStylesheet("/swagger-ui/SwaggerDark.css");
         });
         app.MapGet("/swagger-ui/SwaggerDark.css", async (CancellationToken cancellationToken) =>
