@@ -9,6 +9,7 @@ on:
       - LICENSE
       - '**.yml'
       - '**.drawio'
+      - '2ndEd/**'
 
   pull_request:
     branches:
@@ -18,6 +19,7 @@ on:
       - LICENSE
       - '**.yml'
       - '**.drawio'
+      - '2ndEd/**'
 
   workflow_dispatch:
 
@@ -44,7 +46,7 @@ jobs:
         run: dotnet new sln -n "ADPG"
 
       - name: Add all projects to solutions
-        run: find . -name "*.csproj" -exec dotnet sln "ADPG.sln" add '{}' \;
+        run: find . -name "*.csproj" -not -path "./2ndEd/*" -exec dotnet sln "ADPG.sln" add '{}' \;
 
       - name: Build
         run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }}
