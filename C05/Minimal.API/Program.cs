@@ -16,6 +16,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapCustomerEndpoints();
 app.MapCustomerDtoEndpoints();
+app.MapMinimalEndpoints();
 
 app.InitializeSharedDataStore();
 
