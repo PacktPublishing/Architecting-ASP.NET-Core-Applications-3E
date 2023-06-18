@@ -2,6 +2,7 @@ using Shared;
 using Minimal.API;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMinimalEndpoints();
 builder.Services.AddCustomerRepository();
 
 builder.Services.AddEndpointsApiExplorer();
