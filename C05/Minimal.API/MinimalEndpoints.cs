@@ -1,9 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Minimal.API;
 
@@ -16,6 +21,9 @@ public static class MinimalEndpoints
 
     public static void MapMinimalEndpoints(this IEndpointRouteBuilder app)
     {
+        MapMetadataEndpoints(app);
+        MapSerializerEndpoints(app);
+
         app.MapGet("minimal-endpoint-inline", () => "GET!");
         app.MapGet("minimal-endpoint-method", MyMethod);
         app.MapGet(
@@ -86,14 +94,16 @@ public static class MinimalEndpoints
         );
         app.MapGet(
             "minimal-endpoint-output-coordinate-ok1/",
-            () => Results.Ok(new Coordinate {
+            () => Results.Ok(new Coordinate
+            {
                 Latitude = 43.653225,
                 Longitude = -79.383186
             })
         );
         app.MapGet(
             "minimal-endpoint-output-coordinate-ok2/",
-            () => TypedResults.Ok(new Coordinate {
+            () => TypedResults.Ok(new Coordinate
+            {
                 Latitude = 43.653225,
                 Longitude = -79.383186
             })
@@ -117,7 +127,8 @@ public static class MinimalEndpoints
         );
         app.MapGet(
             "minimal-endpoint-output-Json/",
-            () => TypedResults.Json(new Coordinate {
+            () => TypedResults.Json(new Coordinate
+            {
                 Latitude = 43.653225,
                 Longitude = -79.383186
             }, new JsonSerializerOptions(JsonSerializerOptions.Default) { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseUpper })
@@ -152,6 +163,96 @@ public static class MinimalEndpoints
             "minimal-endpoint-output-VirtualFile-provider/",
             (IWebHostEnvironment webHostEnvironment)
                 => webHostEnvironment.WebRootFileProvider.GetDirectoryContents("/").Select(fileInfo => fileInfo.Name)
+        );
+    }
+
+    private static void MapMetadataEndpoints(IEndpointRouteBuilder app)
+    {
+        const string NamedEndpointName = "Named Endpoint";
+        var metadataGroup = app
+            .MapGroup("minimal-endpoint-metadata")
+            .WithTags("Metadata Endpoints")
+            .WithOpenApi()
+            //.WithDescription("Description coming from the Group")
+            //.WithSummary("Summary coming from the Group")
+        ;
+        metadataGroup
+            .MapGet(
+                "with-name",
+                () => $"Endpoint with name '{NamedEndpointName}'."
+            )
+            .WithName(NamedEndpointName)
+            //.WithTags("Another tag")
+            .WithOpenApi(operation => {
+                operation.Description = "An endpoint that returns its name."; // Same as WithDescription()
+                operation.Summary = $"Endpoint named '{NamedEndpointName}'."; // Same as WithSummary()
+                operation.Deprecated = true;
+                return operation;
+            })
+        ;
+        metadataGroup
+            .MapGet(
+                "url-of-named-endpoint/{endpointName?}",
+                (string? endpointName, LinkGenerator linker) => {
+                    var name = endpointName ?? NamedEndpointName;
+                    return new {
+                        name,
+                        uri = linker.GetPathByName(name)
+                    };
+                }
+            )
+            .WithDescription("Return the URL of the specified named endpoint.")
+            .WithOpenApi(operation => {
+                var endpointName = operation.Parameters[0];
+                endpointName.Description = "The name of the endpoint to get the URL for.";
+                endpointName.AllowEmptyValue = true;
+                endpointName.Example = new OpenApiString(NamedEndpointName);
+                return operation;
+            })
+        ;
+        metadataGroup
+            .MapGet("excluded-from-open-api", () => { })
+            .ExcludeFromDescription()
+        ;
+    }
+
+    private static void MapSerializerEndpoints(IEndpointRouteBuilder app)
+    {
+        var jsonGroup = app.MapGroup("json-serialization").WithTags("Serializer Endpoints");
+
+        // kebab-case
+        var kebabSerializer = new JsonSerializerOptions(JsonSerializerDefaults.Web) {
+            PropertyNamingPolicy = JsonNamingPolicy.KebabCaseLower
+        };
+        jsonGroup.MapGet(
+            "kebab-person/",
+            () => TypedResults.Json(new {
+                FirstName = "John",
+                LastName = "Doe"
+            }, kebabSerializer)
+        );
+
+        // Enum as string
+        var enumSerializer = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+        enumSerializer.Converters.Add(new JsonStringEnumConverter());
+        jsonGroup.MapGet(
+            "enum-as-string/",
+            () => TypedResults.Json(new {
+                FirstName = "John",
+                LastName = "Doe",
+                SomeValue = SomeEnum.Good,
+            }, enumSerializer)
+        );
+
+        // Enum as int (default behavior)
+        jsonGroup.MapGet(
+            "enum-as-int/",
+            () => TypedResults.Json(new
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                SomeValue = SomeEnum.Good,
+            })
         );
     }
 
@@ -253,5 +354,13 @@ public static class MinimalEndpoints
     {
         public required string Name { get; set; }
         public required DateOnly Birthday { get; set; }
+    }
+
+    public enum SomeEnum
+    {
+        Bad = 0,
+        Ok,
+        Good,
+        Amazing
     }
 }
