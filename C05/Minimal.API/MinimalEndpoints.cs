@@ -23,6 +23,7 @@ public static class MinimalEndpoints
     {
         MapMetadataEndpoints(app);
         MapSerializerEndpoints(app);
+        MapFilterEndpoints(app);
 
         app.MapGet("minimal-endpoint-inline", () => "GET!");
         app.MapGet("minimal-endpoint-method", MyMethod);
@@ -240,7 +241,7 @@ public static class MinimalEndpoints
             () => TypedResults.Json(new {
                 FirstName = "John",
                 LastName = "Doe",
-                SomeValue = SomeEnum.Good,
+                Rating = Rating.Good,
             }, enumSerializer)
         );
 
@@ -251,9 +252,62 @@ public static class MinimalEndpoints
             {
                 FirstName = "John",
                 LastName = "Doe",
-                SomeValue = SomeEnum.Good,
+                Rating = Rating.Good,
             })
         );
+    }
+
+    private static void MapFilterEndpoints(IEndpointRouteBuilder app)
+    {
+        var filterGroup = app.MapGroup("filters").WithTags("Filter Endpoints");
+        var inlineGroup = filterGroup.MapGroup("inline");
+        inlineGroup
+            .MapGet("basic", () => { })
+            .AddEndpointFilter((context, next) =>
+            {
+                return next(context);
+            });
+        inlineGroup
+            .MapGet("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter(async (context, next) =>
+            {
+                var rating = context.GetArgument<Rating>(0);
+                if (rating == Rating.Bad)
+                {
+                    return TypedResults.Problem(
+                        detail: "This endpoint is biased and only accepts positive ratings.",
+                        statusCode: StatusCodes.Status400BadRequest
+                    );
+                }
+                return await next(context);
+            });
+
+        filterGroup
+            .MapGet("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter<GoodRatingFilter>();
+        ;
+        filterGroup
+            .MapPut("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter<GoodRatingFilter>();
+        ;
+
+        inlineGroup
+            .MapGet("exception-handling", () => { throw new Exception(); })
+            .AddEndpointFilter(async (context, next) =>
+            {
+                try
+                {
+                    return await next(context);
+                }
+                catch (Exception ex)
+                {
+                    return TypedResults.Problem(ex.Message);
+                }
+            })
+        ;
     }
 
     private static void MyMethod() { }
@@ -356,11 +410,27 @@ public static class MinimalEndpoints
         public required DateOnly Birthday { get; set; }
     }
 
-    public enum SomeEnum
+    public enum Rating
     {
         Bad = 0,
         Ok,
         Good,
         Amazing
+    }
+
+    public class GoodRatingFilter : IEndpointFilter
+    {
+        public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
+        {
+            var rating = context.GetArgument<Rating>(0);
+            if (rating == Rating.Bad)
+            {
+                return TypedResults.Problem(
+                    detail: "This endpoint is biased and only accepts positive ratings.",
+                    statusCode: StatusCodes.Status400BadRequest
+                );
+            }
+            return await next(context);
+        }
     }
 }
