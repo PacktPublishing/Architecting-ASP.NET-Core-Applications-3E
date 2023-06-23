@@ -307,6 +307,31 @@ public static class MinimalEndpoints
         ;
     }
 
+    /// <remarks>
+    /// This method is not registered with the app.
+    /// Even if it was, most of its content is not configured and would not work.
+    /// </remarks>
+    private static void MapOtherMetadata(IEndpointRouteBuilder app)
+    {
+        // You must configure authorization for RequireAuthorization and AllowAnonymous to work.
+        // You must configure CORS for RequireCors to work.
+        // You must configure rate-limiting for DisableRateLimiting and RequireRateLimiting to work.
+        // You must configure output caching for CacheOutput to work.
+        var metaGroup = app
+            .MapGroup("metadata")
+            .WithTags("Metadata Endpoints")
+            .RequireAuthorization()
+            .RequireCors()
+            .DisableRateLimiting()
+            .RequireRateLimiting("some rate limiting policy name")
+            .CacheOutput()
+        ;
+        metaGroup
+            .Map("anonymous", () => "Anonymous")
+            .AllowAnonymous()
+        ;
+    }
+
     private static void MyMethod() { }
 
     private static Results<Ok, Conflict> MultipleResultsDelegate()
