@@ -2,7 +2,6 @@
 using Shared.Data;
 using Shared.DTO;
 using Shared.Models;
-using System.Threading;
 
 namespace Minimal.API;
 

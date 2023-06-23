@@ -1,5 +1,5 @@
-﻿using Shared.Models;
-using Shared.Data;
+﻿using Shared.Data;
+using Shared.Models;
 
 namespace Minimal.API;
 
