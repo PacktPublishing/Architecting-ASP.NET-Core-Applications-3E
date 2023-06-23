@@ -1,6 +1,5 @@
-using Shared;
 using Minimal.API;
-using System.Text.Json;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 //
@@ -20,11 +19,16 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseDarkSwaggerUI();
+    //app.UseSwaggerUI(); // <-- Light (default) version of Swagger UI
 }
 
 app.MapCustomerEndpoints();
 app.MapCustomerDtoEndpoints();
 app.MapMinimalEndpoints();
+app
+    .MapOrganizingEndpointsFluently()
+    .MapOrganizingEndpoints()
+;
 
 app.InitializeSharedDataStore();
 
