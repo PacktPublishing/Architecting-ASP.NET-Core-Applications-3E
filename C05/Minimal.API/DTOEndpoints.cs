@@ -30,7 +30,9 @@ public static class DTOEndpoints
             .WithName("DeleteCustomerWithDto");
     }
 
-    private static async Task<Ok<IEnumerable<CustomerSummary>>> GetCustomersSummaryAsync(ICustomerRepository customerRepository, CancellationToken cancellationToken)
+    private static async Task<Ok<IEnumerable<CustomerSummary>>> GetCustomersSummaryAsync(
+        ICustomerRepository customerRepository,
+        CancellationToken cancellationToken)
     {
         // Get all customers
         var customers = await customerRepository.AllAsync(cancellationToken);
@@ -40,7 +42,8 @@ public static class DTOEndpoints
             Id: customer.Id,
             Name: customer.Name,
             TotalNumberOfContracts: customer.Contracts.Count,
-            NumberOfOpenContracts: customer.Contracts.Count(x => x.Status.State != WorkState.Completed)
+            NumberOfOpenContracts: customer.Contracts
+                .Count(x => x.Status.State != WorkState.Completed)
         ));
 
         // Return the DTOs
@@ -63,10 +66,21 @@ public static class DTOEndpoints
         return TypedResults.Ok(dto);
     }
 
-    private static async Task<Results<Ok<CustomerDetails>, NotFound, Conflict>> UpdateCustomerAsync(int customerId, UpdateCustomer input, ICustomerRepository customerRepository, CancellationToken cancellationToken)
+    private static async Task<Results<
+        Ok<CustomerDetails>,
+        NotFound,
+        Conflict
+    >> UpdateCustomerAsync(
+            int customerId,
+            UpdateCustomer input,
+            ICustomerRepository customerRepository,
+            CancellationToken cancellationToken)
     {
         // Get the customer
-        var customer = await customerRepository.FindAsync(customerId, cancellationToken);
+        var customer = await customerRepository.FindAsync(
+            customerId,
+            cancellationToken
+        );
         if (customer == null)
         {
             return TypedResults.NotFound();
