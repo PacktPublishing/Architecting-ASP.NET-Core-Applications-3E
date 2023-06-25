@@ -6,6 +6,7 @@ namespace MVC.API.Controllers.Empty;
 
 [Route("empty/[controller]")]
 [ApiController]
+[Tags("Customers Empty")]
 public class CustomersController : ControllerBase
 {
     // GET: empty/customers

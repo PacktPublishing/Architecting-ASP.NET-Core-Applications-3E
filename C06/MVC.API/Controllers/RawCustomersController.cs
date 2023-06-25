@@ -6,6 +6,7 @@ namespace MVC.API.Controllers.Raw;
 
 [Route("raw/[controller]")]
 [ApiController]
+[Tags("Customers Raw")]
 public class CustomersController : ControllerBase
 {
     // GET: raw/customers
