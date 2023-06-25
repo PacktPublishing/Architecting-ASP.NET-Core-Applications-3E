@@ -23,8 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseDarkSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
 app.MapControllers();
 
 app.InitializeSharedDataStore();
