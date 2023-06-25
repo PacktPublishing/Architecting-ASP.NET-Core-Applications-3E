@@ -305,6 +305,38 @@ public static class MinimalEndpoints
                 }
             })
         ;
+        inlineGroup
+            .MapGet("endpoint-filter-factory", () => "RAW")
+            .AddEndpointFilterFactory((filterFactoryContext, next) =>
+            {
+                // You can write code that runs when ASP.NET Core builds the RequestDelegate.
+                // We can use the following in the factory that we can't in a filter:
+                // - filterFactoryContext.ApplicationServices
+                // - filterFactoryContext.MethodInfo
+                var logger = filterFactoryContext.ApplicationServices
+                    .GetRequiredService<ILoggerFactory>()
+                    .CreateLogger("endpoint-filter-factory");
+                logger.LogInformation("Code that runs when ASP.NET Core builds the RequestDelegate");
+
+                // Returns the EndpointFilterDelegate that ASP.NET Core executes as part of the pipeline.
+                return async invocationContext =>
+                {
+                    logger.LogInformation("Code that ASP.NET Core executes as part of the pipeline");
+
+                    //
+                    // We could write the same code as with the GoodRatingFilter class here:
+                    //
+                    //var rating = invocationContext.GetArgument<Rating>(0);
+                    //if (rating == Rating.Bad)
+                    //{
+                    //    return TypedResults.Problem(
+                    //        detail: "This endpoint is biased and only accepts positive ratings.",
+                    //        statusCode: StatusCodes.Status400BadRequest
+                    //    );
+                    //}
+                    return await next(invocationContext);
+                };
+            });
     }
 
     /// <remarks>
@@ -364,15 +396,15 @@ public static class MinimalEndpoints
             );
             if (segments?.Length == 2)
             {
-                var validLatitude = double.TryParse(
+                var latitudeIsValid = double.TryParse(
                     segments[0],
                     out var latitude
                 );
-                var validLongitude = double.TryParse(
+                var longitudeIsValid = double.TryParse(
                     segments[1],
                     out var longitude
                 );
-                if (validLatitude && validLongitude)
+                if (latitudeIsValid && longitudeIsValid)
                 {
                     result = new()
                     {
@@ -409,11 +441,11 @@ public static class MinimalEndpoints
             ParameterInfo parameter)
         {
             var name = context.Request.Query["name"].Single();
-            if (name is not null &&
-                DateOnly.TryParse(
-                    context.Request.Query["birthday"],
-                    out var birthday
-                ))
+            var birthdayIsValid = DateOnly.TryParse(
+                context.Request.Query["birthday"],
+                out var birthday
+            );
+            if (name is not null && birthdayIsValid)
             {
                 var person = new Person()
                 {
