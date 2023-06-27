@@ -1,0 +1,34 @@
+﻿@Minimal.API.BaseAddress = https://localhost:7011/dto
+@Minimal.API.CustomerId = 1
+
+GET {{Minimal.API.BaseAddress}}/customers
+
+###
+
+POST {{Minimal.API.BaseAddress}}/customers
+Content-Type: application/json
+
+{
+  "name": "Jane Doe Inc."
+}
+
+###
+
+GET {{Minimal.API.BaseAddress}}/customers/{{Minimal.API.CustomerId}}
+
+###
+
+PUT {{Minimal.API.BaseAddress}}/customers/{{Minimal.API.CustomerId}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Some new name",
+  "contracts": []
+}
+
+###
+
+DELETE {{Minimal.API.BaseAddress}}/customers/{{Minimal.API.CustomerId}}
+
+###

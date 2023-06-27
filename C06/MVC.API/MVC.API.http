@@ -1,0 +1,51 @@
+﻿@MVC.API.BaseAddress = https://localhost:7011/raw
+
+GET {{MVC.API.BaseAddress}}/customers
+
+###
+
+POST {{MVC.API.BaseAddress}}/customers
+Content-Type: application/json
+
+{
+  "id": 456,
+  "name": "Jane Doe Inc.",
+  "contracts": [
+    {
+      "id": 123,
+      "name": "Snow blowing",
+      "description": "A seasonal snow blowing contract",
+      "status": {
+        "totalWork": 6,
+        "workDone": 0,
+        "state": "New"
+      },
+      "primaryContact": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "jane.doe@janedoe.com"
+      }
+    }
+  ]
+}
+
+###
+
+GET {{MVC.API.BaseAddress}}/customers/1
+
+###
+
+PUT {{MVC.API.BaseAddress}}/customers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Some new name",
+  "contracts": []
+}
+
+###
+
+DELETE {{MVC.API.BaseAddress}}/customers/1
+
+###
