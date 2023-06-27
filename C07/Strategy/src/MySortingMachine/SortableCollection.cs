@@ -1,6 +1,8 @@
-﻿namespace MySortingMachine;
+﻿using System.Collections;
 
-public sealed class SortableCollection
+namespace MySortingMachine;
+
+public sealed class SortableCollection : IEnumerable<string>
 {
     public ISortStrategy? SortStrategy { get; set; }
     public IEnumerable<string> Items { get; private set; }
@@ -18,4 +20,10 @@ public sealed class SortableCollection
         }
         Items = SortStrategy.Sort(Items);
     }
+
+    public IEnumerator<string> GetEnumerator()
+        => Items.GetEnumerator();
+
+    IEnumerator IEnumerable.GetEnumerator()
+        => ((IEnumerable)Items).GetEnumerator();
 }
