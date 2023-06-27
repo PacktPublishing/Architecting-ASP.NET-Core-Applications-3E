@@ -1,24 +1,29 @@
 ﻿using System.Collections;
+using System.Collections.Immutable;
 
 namespace MySortingMachine;
 
 public sealed class SortableCollection : IEnumerable<string>
 {
-    public ISortStrategy? SortStrategy { get; set; }
-    public IEnumerable<string> Items { get; private set; }
-
+    private ISortStrategy _sortStrategy;
+    
+    private ImmutableArray<string> _items;
+    public IEnumerable<string> Items => _items;
     public SortableCollection(IEnumerable<string> items)
     {
-        Items = items;
+        _items = items.ToImmutableArray();
+        _sortStrategy = new SortAscendingStrategy();
     }
+
+    public void SetSortStrategy(ISortStrategy strategy)
+        => _sortStrategy = strategy;
 
     public void Sort()
     {
-        if (SortStrategy == null)
-        {
-            throw new NullReferenceException("Sort strategy not found.");
-        }
-        Items = SortStrategy.Sort(Items);
+        _items = _sortStrategy
+            .Sort(Items)
+            .ToImmutableArray()
+        ;
     }
 
     public IEnumerator<string> GetEnumerator()

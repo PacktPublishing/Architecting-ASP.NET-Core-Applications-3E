@@ -4,10 +4,19 @@ GET {{Consumer.API_HostAddress}}/
 
 ###
 
-PUT {{Consumer.API_HostAddress}}/Ascending
+PUT {{Consumer.API_HostAddress}}/
+Content-Type: application/json
 
+{
+    "sortOrder": "Ascending"
+}
 ###
 
-PUT {{Consumer.API_HostAddress}}/Descending
+PUT {{Consumer.API_HostAddress}}/
+Content-Type: application/json
 
+{
+    "sortOrder": "Descending"
+}
 ###
+
