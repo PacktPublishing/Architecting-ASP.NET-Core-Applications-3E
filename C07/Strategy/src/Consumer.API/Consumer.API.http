@@ -1,0 +1,13 @@
+@Consumer.API_HostAddress = https://localhost:7280
+
+GET {{Consumer.API_HostAddress}}/
+
+###
+
+PUT {{Consumer.API_HostAddress}}/Ascending
+
+###
+
+PUT {{Consumer.API_HostAddress}}/Descending
+
+###
