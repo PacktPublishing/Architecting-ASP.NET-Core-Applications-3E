@@ -1,4 +1,3 @@
-﻿namespace Vehicles.Models
-{
-    public interface ICar { }
-}
+﻿namespace Vehicles.Models;
+
+public interface ICar { }

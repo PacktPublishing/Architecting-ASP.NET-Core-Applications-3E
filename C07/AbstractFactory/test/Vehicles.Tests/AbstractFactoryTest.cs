@@ -2,52 +2,51 @@ using System;
 using Vehicles.Models;
 using Xunit;
 
-namespace Vehicles
+namespace Vehicles;
+
+// Arrange
+public class AbstractFactoryTestCars : AbstractFactoryBaseTestData
 {
-    // Arrange
-    public class AbstractFactoryTestCars : AbstractFactoryBaseTestData
+    public AbstractFactoryTestCars()
     {
-        public AbstractFactoryTestCars()
-        {
-            AddTestData<LowGradeVehicleFactory, LowGradeCar>();
-            AddTestData<HighGradeVehicleFactory, HighGradeCar>();
-            AddTestData<MiddleEndVehicleFactory, MiddleGradeCar>();
-        }
+        AddTestData<LowGradeVehicleFactory, LowGradeCar>();
+        AddTestData<HighGradeVehicleFactory, HighGradeCar>();
+        AddTestData<MiddleEndVehicleFactory, MiddleGradeCar>();
+    }
+}
+
+public class AbstractFactoryTestBikes : AbstractFactoryBaseTestData
+{
+    public AbstractFactoryTestBikes()
+    {
+        AddTestData<LowGradeVehicleFactory, LowGradeBike>();
+        AddTestData<HighGradeVehicleFactory, HighGradeBike>();
+        AddTestData<MiddleEndVehicleFactory, MiddleGradeBike>();
+    }
+}
+
+// Tests
+public class AbstractFactoryTest
+{
+    [Theory]
+    [ClassData(typeof(AbstractFactoryTestCars))]
+    public void Should_create_a_Car_of_the_specified_type(IVehicleFactory vehicleFactory, Type expectedCarType)
+    {
+        // Act
+        ICar result = vehicleFactory.CreateCar();
+
+        // Assert
+        Assert.IsType(expectedCarType, result);
     }
 
-    public class AbstractFactoryTestBikes : AbstractFactoryBaseTestData
+    [Theory]
+    [ClassData(typeof(AbstractFactoryTestBikes))]
+    public void Should_create_a_Bike_of_the_specified_type(IVehicleFactory vehicleFactory, Type expectedBikeType)
     {
-        public AbstractFactoryTestBikes()
-        {
-            AddTestData<LowGradeVehicleFactory, LowGradeBike>();
-            AddTestData<HighGradeVehicleFactory, HighGradeBike>();
-            AddTestData<MiddleEndVehicleFactory, MiddleGradeBike>();
-        }
-    }
+        // Act
+        IBike result = vehicleFactory.CreateBike();
 
-    // Tests
-    public class AbstractFactoryTest
-    {
-        [Theory]
-        [ClassData(typeof(AbstractFactoryTestCars))]
-        public void Should_create_a_Car_of_the_specified_type(IVehicleFactory vehicleFactory, Type expectedCarType)
-        {
-            // Act
-            ICar result = vehicleFactory.CreateCar();
-
-            // Assert
-            Assert.IsType(expectedCarType, result);
-        }
-
-        [Theory]
-        [ClassData(typeof(AbstractFactoryTestBikes))]
-        public void Should_create_a_Bike_of_the_specified_type(IVehicleFactory vehicleFactory, Type expectedBikeType)
-        {
-            // Act
-            IBike result = vehicleFactory.CreateBike();
-
-            // Assert
-            Assert.IsType(expectedBikeType, result);
-        }
+        // Assert
+        Assert.IsType(expectedBikeType, result);
     }
 }

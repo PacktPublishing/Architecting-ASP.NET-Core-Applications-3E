@@ -1,10 +1,9 @@
 ﻿using Vehicles.Models;
 
-namespace Vehicles
+namespace Vehicles;
+
+public interface IVehicleFactory
 {
-    public interface IVehicleFactory
-    {
-        ICar CreateCar();
-        IBike CreateBike();
-    }
+    ICar CreateCar();
+    IBike CreateBike();
 }

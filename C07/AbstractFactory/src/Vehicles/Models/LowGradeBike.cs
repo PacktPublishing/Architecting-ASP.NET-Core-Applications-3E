@@ -1,4 +1,3 @@
-﻿namespace Vehicles.Models
-{
-    public class LowGradeBike : IBike { }
-}
+﻿namespace Vehicles.Models;
+
+public class LowGradeBike : IBike { }

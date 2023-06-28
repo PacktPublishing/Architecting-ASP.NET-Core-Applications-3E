@@ -1,4 +1,3 @@
-﻿namespace Vehicles.Models
-{
-    public interface IBike { }
-}
+﻿namespace Vehicles.Models;
+
+public interface IBike { }

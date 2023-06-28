@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Vehicles.Models;
 
-namespace Vehicles
+namespace Vehicles;
+
+public class MiddleEndVehicleFactory : IVehicleFactory
 {
-    public class MiddleEndVehicleFactory : IVehicleFactory
-    {
-        public IBike CreateBike() => new MiddleGradeBike();
-        public ICar CreateCar() => new MiddleGradeCar();
-    }
+    public IBike CreateBike() => new MiddleGradeBike();
+    public ICar CreateCar() => new MiddleGradeCar();
 }

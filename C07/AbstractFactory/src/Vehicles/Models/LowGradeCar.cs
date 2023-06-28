@@ -1,4 +1,3 @@
-﻿namespace Vehicles.Models
-{
-    public class LowGradeCar : ICar { }
-}
+﻿namespace Vehicles.Models;
+
+public class LowGradeCar : ICar { }

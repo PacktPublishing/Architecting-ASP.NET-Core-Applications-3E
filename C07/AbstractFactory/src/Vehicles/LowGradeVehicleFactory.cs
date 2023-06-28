@@ -1,10 +1,9 @@
 ﻿using Vehicles.Models;
 
-namespace Vehicles
+namespace Vehicles;
+
+public class LowGradeVehicleFactory : IVehicleFactory
 {
-    public class LowGradeVehicleFactory : IVehicleFactory
-    {
-        public IBike CreateBike() => new LowGradeBike();
-        public ICar CreateCar() => new LowGradeCar();
-    }
+    public IBike CreateBike() => new LowGradeBike();
+    public ICar CreateCar() => new LowGradeCar();
 }
