@@ -4,7 +4,7 @@ using Xunit;
 namespace Vehicles;
 
 public class LowEndVehicleFactoryTest : BaseAbstractFactoryTest<LowEndVehicleFactory, LowEndCar, LowEndBike> { }
-public class MiddleEndVehicleFactoryTest : BaseAbstractFactoryTest<MiddleEndVehicleFactory, MiddleEndCar, MiddleEndBike> { }
+public class MidRangeVehicleFactoryTest : BaseAbstractFactoryTest<MidRangeVehicleFactory, MidRangeCar, MidRangeBike> { }
 public class HighEndVehicleFactoryTest : BaseAbstractFactoryTest<HighEndVehicleFactory, HighEndCar, HighEndBike> { }
 
 public abstract class BaseAbstractFactoryTest<TConcreteFactory, TExpectedCar, TExpectedBike>
