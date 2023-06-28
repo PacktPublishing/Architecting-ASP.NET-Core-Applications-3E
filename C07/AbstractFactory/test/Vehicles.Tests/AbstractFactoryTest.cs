@@ -1,4 +1,3 @@
-using System;
 using Vehicles.Models;
 using Xunit;
 
