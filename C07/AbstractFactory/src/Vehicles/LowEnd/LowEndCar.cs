@@ -1,3 +1,3 @@
-﻿namespace Vehicles.Models;
+﻿namespace Vehicles.LowEnd;
 
 public class LowEndCar : ICar { }

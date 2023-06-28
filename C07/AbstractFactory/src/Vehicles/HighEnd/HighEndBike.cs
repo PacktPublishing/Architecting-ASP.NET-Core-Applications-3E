@@ -1,3 +1,3 @@
-﻿namespace Vehicles.Models;
+﻿namespace Vehicles.HighEnd;
 
 public class HighEndBike : IBike { }

@@ -1,6 +1,4 @@
-﻿using Vehicles.Models;
-
-namespace Vehicles;
+﻿namespace Vehicles.LowEnd;
 
 public class LowEndVehicleFactory : IVehicleFactory
 {
