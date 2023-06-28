@@ -4,6 +4,6 @@ namespace Vehicles;
 
 public class MiddleEndVehicleFactory : IVehicleFactory
 {
-    public IBike CreateBike() => new MiddleGradeBike();
-    public ICar CreateCar() => new MiddleGradeCar();
+    public IBike CreateBike() => new MiddleEndBike();
+    public ICar CreateCar() => new MiddleEndCar();
 }
