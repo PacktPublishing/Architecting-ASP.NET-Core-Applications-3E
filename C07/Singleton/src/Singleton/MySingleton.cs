@@ -1,20 +1,19 @@
 ﻿using System;
 
-namespace Singleton
+namespace Singleton;
+
+public class MySingleton
 {
-    public class MySingleton
+    private static MySingleton? _instance;
+
+    private MySingleton() { }
+
+    public static MySingleton Create()
     {
-        private static MySingleton? _instance;
-
-        private MySingleton() { }
-
-        public static MySingleton Create()
+        if (_instance == default(MySingleton))
         {
-            if (_instance == default(MySingleton))
-            {
-                _instance = new MySingleton();
-            }
-            return _instance;
+            _instance = new MySingleton();
         }
+        return _instance;
     }
 }

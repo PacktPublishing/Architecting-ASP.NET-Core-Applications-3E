@@ -1,16 +1,15 @@
 ﻿using System;
 
-namespace Singleton
+namespace Singleton;
+
+public class MyAmbientContext
 {
-    public class MyAmbientContext
+    public static MyAmbientContext Current { get; } = new MyAmbientContext();
+
+    private MyAmbientContext() { }
+
+    public void WriteSomething(string something)
     {
-        public static MyAmbientContext Current { get; } = new MyAmbientContext();
-
-        private MyAmbientContext() { }
-
-        public void WriteSomething(string something)
-        {
-            Console.WriteLine($"This is your something: {something}");
-        }
+        Console.WriteLine($"This is your something: {something}");
     }
 }

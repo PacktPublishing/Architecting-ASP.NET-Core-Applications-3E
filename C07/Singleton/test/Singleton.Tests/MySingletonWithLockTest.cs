@@ -1,15 +1,14 @@
 ﻿using Xunit;
 
-namespace Singleton
+namespace Singleton;
+
+public class MySingletonWithLockTest
 {
-    public class MySingletonWithLockTest
+    [Fact]
+    public void Create_should_always_return_the_same_instance()
     {
-        [Fact]
-        public void Create_should_always_return_the_same_instance()
-        {
-            var first = MySingletonWithLock.Create();
-            var second = MySingletonWithLock.Create();
-            Assert.Same(first, second);
-        }
+        var first = MySingletonWithLock.Create();
+        var second = MySingletonWithLock.Create();
+        Assert.Same(first, second);
     }
 }

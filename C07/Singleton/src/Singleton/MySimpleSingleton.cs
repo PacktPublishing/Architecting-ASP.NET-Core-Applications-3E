@@ -1,9 +1,8 @@
-﻿namespace Singleton
-{
-    public class MySimpleSingleton
-    {
-        public static MySimpleSingleton Instance { get; } = new MySimpleSingleton();
+﻿namespace Singleton;
 
-        private MySimpleSingleton() { }
-    }
+public class MySimpleSingleton
+{
+    public static MySimpleSingleton Instance { get; } = new MySimpleSingleton();
+
+    private MySimpleSingleton() { }
 }
