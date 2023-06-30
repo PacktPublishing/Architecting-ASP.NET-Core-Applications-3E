@@ -1,0 +1,22 @@
+@Consumer.API_HostAddress = https://localhost:7280
+
+GET {{Consumer.API_HostAddress}}/
+
+###
+
+PUT {{Consumer.API_HostAddress}}/
+Content-Type: application/json
+
+{
+    "sortOrder": "Ascending"
+}
+###
+
+PUT {{Consumer.API_HostAddress}}/
+Content-Type: application/json
+
+{
+    "sortOrder": "Descending"
+}
+###
+
