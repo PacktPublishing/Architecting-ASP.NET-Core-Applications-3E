@@ -5,5 +5,5 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "<Pending>", Scope = "member", Target = "~M:Vehicles.BaseAbstractFactoryTest`3.Should_create_a_Bike_of_the_specified_type")]
-[assembly: SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "<Pending>", Scope = "member", Target = "~M:Vehicles.BaseAbstractFactoryTest`3.Should_create_a_Car_of_the_specified_type")]
+[assembly: SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "<Pending>", Scope = "member", Target = "~M:Vehicles.BaseAbstractFactoryTest`3.Should_create_a_IBike_of_type_TExpectedBike")]
+[assembly: SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "<Pending>", Scope = "member", Target = "~M:Vehicles.BaseAbstractFactoryTest`3.Should_create_a_ICar_of_type_TExpectedCar")]

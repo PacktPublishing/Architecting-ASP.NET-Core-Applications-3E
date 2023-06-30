@@ -6,10 +6,10 @@ public abstract class BaseAbstractFactoryTest<TConcreteFactory, TExpectedCar, TE
     where TConcreteFactory : IVehicleFactory, new()
 {
     [Fact]
-    public void Should_create_a_Car_of_the_specified_type()
+    public void Should_create_a_ICar_of_type_TExpectedCar()
     {
         // Arrange
-        var vehicleFactory = new TConcreteFactory();
+        IVehicleFactory vehicleFactory = new TConcreteFactory();
         var expectedCarType = typeof(TExpectedCar);
 
         // Act
@@ -20,10 +20,10 @@ public abstract class BaseAbstractFactoryTest<TConcreteFactory, TExpectedCar, TE
     }
 
     [Fact]
-    public void Should_create_a_Bike_of_the_specified_type()
+    public void Should_create_a_IBike_of_type_TExpectedBike()
     {
         // Arrange
-        var vehicleFactory = new TConcreteFactory();
+        IVehicleFactory vehicleFactory = new TConcreteFactory();
         var expectedBikeType = typeof(TExpectedBike);
 
         // Act
