@@ -11,4 +11,11 @@ public class MySimpleSingletonTest
         var second = MySimpleSingleton.Instance;
         Assert.Same(first, second);
     }
+
+    [Fact]
+    public void Create_should_not_return_null()
+    {
+        var instance = MySimpleSingleton.Instance;
+        Assert.NotNull(instance);
+    }
 }

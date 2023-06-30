@@ -11,4 +11,12 @@ public class MySingletonWithLockTest
         var second = MySingletonWithLock.Create();
         Assert.Same(first, second);
     }
+
+    [Fact]
+    public void Create_should_not_return_null()
+    {
+        var instance = MySingletonWithLock.Create();
+        Assert.NotNull(instance);
+    }
+
 }
