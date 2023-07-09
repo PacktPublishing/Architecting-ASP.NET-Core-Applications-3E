@@ -24,8 +24,10 @@ public class InMemoryWishList : IWishList
         var item = _items.AddOrUpdate(
             itemName,
             new InternalItem(Count: 1,Expiration: expirationTime),
-            (string key, InternalItem item) => item with { Count = item.Count + 1, Expiration = expirationTime }
-            
+            (string key, InternalItem item) => item with {
+                Count = item.Count + 1,
+                Expiration = expirationTime
+            }
         );
         var wishlistItem = new WishListItem(
             Name: itemName,
