@@ -1,0 +1,29 @@
+﻿@Wishlist_HostAddress = https://localhost:7003
+
+GET {{Wishlist_HostAddress}}/
+
+###
+
+POST {{Wishlist_HostAddress}}/
+Content-Type: application/json
+
+{
+    "name": "Item 1"
+}
+###
+
+POST {{Wishlist_HostAddress}}/
+Content-Type: application/json
+
+{
+    "name": "Item 2"
+}
+###
+
+POST {{Wishlist_HostAddress}}/
+Content-Type: application/json
+
+{
+    "name": "Item 3"
+}
+###
