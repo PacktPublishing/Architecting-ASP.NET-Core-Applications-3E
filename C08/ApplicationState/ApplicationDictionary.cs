@@ -8,21 +8,19 @@ public class ApplicationDictionary : IApplicationState
 
     public TItem? Get<TItem>(string key)
     {
-        if (!Has<TItem>(key))
-        {
-            return default;
-        }
-        return (TItem)_memoryCache[key];
+        return _memoryCache.TryGetValue(key, out var item)
+            ? (TItem)item
+            : default;
     }
 
     public bool Has<TItem>(string key)
     {
-        return _memoryCache.ContainsKey(key) && _memoryCache[key] is TItem;
+        return _memoryCache.TryGetValue(key, out var item) && item is TItem;
     }
 
     public void Set<TItem>(string key, TItem value)
         where TItem : notnull
     {
-        _memoryCache[key] = value;
+        _memoryCache.AddOrUpdate(key, value, (k, v) => value);
     }
 }
