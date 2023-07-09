@@ -1,0 +1,17 @@
+﻿@ServiceLocator_HostAddress = https://localhost:7004
+
+GET {{ServiceLocator_HostAddress}}/service-locator
+
+###
+
+GET {{ServiceLocator_HostAddress}}/method-injection
+
+###
+
+GET {{ServiceLocator_HostAddress}}/constructor-injection
+
+###
+
+GET {{ServiceLocator_HostAddress}}/minimal-api
+
+###
