@@ -7,27 +7,27 @@ GET {{CommonScenarios_HostAddress}}/my-options/
 POST {{CommonScenarios_HostAddress}}/notify/some-cool@email.com
 
 ###
-GET {{CommonScenarios_HostAddress}}/options/true
+GET {{CommonScenarios_HostAddress}}/factory/Options1
 
 ###
-GET {{CommonScenarios_HostAddress}}/options/false
+GET {{CommonScenarios_HostAddress}}/factory/Options2
 
 ###
-GET {{CommonScenarios_HostAddress}}/factory/true
+GET {{CommonScenarios_HostAddress}}/monitor
 
 ###
-GET {{CommonScenarios_HostAddress}}/factory/false
+GET {{CommonScenarios_HostAddress}}/monitor/Options1
 
 ###
-GET {{CommonScenarios_HostAddress}}/monitor/true
+GET {{CommonScenarios_HostAddress}}/monitor/Options2
 
 ###
-GET {{CommonScenarios_HostAddress}}/monitor/false
+GET {{CommonScenarios_HostAddress}}/snapshot
 
 ###
-GET {{CommonScenarios_HostAddress}}/snapshot/true
+GET {{CommonScenarios_HostAddress}}/snapshot/Options1
 
 ###
-GET {{CommonScenarios_HostAddress}}/snapshot/false
+GET {{CommonScenarios_HostAddress}}/snapshot/Options2
 
 ###
