@@ -32,14 +32,14 @@ public abstract class MyNameServiceTest<TMyNameService>
     }
 
     [Fact]
-    public void GetName_should_return_Name_from_options1_when_someCondition_is_true()
+    public void GetName_should_return_Name_from_options1_when_firstOption_is_true()
     {
         var result = _sut.GetName(true);
         Assert.Equal(Option1Name, result);
     }
 
     [Fact]
-    public void GetName_should_return_Name_from_options2_when_someCondition_is_false()
+    public void GetName_should_return_Name_from_options2_when_firstOption_is_false()
     {
         var result = _sut.GetName(false);
         Assert.Equal(Option2Name, result);

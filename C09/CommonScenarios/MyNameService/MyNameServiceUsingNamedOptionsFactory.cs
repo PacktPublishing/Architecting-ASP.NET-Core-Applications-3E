@@ -13,8 +13,8 @@ public class MyNameServiceUsingNamedOptionsFactory : IMyNameService
         _options2 = myOptions.Create("Options2");
     }
 
-    public string? GetName(bool someCondition)
+    public string? GetName(bool firstOption)
     {
-        return someCondition ? _options1.Name : _options2.Name;
+        return firstOption ? _options1.Name : _options2.Name;
     }
 }

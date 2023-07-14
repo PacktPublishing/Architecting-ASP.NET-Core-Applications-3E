@@ -2,5 +2,5 @@
 
 public interface IMyNameService
 {
-    string? GetName(bool someCondition);
+    string? GetName(bool firstOption);
 }

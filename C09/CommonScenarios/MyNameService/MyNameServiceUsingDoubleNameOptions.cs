@@ -11,8 +11,8 @@ public class MyNameServiceUsingDoubleNameOptions : IMyNameService
         _options = options.Value;
     }
 
-    public string? GetName(bool someCondition)
+    public string? GetName(bool firstOption)
     {
-        return someCondition ? _options.FirstName : _options.SecondName;
+        return firstOption ? _options.FirstName : _options.SecondName;
     }
 }
