@@ -1,7 +1,31 @@
-﻿using Microsoft.Extensions.Options;
+﻿//#define SIMPLE
+using Microsoft.Extensions.Options;
 
 namespace CommonScenarios.Reload;
+#if SIMPLE
+public class NotificationService
+{
+    private EmailOptions _emailOptions;
+    private readonly ILogger _logger;
 
+    public NotificationService(IOptionsMonitor<EmailOptions> emailOptionsMonitor, ILogger<NotificationService> logger)
+    {
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        ArgumentNullException.ThrowIfNull(emailOptionsMonitor);
+        _emailOptions = emailOptionsMonitor.CurrentValue;
+    }
+
+    public Task NotifyAsync(string to)
+    {
+        _logger.LogInformation(
+            "Notification sent by '{SenderEmailAddress}' to '{to}'.",
+            _emailOptions.SenderEmailAddress,
+            to
+        );
+        return Task.CompletedTask;
+    }
+}
+#else
 public class NotificationService
 {
     private EmailOptions _emailOptions;
@@ -9,18 +33,23 @@ public class NotificationService
     private IDisposable? _onChangeListener;
     private readonly IOptionsMonitor<EmailOptions> _monitor;
 
-    public NotificationService(IOptionsMonitor<EmailOptions> emailOptions, ILogger<NotificationService> logger)
+    public NotificationService(IOptionsMonitor<EmailOptions> emailOptionsMonitor, ILogger<NotificationService> logger)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        ArgumentNullException.ThrowIfNull(emailOptions);
-        _monitor = emailOptions;
-        _emailOptions = emailOptions.CurrentValue;
+        ArgumentNullException.ThrowIfNull(emailOptionsMonitor);
+        _monitor = emailOptionsMonitor;
+        _emailOptions = emailOptionsMonitor.CurrentValue;
         StartListeningForChanges();
     }
 
     public Task NotifyAsync(string to)
     {
-        _logger.LogInformation("Notification sent by '{SenderEmailAddress}' to '{to}'. ({monitor})", _emailOptions.SenderEmailAddress, to, _monitor.CurrentValue.SenderEmailAddress);
+        _logger.LogInformation(
+            "Notification sent by '{SenderEmailAddress}' to '{to}'. ({monitor})",
+            _emailOptions.SenderEmailAddress,
+            to,
+            _monitor.CurrentValue.SenderEmailAddress
+        );
         return Task.CompletedTask;
     }
 
@@ -45,6 +74,7 @@ public class NotificationService
         _onChangeListener?.Dispose();
     }
 }
+#endif
 
 public class EmailOptions
 {
