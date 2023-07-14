@@ -4,9 +4,6 @@
 GET {{CommonScenarios_HostAddress}}/my-options/
 
 ###
-POST {{CommonScenarios_HostAddress}}/notify/some-cool@email.com
-
-###
 GET {{CommonScenarios_HostAddress}}/factory/Options1
 
 ###
@@ -29,5 +26,14 @@ GET {{CommonScenarios_HostAddress}}/snapshot/Options1
 
 ###
 GET {{CommonScenarios_HostAddress}}/snapshot/Options2
+
+###
+POST {{CommonScenarios_HostAddress}}/notify/some-cool@email.com
+
+###
+DELETE {{CommonScenarios_HostAddress}}/notify
+
+###
+PUT {{CommonScenarios_HostAddress}}/notify
 
 ###
