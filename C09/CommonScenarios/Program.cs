@@ -1,6 +1,8 @@
 using CommonScenarios;
+using CommonScenarios.Reload;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.AddNotificationService();
 builder.Services.Configure<MyOptions>("Options1", builder.Configuration.GetSection("options1"));
 builder.Services.Configure<MyOptions>("Options2", builder.Configuration.GetSection("options2"));
 builder.Services.Configure<MyDoubleNameOptions>(builder.Configuration.GetSection("myDoubleNameOptions"));
@@ -10,6 +12,7 @@ builder.Services.AddTransient<MyNameServiceUsingNamedOptionsMonitor>();
 builder.Services.AddTransient<MyNameServiceUsingNamedOptionsSnapshot>();
 
 var app = builder.Build();
+app.MapNotificationService();
 app.MapGet("/", (HttpContext context) => new[] {
     new { expecting =  "Options 1", uri = $"https://{context.Request.Host}/options/true" },
     new { expecting =  "Options 2", uri = $"https://{context.Request.Host}/options/false" },

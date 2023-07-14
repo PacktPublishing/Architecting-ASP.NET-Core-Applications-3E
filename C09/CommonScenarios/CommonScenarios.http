@@ -1,0 +1,5 @@
+﻿@CommonScenarios_HostAddress = https://localhost:8001
+
+POST {{CommonScenarios_HostAddress}}/notify/some-cool@email.com
+
+###
