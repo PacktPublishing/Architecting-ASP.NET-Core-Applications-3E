@@ -10,28 +10,40 @@ public class ValidateOptionsWithDataAnnotations
     [Fact]
     public void Should_pass_validation()
     {
+        // Arrange
         var services = new ServiceCollection();
         services.AddOptions<Options>()
-            .Configure(o => o.MyImportantProperty = "Some important value")
+            .Configure(o => o.MyImportantProperty = "A value")
             .ValidateDataAnnotations()
             .ValidateOnStart() // eager validation 
         ;
         var serviceProvider = services.BuildServiceProvider();
-        var options = serviceProvider.GetRequiredService<IOptionsMonitor<Options>>();
-        Assert.Equal("Some important value", options.CurrentValue.MyImportantProperty);
+        var options = serviceProvider
+            .GetRequiredService<IOptionsMonitor<Options>>();
+
+        // Act & Assert
+        Assert.Equal(
+            "A value",
+            options.CurrentValue.MyImportantProperty
+        );
     }
 
     [Fact]
     public void Should_fail_validation()
     {
+        // Arrange
         var services = new ServiceCollection();
         services.AddOptions<Options>()
             .ValidateDataAnnotations()
             .ValidateOnStart() // eager validation 
         ;
         var serviceProvider = services.BuildServiceProvider();
-        var options = serviceProvider.GetRequiredService<IOptionsMonitor<Options>>();
-        var error = Assert.Throws<OptionsValidationException>(() => options.CurrentValue);
+        var options = serviceProvider
+            .GetRequiredService<IOptionsMonitor<Options>>();
+
+        // Act & Assert
+        var error = Assert.Throws<OptionsValidationException>(
+            () => options.CurrentValue);
         Assert.Collection(error.Failures,
             f => Assert.Equal("DataAnnotation validation failed for 'Options' members: 'MyImportantProperty' with the error: 'The MyImportantProperty field is required.'.", f)
         );
