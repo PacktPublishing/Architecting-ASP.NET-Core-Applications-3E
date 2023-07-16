@@ -1,7 +1,9 @@
+#define VALIDATOR
 using ConfigurationGenerators;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+#if VALIDATOR
 builder.Services
     .AddOptions<MyOptions>("valid")
     .BindConfiguration("MyOptions")
@@ -17,13 +19,19 @@ builder.Services
     // In any case, if that app runs, calling the '/valid' endpoint will work.
     .ValidateOnStart() 
 ;
-
 builder.Services.AddSingleton<IValidateOptions<MyOptions>, MyOptionsValidator>();
+#endif
+
+builder.Services
+    .AddOptions<MyOptions>()
+    .BindConfiguration("MyOptions")
+;
 
 var app = builder.Build();
 
 app.MapGet("/", (IOptionsFactory<MyOptions> factory) => new
 {
+    @default = factory.Create(Options.DefaultName),
     valid = factory.Create("valid"),
     invalid = factory.Create("invalid")
 });
