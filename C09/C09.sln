@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralizingConfiguration",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationGenerators", "ConfigurationGenerators\ConfigurationGenerators.csproj", "{5ED34D4A-F24E-49A1-8F27-4CEEBA839CE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidateOptionsResultBuilder", "ValidateOptionsResultBuilder\ValidateOptionsResultBuilder.csproj", "{B94F99E6-9110-41B0-84F3-B922D0AE0D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5ED34D4A-F24E-49A1-8F27-4CEEBA839CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ED34D4A-F24E-49A1-8F27-4CEEBA839CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ED34D4A-F24E-49A1-8F27-4CEEBA839CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94F99E6-9110-41B0-84F3-B922D0AE0D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94F99E6-9110-41B0-84F3-B922D0AE0D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94F99E6-9110-41B0-84F3-B922D0AE0D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94F99E6-9110-41B0-84F3-B922D0AE0D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
