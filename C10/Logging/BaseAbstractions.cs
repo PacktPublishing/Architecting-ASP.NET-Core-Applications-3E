@@ -22,10 +22,10 @@ public class BaseAbstractions
             })
             .ConfigureServices(services =>
             {
-                services.AddSingleton<IService, Service>();
+                services.AddSingleton<Service>();
             })
             .Build();
-        var service = host.Services.GetRequiredService<IService>();
+        var service = host.Services.GetRequiredService<Service>();
 
         // Act
         service.Execute();
@@ -44,9 +44,9 @@ public class BaseAbstractions
         var builder = WebApplication.CreateBuilder();
         builder.Logging.ClearProviders()
             .AddAssertableLogger(lines);
-        builder.Services.AddSingleton<IService, Service>();
+        builder.Services.AddSingleton<Service>();
         var app = builder.Build();
-        var service = app.Services.GetRequiredService<IService>();
+        var service = app.Services.GetRequiredService<Service>();
 
         // Act
         service.Execute();
@@ -57,12 +57,7 @@ public class BaseAbstractions
         );
     }
 
-    public interface IService
-    {
-        void Execute();
-    }
-
-    public class Service : IService
+    public class Service
     {
         private readonly ILogger _logger;
         public Service(ILogger<Service> logger)

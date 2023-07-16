@@ -34,10 +34,10 @@ public class Filtering
             })
             .ConfigureServices(services =>
             {
-                services.AddSingleton<IService, Service>();
+                services.AddSingleton<Service>();
             })
             .Build();
-        var service = host.Services.GetRequiredService<IService>();
+        var service = host.Services.GetRequiredService<Service>();
 
         // Act
         service.Execute();
@@ -49,12 +49,7 @@ public class Filtering
         );
     }
 
-    public interface IService
-    {
-        void Execute();
-    }
-
-    public class Service : IService
+    public class Service
     {
         private readonly ILogger _logger;
         public Service(ILogger<Service> logger)

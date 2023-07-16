@@ -43,7 +43,7 @@ public class LoggerFactoryExploration
         public Service(ILoggerFactory loggerFactory)
         {
             ArgumentNullException.ThrowIfNull(loggerFactory, nameof(loggerFactory));
-            _logger = loggerFactory.CreateLogger("Some custom category name");
+            _logger = loggerFactory.CreateLogger("My Service");
         }
 
         public void Execute()
