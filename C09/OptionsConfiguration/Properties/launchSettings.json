@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "OptionsConfiguration": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "configure-me",
+      "applicationUrl": "https://localhost:8002",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

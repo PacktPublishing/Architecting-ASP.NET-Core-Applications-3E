@@ -1,0 +1,5 @@
+﻿@OptionsConfiguration_HostAddress = https://localhost:8002
+
+GET {{OptionsConfiguration_HostAddress}}/configure-me
+
+###
