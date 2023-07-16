@@ -9,13 +9,25 @@ public class ByPassingInterfaces
     [Fact]
     public void Should_support_any_scope()
     {
+        // Arrange
         var services = new ServiceCollection();
         services.AddOptions<Options>()
-            .Configure(o => o.MyImportantProperty = "Some important value");
-        services.AddScoped(serviceProvider
-            => serviceProvider.GetRequiredService<IOptionsSnapshot<Options>>().Value);
+            .Configure(o => o.Name = "John Doe");
+        //
+        // The following one liner does the same things,
+        // but is harder to format in a printed book.
+        //
+        //services.AddScoped(serviceProvider
+        //    => serviceProvider.GetRequiredService<IOptionsSnapshot<Options>>().Value);
+        //
+        services.AddScoped(serviceProvider => {
+            var snapshot = serviceProvider
+                .GetRequiredService<IOptionsSnapshot<Options>>();
+            return snapshot.Value;
+        });
         var serviceProvider = services.BuildServiceProvider();
 
+        // Act & Assert
         using var scope1 = serviceProvider.CreateScope();
         var options1 = scope1.ServiceProvider.GetService<Options>();
         var options2 = scope1.ServiceProvider.GetService<Options>();
@@ -28,6 +40,6 @@ public class ByPassingInterfaces
 
     private class Options
     {
-        public string? MyImportantProperty { get; set; }
+        public string? Name { get; set; }
     }
 }
