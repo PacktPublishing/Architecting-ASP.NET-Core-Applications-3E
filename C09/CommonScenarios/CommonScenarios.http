@@ -1,38 +1,42 @@
 ﻿@CommonScenarios_HostAddress = https://localhost:8001
-@firstOption = true
 
 GET {{CommonScenarios_HostAddress}}/my-options/
 
 ###
 GET {{CommonScenarios_HostAddress}}/factory/Options1
-
 ###
 GET {{CommonScenarios_HostAddress}}/factory/Options2
+###
+GET {{CommonScenarios_HostAddress}}/factory/Options3
+###
+GET {{CommonScenarios_HostAddress}}/factory/Options4
 
 ###
 GET {{CommonScenarios_HostAddress}}/monitor
-
 ###
 GET {{CommonScenarios_HostAddress}}/monitor/Options1
-
 ###
 GET {{CommonScenarios_HostAddress}}/monitor/Options2
+###
+GET {{CommonScenarios_HostAddress}}/monitor/Options3
+###
+GET {{CommonScenarios_HostAddress}}/monitor/Options4
 
 ###
 GET {{CommonScenarios_HostAddress}}/snapshot
-
 ###
 GET {{CommonScenarios_HostAddress}}/snapshot/Options1
-
 ###
 GET {{CommonScenarios_HostAddress}}/snapshot/Options2
+###
+GET {{CommonScenarios_HostAddress}}/snapshot/Options3
+###
+GET {{CommonScenarios_HostAddress}}/snapshot/Options4
 
 ###
 POST {{CommonScenarios_HostAddress}}/notify/some-cool@email.com
-
 ###
 DELETE {{CommonScenarios_HostAddress}}/notify
-
 ###
 PUT {{CommonScenarios_HostAddress}}/notify
 

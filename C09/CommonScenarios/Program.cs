@@ -1,7 +1,6 @@
 using CommonScenarios;
 using CommonScenarios.Reload;
 using Microsoft.Extensions.Options;
-using System.Threading;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +28,14 @@ builder.Services.Configure<MyOptions>(
 
 // Reload
 builder.AddNotificationService();
+
+// Bind
+var options = new MyOptions();
+builder.Configuration.GetSection("options3").Bind(options);
+builder.Services.AddOptions<MyOptions>("Options3")
+    .Bind(builder.Configuration.GetSection("options3"));
+builder.Services.AddOptions<MyOptions>("Options4")
+    .BindConfiguration("options4");
 
 var app = builder.Build();
 
