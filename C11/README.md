@@ -1,4 +1,4 @@
-# Chapter 9
+# Chapter 11
 
 The following schema represent the full-size hierarchy of the BookStore project (the legend is bellow).
 
