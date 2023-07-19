@@ -10,9 +10,5 @@ public class Book : IComponent
     public string Title { get; set; }
     public string Type => "Book";
 
-    public int Count() => 1;
-    public string Display() => $"{Title} <small class=\"text-muted\">({Type})</small>";
-
-    public void Add(IComponent bookComponent) => throw new NotSupportedException();
-    public void Remove(IComponent bookComponent) => throw new NotSupportedException();
+    public int Count { get; } = 1;
 }

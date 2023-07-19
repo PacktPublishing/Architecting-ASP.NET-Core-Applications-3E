@@ -10,6 +10,4 @@ public class Set : BookComposite
             Add(book);
         }
     }
-
-    protected override string HeadingTagName => "h4";
 }

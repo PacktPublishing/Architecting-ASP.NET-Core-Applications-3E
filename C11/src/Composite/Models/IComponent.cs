@@ -2,9 +2,6 @@
 
 public interface IComponent
 {
-    void Add(IComponent bookComponent);
-    void Remove(IComponent bookComponent);
-    string Display();
-    int Count();
+    int Count { get; }
     string Type { get; }
 }
