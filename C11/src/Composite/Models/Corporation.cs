@@ -2,5 +2,11 @@
 
 public class Corporation : BookComposite
 {
-    public Corporation(string name) : base(name) { }
+    public Corporation(string name, string ceo)
+        : base(name)
+    {
+        CEO = ceo;
+    }
+
+    public string CEO { get; }
 }

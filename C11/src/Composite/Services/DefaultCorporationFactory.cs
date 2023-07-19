@@ -6,7 +6,10 @@ public class DefaultCorporationFactory : ICorporationFactory
 {
     public Corporation Create()
     {
-        var corporation = new Corporation("My Huge Book Store Company!");
+        var corporation = new Corporation(
+            "My Huge Book Store Company!",
+            "Bosmang Kapawu"
+        );
         corporation.Add(CreateEastStore());
         corporation.Add(CreateWestStore());
         return corporation;
@@ -14,7 +17,7 @@ public class DefaultCorporationFactory : ICorporationFactory
 
     private IComponent CreateEastStore()
     {
-        var store = new Store("East Store");
+        var store = new Store("East Store", "123 Longroad", "Malcolm Reynolds");
         store.Add(CreateFantasySection());
         store.Add(CreateAdventureSection());
         store.Add(CreateDramaSection());
@@ -23,7 +26,7 @@ public class DefaultCorporationFactory : ICorporationFactory
 
     private IComponent CreateWestStore()
     {
-        var store = new Store("West Store");
+        var store = new Store("West Store", "987 Westplace", "Ellen Ripley");
         store.Add(CreateFictionSection());
         store.Add(CreateFantasySection());
         store.Add(CreateAdventureSection());
