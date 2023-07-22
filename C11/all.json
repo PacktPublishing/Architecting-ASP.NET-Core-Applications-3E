@@ -1,0 +1,174 @@
+{
+  "ceo": "Bosmang Kapawu",
+  "name": "Boundless Shelves Corporation",
+  "type": "Corporation",
+  "count": 43,
+  "children": [
+    {
+      "location": "125 Enchantment Street, Storyville, SV 72845",
+      "manager": "Malcolm Reynolds",
+      "name": "Tale Towers",
+      "type": "Store",
+      "count": 18,
+      "children": [
+        {
+          "name": "Fantasy",
+          "type": "Section",
+          "count": 11,
+          "children": [
+            {
+              "name": "A Song of Ice and Fire",
+              "type": "Set",
+              "count": 7,
+              "children": [
+                { "title": "A Game of Thrones", "type": "Book", "count": 1 },
+                { "title": "A Clash of Kings", "type": "Book", "count": 1 },
+                { "title": "A Storm of Swords", "type": "Book", "count": 1 },
+                { "title": "A Feast for Crows", "type": "Book", "count": 1 },
+                { "title": "A Dance with Dragons", "type": "Book", "count": 1 },
+                { "title": "The Winds of Winter", "type": "Book", "count": 1 },
+                { "title": "A Dream of Spring", "type": "Book", "count": 1 }
+              ]
+            },
+            { "title": "The legend of the dwarven dragon", "type": "Book", "count": 1 },
+            { "title": "The epic journey of nobody", "type": "Book", "count": 1 },
+            {
+              "name": "The Lord of the Ping",
+              "type": "Set",
+              "count": 2,
+              "children": [
+                { "title": "Hello World", "type": "Book", "count": 1 },
+                { "title": "How to intercept HTTP communication 101.2", "type": "Book", "count": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Adventure",
+          "type": "Section",
+          "count": 3,
+          "children": [
+            { "title": "Gulliver's Travels", "type": "Book", "count": 1 },
+            { "title": "Moby-Dick", "type": "Book", "count": 1 },
+            { "title": "The Adventures of Huckleberry Finn", "type": "Book", "count": 1 }
+          ]
+        },
+        {
+          "name": "Drama",
+          "type": "Section",
+          "count": 4,
+          "children": [
+            { "title": "Romeo and Juliet", "type": "Book", "count": 1 },
+            { "title": "Hamlet", "type": "Book", "count": 1 },
+            { "title": "Macbeth", "type": "Book", "count": 1 },
+            { "title": "Othello", "type": "Book", "count": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "location": "369 Parchment Plaza, Novelty, NV 68123",
+      "manager": "Ellen Ripley",
+      "name": "Epic Nexus",
+      "type": "Store",
+      "count": 25,
+      "children": [
+        {
+          "name": "Fiction",
+          "type": "Section",
+          "count": 11,
+          "children": [
+            { "title": "Some alien cowboy", "type": "Book", "count": 1 },
+            {
+              "name": "Science Fiction",
+              "type": "Section",
+              "count": 10,
+              "children": [
+                { "title": "Adventures in space", "type": "Book", "count": 1 },
+                {
+                  "name": "Star Wars",
+                  "type": "Set",
+                  "count": 9,
+                  "children": [
+                    {
+                      "name": "Prequel trilogy",
+                      "type": "Set",
+                      "count": 3,
+                      "children": [
+                        { "title": "Episode I: The Phantom Menace", "type": "Book", "count": 1 },
+                        { "title": "Episode II: Attack of the Clones", "type": "Book", "count": 1 },
+                        { "title": "Episode III: Revenge of the Sith", "type": "Book", "count": 1 }
+                      ]
+                    },
+                    {
+                      "name": "Original trilogy",
+                      "type": "Set",
+                      "count": 3,
+                      "children": [
+                        { "title": "Episode IV: A New Hope", "type": "Book", "count": 1 },
+                        { "title": "Episode V: The Empire Strikes Back", "type": "Book", "count": 1 },
+                        { "title": "Episode VI: Return of the Jedi", "type": "Book", "count": 1 }
+                      ]
+                    },
+                    {
+                      "name": "Sequel trilogy",
+                      "type": "Set",
+                      "count": 3,
+                      "children": [
+                        { "title": "Episode VII: The Force Awakens", "type": "Book", "count": 1 },
+                        { "title": "Episode VIII: The Last Jedi", "type": "Book", "count": 1 },
+                        { "title": "Episode IX: The Rise of Skywalker", "type": "Book", "count": 1 }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fantasy",
+          "type": "Section",
+          "count": 11,
+          "children": [
+            {
+              "name": "A Song of Ice and Fire",
+              "type": "Set",
+              "count": 7,
+              "children": [
+                { "title": "A Game of Thrones", "type": "Book", "count": 1 },
+                { "title": "A Clash of Kings", "type": "Book", "count": 1 },
+                { "title": "A Storm of Swords", "type": "Book", "count": 1 },
+                { "title": "A Feast for Crows", "type": "Book", "count": 1 },
+                { "title": "A Dance with Dragons", "type": "Book", "count": 1 },
+                { "title": "The Winds of Winter", "type": "Book", "count": 1 },
+                { "title": "A Dream of Spring", "type": "Book", "count": 1 }
+              ]
+            },
+            { "title": "The legend of the dwarven dragon", "type": "Book", "count": 1 },
+            { "title": "The epic journey of nobody", "type": "Book", "count": 1 },
+            {
+              "name": "The Lord of the Ping",
+              "type": "Set",
+              "count": 2,
+              "children": [
+                { "title": "Hello World", "type": "Book", "count": 1 },
+                { "title": "How to intercept HTTP communication 101.2", "type": "Book", "count": 1 }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Adventure",
+          "type": "Section",
+          "count": 3,
+          "children": [
+            { "title": "Gulliver's Travels", "type": "Book", "count": 1 },
+            { "title": "Moby-Dick", "type": "Book", "count": 1 },
+            { "title": "The Adventures of Huckleberry Finn", "type": "Book", "count": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}
