@@ -1,0 +1,69 @@
+{
+  "ceo": "Bosmang Kapawu",
+  "name": "Boundless Shelves Corporation",
+  "type": "Corporation",
+  "count": 0,
+  "children": [
+    {
+      "location": "125 Enchantment Street, Storyville, SV 72845",
+      "manager": "Malcolm Reynolds",
+      "name": "Tale Towers",
+      "type": "Store",
+      "count": 0,
+      "children": [
+        {
+          "name": "Fantasy",
+          "type": "Section",
+          "count": 0,
+          "children": []
+        },
+        {
+          "name": "Adventure",
+          "type": "Section",
+          "count": 0,
+          "children": []
+        },
+        {
+          "name": "Drama",
+          "type": "Section",
+          "count": 0,
+          "children": []
+        }
+      ]
+    },
+    {
+      "location": "369 Parchment Plaza, Novelty, NV 68123",
+      "manager": "Ellen Ripley",
+      "name": "Epic Nexus",
+      "type": "Store",
+      "count": 0,
+      "children": [
+        {
+          "name": "Fiction",
+          "type": "Section",
+          "count": 0,
+          "children": [
+            {
+              "name": "Science Fiction",
+              "type": "Section",
+              "count": 0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Fantasy",
+          "type": "Section",
+          "count": 0,
+          "children": []
+        },
+        {
+          "name": "Adventure",
+          "type": "Section",
+          "count": 0,
+          "children": []
+        }
+      ]
+    }
+  ]
+}
