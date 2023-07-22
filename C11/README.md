@@ -1,8 +1,8 @@
 # Chapter 11
 
-The following schema represent the full-size hierarchy of the BookStore project (the legend is bellow).
+The following schema represents the full-size hierarchy of the BookStore project (see legend below).
 
-[![Full size Hierarchy](Hierarchy.png)](Hierarchy.png)
+[![Full-size Hierarchy](Hierarchy.png)](Hierarchy.png)
 ![Legend](Legend.png)
 
 ## Textual version
