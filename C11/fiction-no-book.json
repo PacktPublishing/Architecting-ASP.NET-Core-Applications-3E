@@ -1,0 +1,56 @@
+{
+  "ceo": "Bosmang Kapawu",
+  "name": "Boundless Shelves Corporation",
+  "type": "Corporation",
+  "count": 0,
+  "children": [
+    {
+      "location": "369 Parchment Plaza, Novelty, NV 68123",
+      "manager": "Ellen Ripley",
+      "name": "Epic Nexus",
+      "type": "Store",
+      "count": 0,
+      "children": [
+        {
+          "name": "Fiction",
+          "type": "Section",
+          "count": 0,
+          "children": [
+            {
+              "name": "Science Fiction",
+              "type": "Section",
+              "count": 0,
+              "children": [
+                {
+                  "name": "Star Wars",
+                  "type": "Set",
+                  "count": 0,
+                  "children": [
+                    {
+                      "name": "Prequel trilogy",
+                      "type": "Set",
+                      "count": 0,
+                      "children": []
+                    },
+                    {
+                      "name": "Original trilogy",
+                      "type": "Set",
+                      "count": 0,
+                      "children": []
+                    },
+                    {
+                      "name": "Sequel trilogy",
+                      "type": "Set",
+                      "count": 0,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
