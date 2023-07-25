@@ -20,6 +20,5 @@ public class LinearSearchMachineTest
             // Assert
             Assert.Equal(expectedIndex, index);
         }
-
     }
 }
