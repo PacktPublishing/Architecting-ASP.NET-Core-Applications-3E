@@ -1,0 +1,34 @@
+﻿@ChainOfResponsibility_HostAddress = https://localhost:10001
+
+POST {{ChainOfResponsibility_HostAddress}}/handle
+Content-Type: application/json
+
+{
+    "name": "AlarmTriggered",
+    "payload": "Machine ID: 3"
+}
+###
+POST {{ChainOfResponsibility_HostAddress}}/handle
+Content-Type: application/json
+
+{
+    "name": "AlarmPaused",
+    "payload": "Machine ID: 3"
+}
+###
+POST {{ChainOfResponsibility_HostAddress}}/handle
+Content-Type: application/json
+
+{
+    "name": "AlarmStopped",
+    "payload": "Machine ID: 3"
+}
+###
+POST {{ChainOfResponsibility_HostAddress}}/handle
+Content-Type: application/json
+
+{
+    "name": "SomeUnhandledMessageName",
+    "payload": "Machine ID: 3"
+}
+###
