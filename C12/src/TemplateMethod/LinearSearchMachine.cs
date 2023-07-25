@@ -6,11 +6,9 @@ public class LinearSearchMachine : SearchMachine
 
     protected override int? Find(int value)
     {
-        var index = 0;
-        foreach (var item in Values)
+        for (var i = 0; i < Values.Length; i++)
         {
-            if (item == value) { return index; }
-            index++;
+            if (Values[i] == value) { return i; }
         }
         return null;
     }
