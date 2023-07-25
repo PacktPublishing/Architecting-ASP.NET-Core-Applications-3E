@@ -14,9 +14,9 @@ public class AlarmTriggeredHandler : IMessageHandler
         {
             // Do something clever with the Payload
         }
-        else if (_next != null)
+        else
         {
-            _next.Handle(message);
+            _next?.Handle(message);
         }
     }
 }
