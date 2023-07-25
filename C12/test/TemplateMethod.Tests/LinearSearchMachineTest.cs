@@ -2,7 +2,7 @@ namespace TemplateMethod;
 
 public class LinearSearchMachineTest
 {
-    public class Find
+    public class IndexOf
     {
         [Theory]
         [InlineData(1, 0)]
