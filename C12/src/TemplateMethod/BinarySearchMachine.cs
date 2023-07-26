@@ -8,6 +8,6 @@ public class BinarySearchMachine : SearchMachine
     protected override int? Find(int value)
     {
         var index = Array.BinarySearch(Values, value);
-        return index == -1 ? null : index;
+        return index < 0 ? null : index;
     }
 }
