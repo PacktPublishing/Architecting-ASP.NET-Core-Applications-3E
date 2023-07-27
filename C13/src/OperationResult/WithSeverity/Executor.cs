@@ -6,7 +6,7 @@ public class Executor
     {
         // Randomize the success indicator
         // This should be real logic
-        var randomNumber = new Random().Next(100);
+        var randomNumber = Random.Shared.Next(100);
         var success = randomNumber % 2 == 0;
 
         // Some information message
