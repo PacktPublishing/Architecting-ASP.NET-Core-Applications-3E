@@ -37,7 +37,6 @@ public record class OperationResultMessage
 
     public string Message { get; }
 
-    [JsonConverter(typeof(JsonStringEnumConverter))]
     public OperationResultSeverity Severity { get; }
 }
 

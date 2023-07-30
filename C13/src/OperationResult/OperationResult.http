@@ -1,0 +1,25 @@
+﻿@OperationResult_HostAddress = https://localhost:11001
+
+GET {{OperationResult_HostAddress}}/simplest-form
+
+###
+
+GET {{OperationResult_HostAddress}}/single-error
+
+###
+
+GET {{OperationResult_HostAddress}}/single-error-with-value
+
+###
+
+GET {{OperationResult_HostAddress}}/multiple-errors-with-value
+
+###
+
+GET {{OperationResult_HostAddress}}/multiple-errors-with-value-and-severity
+
+###
+
+GET {{OperationResult_HostAddress}}/static-factory-methods
+
+###
