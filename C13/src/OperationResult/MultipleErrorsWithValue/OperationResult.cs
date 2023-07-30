@@ -16,7 +16,7 @@ public record class OperationResult
     public bool Succeeded => !HasErrors();
     public int? Value { get; init; }
 
-    public ImmutableList<string> Errors { get; init; }
+    public IReadOnlyCollection<string> Errors { get; init; }
     public bool HasErrors()
     {
         return Errors?.Count > 0;
