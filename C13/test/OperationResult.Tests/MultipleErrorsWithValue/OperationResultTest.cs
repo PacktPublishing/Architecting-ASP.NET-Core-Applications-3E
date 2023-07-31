@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Collections.Immutable;
+using Xunit;
 
 namespace OperationResult.MultipleErrorsWithValue;
 
@@ -12,11 +13,9 @@ public class OperationResultTest
             // Arrange
             var result = new OperationResult("Error 1");
 
-            // Act
-            result.Errors.Add("Error 2"); // Return a mutated collection but does not change the source.
-
-            // Assert
-            Assert.Collection(result.Errors, m => Assert.Equal("Error 1", m));
+            // Act & Assert
+            Assert.Throws<NotSupportedException>(()
+                => (result.Errors as ICollection<string>)?.Add("Error 2"));
         }
     }
 }
