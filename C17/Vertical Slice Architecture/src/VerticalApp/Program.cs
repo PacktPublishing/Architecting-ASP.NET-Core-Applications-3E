@@ -1,4 +1,5 @@
 using AutoMapper;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     // Plumbing/Dependencies
     .AddAutoMapper(currentAssembly)
-    .AddMediatR(currentAssembly)
+    .AddMediatR(o => o.RegisterServicesFromAssembly(currentAssembly))
     .AddSingleton(typeof(IPipelineBehavior<,>), typeof(ThrowFluentValidationExceptionBehavior<,>))
 
     // Data
@@ -21,8 +22,9 @@ builder.Services
     )
 
     // Web/MVC
+    .AddFluentValidationAutoValidation()
+    .AddValidatorsFromAssembly(currentAssembly, ServiceLifetime.Singleton)
     .AddControllers(options => options.Filters.Add<FluentValidationExceptionFilter>())
-        .AddFluentValidation(config => config.RegisterValidatorsFromAssembly(currentAssembly, lifetime: ServiceLifetime.Singleton));
 ;
 
 var app = builder.Build();
