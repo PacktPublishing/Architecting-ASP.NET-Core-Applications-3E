@@ -1,4 +1,4 @@
-﻿namespace CQRS;
+﻿namespace CQS;
 
 public interface IParticipant
 {
@@ -50,16 +50,7 @@ public interface IQueryHandler<TQuery, TReturn>
     TReturn Handle(TQuery query);
 }
 
-public class ChatMessage
+public record class ChatMessage(IParticipant Sender, string Message)
 {
-    public ChatMessage(IParticipant sender, string message)
-    {
-        Sender = sender ?? throw new ArgumentNullException(nameof(sender));
-        Message = message ?? throw new ArgumentNullException(nameof(message));
-        Date = DateTime.UtcNow;
-    }
-
-    public DateTime Date { get; }
-    public IParticipant Sender { get; }
-    public string Message { get; }
+    public DateTime Date { get; } = DateTime.UtcNow;
 }

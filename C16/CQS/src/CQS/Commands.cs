@@ -1,4 +1,4 @@
-﻿namespace CQRS;
+﻿namespace CQS;
 
 public class JoinChatRoom
 {
