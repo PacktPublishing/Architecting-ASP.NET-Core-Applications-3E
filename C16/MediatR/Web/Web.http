@@ -1,0 +1,23 @@
+﻿@Web_HostAddress = https://localhost:14002
+@ProductId = 2
+
+GET {{Web_HostAddress}}/products
+
+###
+
+POST {{Web_HostAddress}}/products/{{ProductId}}/add-stocks
+Content-Type: application/json
+
+{
+    "amount": "10"
+}
+
+###
+
+POST {{Web_HostAddress}}/products/{{ProductId}}/remove-stocks
+Content-Type: application/json
+
+{
+    "amount": "10"
+}
+###
