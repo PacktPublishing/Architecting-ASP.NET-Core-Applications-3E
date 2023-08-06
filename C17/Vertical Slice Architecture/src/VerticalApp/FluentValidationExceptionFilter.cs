@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -10,12 +11,11 @@ public class FluentValidationExceptionFilter : IExceptionFilter
     {
         if (context.Exception is ValidationException ex)
         {
-            context.Result = new BadRequestObjectResult(new
-            {
-                ex.Message,
-                ex.Errors,
-            });
+            var error = new FluentValidationObjectResultError(ex.Message, ex.Errors);
+            context.Result = new BadRequestObjectResult(error);
             context.ExceptionHandled = true;
         }
     }
+
+    public record class FluentValidationObjectResultError(string Message, IEnumerable<ValidationFailure> Errors);
 }
