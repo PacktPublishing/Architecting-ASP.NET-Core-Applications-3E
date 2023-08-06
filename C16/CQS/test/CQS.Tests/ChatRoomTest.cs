@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace CQRS.Tests;
+namespace CQS.Tests;
 
 public class ChatRoomTest
 {

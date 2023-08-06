@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>CQRS</RootNamespace>
+    <RootNamespace>CQS</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CQRS\CQRS.csproj" />
+    <ProjectReference Include="..\..\src\CQS\CQS.csproj" />
   </ItemGroup>
 
 </Project>

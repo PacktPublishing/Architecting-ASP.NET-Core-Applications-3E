@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
     // Core Layer
-    .AddMediatR(typeof(NotEnoughStockException).Assembly)
+    .AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<NotEnoughStockException>())
 
     // Infrastructure Layer (mapping Core to Infrastructure.Data.EF)
     .AddScoped<IProductRepository, ProductRepository>()

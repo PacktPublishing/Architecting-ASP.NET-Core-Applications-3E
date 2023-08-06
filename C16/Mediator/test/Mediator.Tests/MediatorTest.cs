@@ -22,16 +22,16 @@ public class MediatorTest
 
         // Act
         mediator.Send(new Message(
-            from: miller,
-            content: "Hey everyone!"
+            Sender: miller,
+            Content: "Hey everyone!"
         ));
         mediator.Send(new Message(
-            from: orazio,
-            content: "What's up Miller?"
+            Sender: orazio,
+            Content: "What's up Miller?"
         ));
         mediator.Send(new Message(
-            from: fletcher,
-            content: "Hey Miller!"
+            Sender: fletcher,
+            Content: "Hey Miller!"
         ));
 
         // Assert
@@ -40,7 +40,7 @@ public class MediatorTest
         Assert.Equal(expectedOutput, fletcherWriter.Output.ToString());
     }
 
-    private (TestMessageWriter, ConcreteColleague) CreateConcreteColleague(string name)
+    private static (TestMessageWriter, ConcreteColleague) CreateConcreteColleague(string name)
     {
         var messageWriter = new TestMessageWriter();
         var concreateColleague = new ConcreteColleague(name, messageWriter);

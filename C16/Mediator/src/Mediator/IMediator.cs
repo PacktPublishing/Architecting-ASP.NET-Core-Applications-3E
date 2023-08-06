@@ -11,17 +11,7 @@ public interface IColleague
     void ReceiveMessage(Message message);
 }
 
-public class Message
-{
-    public Message(IColleague from, string content)
-    {
-        Sender = from ?? throw new ArgumentNullException(nameof(from));
-        Content = content ?? throw new ArgumentNullException(nameof(content));
-    }
-
-    public IColleague Sender { get; }
-    public string Content { get; }
-}
+public record class Message(IColleague Sender, string Content);
 
 public class ConcreteMediator : IMediator
 {

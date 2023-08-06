@@ -13,18 +13,7 @@ public interface IParticipant
     void ReceiveMessage(ChatMessage message);
     void ChatRoomJoined(IChatRoom chatRoom);
 }
-
-public class ChatMessage
-{
-    public ChatMessage(IParticipant from, string content)
-    {
-        Sender = from ?? throw new ArgumentNullException(nameof(from));
-        Content = content ?? throw new ArgumentNullException(nameof(content));
-    }
-
-    public IParticipant Sender { get; }
-    public string Content { get; }
-}
+public record class ChatMessage(IParticipant Sender, string Content);
 
 public class User : IParticipant
 {
@@ -67,7 +56,7 @@ public class ChatRoomNotJoinedException : Exception
 
 public class ChatRoom : IChatRoom
 {
-    private readonly List<IParticipant> _participants = new List<IParticipant>();
+    private readonly List<IParticipant> _participants = new();
 
     public void Join(IParticipant participant)
     {
@@ -78,6 +67,7 @@ public class ChatRoom : IChatRoom
 
     public void Send(ChatMessage message)
     {
-        _participants.ForEach(participant => participant.ReceiveMessage(message));
+        _participants.ForEach(participant
+            => participant.ReceiveMessage(message));
     }
 }
