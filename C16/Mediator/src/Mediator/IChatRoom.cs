@@ -13,18 +13,7 @@ public interface IParticipant
     void ReceiveMessage(ChatMessage message);
     void ChatRoomJoined(IChatRoom chatRoom);
 }
-
-public class ChatMessage
-{
-    public ChatMessage(IParticipant from, string content)
-    {
-        Sender = from ?? throw new ArgumentNullException(nameof(from));
-        Content = content ?? throw new ArgumentNullException(nameof(content));
-    }
-
-    public IParticipant Sender { get; }
-    public string Content { get; }
-}
+public record class ChatMessage(IParticipant Sender, string Content);
 
 public class User : IParticipant
 {
