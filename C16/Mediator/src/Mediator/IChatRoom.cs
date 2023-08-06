@@ -56,7 +56,7 @@ public class ChatRoomNotJoinedException : Exception
 
 public class ChatRoom : IChatRoom
 {
-    private readonly List<IParticipant> _participants = new List<IParticipant>();
+    private readonly List<IParticipant> _participants = new();
 
     public void Join(IParticipant participant)
     {
@@ -67,6 +67,7 @@ public class ChatRoom : IChatRoom
 
     public void Send(ChatMessage message)
     {
-        _participants.ForEach(participant => participant.ReceiveMessage(message));
+        _participants.ForEach(participant
+            => participant.ReceiveMessage(message));
     }
 }
