@@ -1,4 +1,3 @@
-using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
