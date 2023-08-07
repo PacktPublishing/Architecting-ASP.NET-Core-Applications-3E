@@ -14,10 +14,7 @@ public class RemoveStocks
         public int Amount { get; set; }
     }
 
-    public class Result
-    {
-        public int QuantityInStock { get; set; }
-    }
+    public record class Result(int QuantityInStock);
 
     public class MapperProfile : Profile
     {
