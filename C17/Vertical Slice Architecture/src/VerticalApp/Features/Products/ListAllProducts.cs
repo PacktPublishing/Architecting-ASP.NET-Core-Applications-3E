@@ -7,9 +7,7 @@ namespace VerticalApp.Features.Products;
 
 public class ListAllProducts
 {
-    public class Command : IRequest<IEnumerable<Result>>
-    {
-    }
+    public record class Query : IRequest<IEnumerable<Result>>;
 
     public record class Result(int Id, string Name, int QuantityInStock);
 
@@ -21,7 +19,7 @@ public class ListAllProducts
         }
     }
 
-    public class Handler : IRequestHandler<Command, IEnumerable<Result>>
+    public class Handler : IRequestHandler<Query, IEnumerable<Result>>
     {
         private readonly ProductContext _db;
         private readonly IMapper _mapper;
@@ -32,7 +30,7 @@ public class ListAllProducts
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public Task<IEnumerable<Result>> Handle(Command request, CancellationToken cancellationToken)
+        public Task<IEnumerable<Result>> Handle(Query request, CancellationToken cancellationToken)
         {
             var results = _mapper.ProjectTo<Result>(_db.Products);
             return Task.FromResult(results.AsEnumerable());

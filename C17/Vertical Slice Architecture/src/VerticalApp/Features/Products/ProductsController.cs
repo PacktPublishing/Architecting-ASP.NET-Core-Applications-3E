@@ -16,7 +16,7 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ListAllProducts.Result>>> GetAsync()
     {
-        var result = await _mediator.Send(new ListAllProducts.Command());
+        var result = await _mediator.Send(new ListAllProducts.Query());
         return Ok(result);
     }
 }
