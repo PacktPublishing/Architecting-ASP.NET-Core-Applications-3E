@@ -1,10 +1,8 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using System;
 using System.Net.Http.Json;
 using System.Text.Json;
-using System.Threading.Tasks;
 using VerticalApp.Data;
 using VerticalApp.Models;
 using Xunit;
