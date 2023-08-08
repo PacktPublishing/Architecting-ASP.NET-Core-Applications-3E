@@ -818,7 +818,7 @@
                 <mxCell id="HMKlNcfsrmp8i-vNm9QX-10" value="Request&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=0;fontSize=11;strokeColor=default;fillStyle=hachure;fontStyle=1;shadow=0;glass=0;fontColor=default;fillColor=default;align=right;" parent="NRFoNHu8XifHmaJofXyo-1" vertex="1">
                     <mxGeometry x="760" y="1250" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="HMKlNcfsrmp8i-vNm9QX-11" value="Validators&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=0;fontSize=11;strokeColor=default;fillStyle=hachure;fontStyle=1;shadow=0;glass=0;fontColor=default;fillColor=default;align=right;" parent="NRFoNHu8XifHmaJofXyo-1" vertex="1">
+                <mxCell id="HMKlNcfsrmp8i-vNm9QX-11" value="Validator&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=0;fontSize=11;strokeColor=default;fillStyle=hachure;fontStyle=1;shadow=0;glass=0;fontColor=default;fillColor=default;align=right;" parent="NRFoNHu8XifHmaJofXyo-1" vertex="1">
                     <mxGeometry x="930" y="1250" width="90" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="HMKlNcfsrmp8i-vNm9QX-12" value="&amp;nbsp;Handler" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;sketch=0;fontSize=11;strokeColor=default;fillStyle=hachure;fontStyle=1;shadow=0;glass=0;fontColor=default;fillColor=default;align=left;" parent="NRFoNHu8XifHmaJofXyo-1" vertex="1">
