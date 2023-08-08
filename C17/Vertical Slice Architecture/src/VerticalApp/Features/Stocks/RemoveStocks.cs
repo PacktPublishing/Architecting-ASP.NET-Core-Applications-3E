@@ -6,7 +6,7 @@ using VerticalApp.Models;
 
 namespace VerticalApp.Features.Stocks;
 
-public class AddStocks
+public class RemoveStocks
 {
     public class Command : IRequest<Result>
     {
@@ -14,10 +14,7 @@ public class AddStocks
         public int Amount { get; set; }
     }
 
-    public class Result
-    {
-        public int QuantityInStock { get; set; }
-    }
+    public record class Result(int QuantityInStock);
 
     public class MapperProfile : Profile
     {
@@ -53,8 +50,12 @@ public class AddStocks
             {
                 throw new ProductNotFoundException(request.ProductId);
             }
+            if (request.Amount > product.QuantityInStock)
+            {
+                throw new NotEnoughStockException(product.QuantityInStock, request.Amount);
+            }
 
-            product.QuantityInStock += request.Amount;
+            product.QuantityInStock -= request.Amount;
             await _db.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<Result>(product);

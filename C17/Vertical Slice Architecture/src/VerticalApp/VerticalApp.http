@@ -1,0 +1,33 @@
+﻿@VerticalApp_HostAddress = https://localhost:14001
+
+# Fail to add stock
+POST {{VerticalApp_HostAddress}}/products/1/add-stocks
+Content-Type: application/json
+
+{
+  "amount": 0
+}
+
+###
+
+GET {{VerticalApp_HostAddress}}/products
+
+###
+
+POST {{VerticalApp_HostAddress}}/products/1/add-stocks
+Content-Type: application/json
+
+{
+  "amount": 1
+}
+
+###
+
+POST {{VerticalApp_HostAddress}}/products/1/remove-stocks
+Content-Type: application/json
+
+{
+  "amount": 1
+}
+
+###

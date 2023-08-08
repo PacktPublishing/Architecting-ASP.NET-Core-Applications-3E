@@ -41,7 +41,7 @@ public class ProductsTest
             var mediator = requestScope.ServiceProvider.GetRequiredService<IMediator>();
 
             // Act
-            var result = await mediator.Send(new ListAllProducts.Command());
+            var result = await mediator.Send(new ListAllProducts.Query());
 
             // Assert
             using var assertScope = application.Services.CreateScope();
