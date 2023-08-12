@@ -1,10 +1,14 @@
+using Web.Features;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.AddExceptionMapper();
-
+builder.AddFluentValidationEndpointFilter();
+builder.Services.AddFeatures();
 
 var app = builder.Build();
 app.UseExceptionMapper();
+app.MapFeatures();
 
-app.MapGet("/", () => "Hello World!");
+await app.SeedFeaturesAsync();
 
 app.Run();
