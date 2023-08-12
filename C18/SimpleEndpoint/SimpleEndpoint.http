@@ -1,0 +1,13 @@
+﻿@SimpleEndpoint_HostAddress = https://localhost:7289
+
+GET {{SimpleEndpoint_HostAddress}}/shuffle-text/I%20love%20ASP.NET%20Core
+
+###
+
+GET {{SimpleEndpoint_HostAddress}}/random-number/5/0/100
+
+###
+
+GET {{SimpleEndpoint_HostAddress}}/upper-case/I%20love%20ASP.NET%20Core
+
+###
