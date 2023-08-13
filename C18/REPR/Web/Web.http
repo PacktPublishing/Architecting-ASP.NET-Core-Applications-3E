@@ -1,5 +1,5 @@
 ﻿@Web_HostAddress = https://localhost:7252
-@ProductId = 3
+@ProductId = 4
 @CustomerId = 1
 
 GET {{Web_HostAddress}}/products
