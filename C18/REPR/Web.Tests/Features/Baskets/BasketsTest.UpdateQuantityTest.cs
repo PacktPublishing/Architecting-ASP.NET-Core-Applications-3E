@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Net;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
-using Xunit;
 using static Web.Features.Baskets;
 
 namespace Web.Features;
