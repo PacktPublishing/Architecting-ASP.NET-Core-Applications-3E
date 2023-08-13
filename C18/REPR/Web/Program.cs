@@ -1,7 +1,4 @@
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using Web.Features;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,12 +7,7 @@ builder.AddExceptionMapper(builder =>
     builder.Map<DbUpdateException>().ToStatusCode(StatusCodes.Status409Conflict);
     builder.Map<DbUpdateConcurrencyException>().ToStatusCode(StatusCodes.Status409Conflict);
 });
-builder.AddFluentValidationEndpointFilter();
-builder.Services
-    .AddFluentValidationAutoValidation()
-    .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
-;
-builder.Services.AddFeatures();
+builder.AddFeatures();
 
 var app = builder.Build();
 app.UseExceptionMapper();

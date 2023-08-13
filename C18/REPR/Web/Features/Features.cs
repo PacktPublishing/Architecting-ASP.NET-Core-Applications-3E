@@ -1,10 +1,20 @@
-﻿namespace Web.Features;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+
+namespace Web.Features;
 
 public static class Features
 {
-    public static IServiceCollection AddFeatures(this IServiceCollection services)
+    public static IServiceCollection AddFeatures(this WebApplicationBuilder builder)
     {
-        return services
+        // Register fluent validation
+        builder.AddFluentValidationEndpointFilter();
+        return builder.Services
+            .AddFluentValidationAutoValidation()
+            .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
+
+            // Add features
             .AddProductsFeature()
             .AddBasketsFeature()
         ;
