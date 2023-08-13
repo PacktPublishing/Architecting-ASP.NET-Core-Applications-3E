@@ -1,10 +1,42 @@
 ﻿@Web_HostAddress = https://localhost:7252
 @ProductId = 3
+@CustomerId = 1
 
 GET {{Web_HostAddress}}/products
 
 ###
 
 GET {{Web_HostAddress}}/products/{{ProductId}}
+
+###
+
+
+GET {{Web_HostAddress}}/baskets/{{CustomerId}}
+
+###
+
+POST {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": {{CustomerId}}, 
+    "productId": {{ProductId}}, 
+    "quantity": 10
+}
+
+###
+
+PUT {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": {{CustomerId}}, 
+    "productId": {{ProductId}}, 
+    "quantity": 15
+}
+
+###
+
+DELETE {{Web_HostAddress}}/baskets/{{CustomerId}}/{{ProductId}}
 
 ###
