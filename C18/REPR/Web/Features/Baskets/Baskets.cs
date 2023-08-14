@@ -1,5 +1,4 @@
-﻿using ForEvolve.ExceptionMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Web.Features;
@@ -22,22 +21,6 @@ public static partial class Baskets
                 .Entity<BasketItem>()
                 .HasKey(x => new { x.CustomerId, x.ProductId })
             ;
-        }
-    }
-
-    public class DuplicateBasketItemException : ConflictException
-    {
-        public DuplicateBasketItemException(int productId)
-            : base($"The product '{productId}' is already in your shopping cart.")
-        {
-        }
-    }
-
-    public class BasketItemNotFoundException : NotFoundException
-    {
-        public BasketItemNotFoundException(int productId)
-            : base($"The product '{productId}' is not in your shopping cart.")
-        {
         }
     }
 

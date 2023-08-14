@@ -4,8 +4,14 @@ using Web.Features;
 var builder = WebApplication.CreateBuilder(args);
 builder.AddExceptionMapper(builder =>
 {
-    builder.Map<DbUpdateException>().ToStatusCode(StatusCodes.Status409Conflict);
-    builder.Map<DbUpdateConcurrencyException>().ToStatusCode(StatusCodes.Status409Conflict);
+    builder
+        .Map<DbUpdateException>()
+        .ToStatusCode(StatusCodes.Status409Conflict)
+    ;
+    builder
+        .Map<DbUpdateConcurrencyException>()
+        .ToStatusCode(StatusCodes.Status409Conflict)
+    ;
 });
 builder.AddFeatures();
 
