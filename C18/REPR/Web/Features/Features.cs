@@ -38,6 +38,6 @@ public static class Features
         using var scope = app.Services.CreateScope();
 
         await scope.SeedProductsAsync();
-        await scope.SeedBasketAsync();
+        await scope.SeedBasketsAsync();
     }
 }

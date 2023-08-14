@@ -53,7 +53,7 @@ public static partial class Baskets
         return endpoints;
     }
 
-    public static Task SeedBasketAsync(this IServiceScope scope)
+    public static Task SeedBasketsAsync(this IServiceScope scope)
     {
         return Task.CompletedTask;
     }
