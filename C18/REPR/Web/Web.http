@@ -1,5 +1,6 @@
 ﻿@Web_HostAddress = https://localhost:7252
-@ProductId = 4
+@ProductId = 3
+@NonExistingProductId = 4
 @CustomerId = 1
 
 GET {{Web_HostAddress}}/products
@@ -9,6 +10,12 @@ GET {{Web_HostAddress}}/products
 GET {{Web_HostAddress}}/products/{{ProductId}}
 
 ###
+
+
+GET {{Web_HostAddress}}/products/{{NonExistingProductId}}
+
+###
+
 
 
 GET {{Web_HostAddress}}/baskets/{{CustomerId}}
