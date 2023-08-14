@@ -9,7 +9,7 @@ public partial class Products
     {
         public record class Query();
         public record class Response(IEnumerable<ResponseProduct> Products);
-        public record class ResponseProduct(int Id, string Name);
+        public record class ResponseProduct(int Id, string Name, decimal UnitPrice);
 
         [Mapper]
         public partial class Mapper

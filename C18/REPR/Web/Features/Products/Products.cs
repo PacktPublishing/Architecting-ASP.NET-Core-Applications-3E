@@ -6,7 +6,7 @@ namespace Web.Features;
 
 public static partial class Products
 {
-    public record class Product(string Name, int? Id = null);
+    public record class Product(string Name, decimal UnitPrice, int? Id = null);
 
     public class ProductContext : DbContext
     {
@@ -31,14 +31,17 @@ public static partial class Products
         {
             db.Products.Add(new Product(
                 Name: "Banana",
+                UnitPrice: 0.30m,
                 Id: 1
             ));
             db.Products.Add(new Product(
                 Name: "Apple",
+                UnitPrice: 0.79m,
                 Id: 2
             ));
             db.Products.Add(new Product(
                 Name: "Habanero Pepper",
+                UnitPrice: 0.99m,
                 Id: 3
             ));
             return db.SaveChangesAsync();

@@ -22,6 +22,7 @@ public partial class ProductsTest
             // Assert
             Assert.NotNull(response);
             Assert.Equal(2, response.Id);
+            Assert.Equal(99, response.UnitPrice);
             Assert.Equal("Scotch Bottle", response.Name);
         }
 

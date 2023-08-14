@@ -8,7 +8,7 @@ public partial class Products
     public partial class FetchOne
     {
         public record class Query(int ProductId);
-        public record class Response(int Id, string Name);
+        public record class Response(int Id, string Name, decimal UnitPrice);
 
         [Mapper]
         public partial class Mapper

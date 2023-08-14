@@ -22,10 +22,12 @@ public partial class ProductsTest
             Assert.Collection(response.Products,
                 p => {
                     Assert.Equal(3, p.Id);
+                    Assert.Equal(1, p.UnitPrice);
                     Assert.Equal("Habanero Pepper", p.Name);
                 },
                 p => {
                     Assert.Equal(2, p.Id);
+                    Assert.Equal(99, p.UnitPrice);
                     Assert.Equal("Scotch Bottle", p.Name);
                 }
             );
