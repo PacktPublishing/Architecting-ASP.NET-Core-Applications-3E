@@ -8,8 +8,15 @@ public partial class Baskets
 {
     public partial class AddItem
     {
-        public record class Command(int CustomerId, int ProductId, int Quantity);
-        public record class Response(int ProductId, int Quantity);
+        public record class Command(
+            int CustomerId,
+            int ProductId,
+            int Quantity
+        );
+        public record class Response(
+            int ProductId,
+            int Quantity
+        );
 
         [Mapper]
         public partial class Mapper
@@ -70,8 +77,11 @@ public partial class Baskets
     {
         endpoints.MapPost(
             "/",
-            (AddItem.Command command, AddItem.Handler handler, CancellationToken cancellationToken)
-                => handler.HandleAsync(command, cancellationToken)
+            async (AddItem.Command command, AddItem.Handler handler, CancellationToken cancellationToken) =>
+            {
+                var result = await handler.HandleAsync(command, cancellationToken);
+                return TypedResults.Created($"/products/{result.ProductId}", result);
+            }
         );
         return endpoints;
     }

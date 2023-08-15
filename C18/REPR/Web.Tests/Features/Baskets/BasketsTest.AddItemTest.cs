@@ -40,6 +40,36 @@ public partial class BasketsTest
         }
 
         [Fact]
+        public async Task Should_return_a_valid_product_url()
+        {
+            // Arrange
+            await using var application = new C18WebApplication();
+            await application.SeedAsync<Products.ProductContext>(async db =>
+            {
+                db.Products.RemoveRange(db.Products);
+                db.Products.Add(new("A test product", 15.22m, 1));
+                await db.SaveChangesAsync();
+            });
+            var client = application.CreateClient();
+
+            // Act
+            var response = await client.PostAsJsonAsync(
+                "/baskets",
+                new AddItem.Command(4, 1, 22)
+            );
+
+            // Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            Assert.NotNull(response.Headers.Location);
+
+            var productResponse = await client.GetAsync(response.Headers.Location);
+            Assert.NotNull(productResponse);
+            Assert.True(productResponse.IsSuccessStatusCode);
+        }
+
+
+        [Fact]
         public async Task Should_return_a_ProblemDetails_with_a_Conflict_status_code()
         {
             // Arrange
