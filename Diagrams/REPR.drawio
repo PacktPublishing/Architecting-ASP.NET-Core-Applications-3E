@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="xJFc0pOBORfeTmZtKoVe" name="REPR">
-        <mxGraphModel dx="1466" dy="25" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1244" dy="-147" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -63,8 +63,8 @@
                 </mxCell>
                 <mxCell id="19" value="" style="endArrow=none;html=1;rounded=1;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1290" y="1410" as="sourcePoint"/>
-                        <mxPoint x="1340" y="1360" as="targetPoint"/>
+                        <mxPoint x="2060" y="2330" as="sourcePoint"/>
+                        <mxPoint x="2370" y="1960" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="20" value="Root" style="rounded=1;whiteSpace=wrap;html=1;fillColor=default;fontSize=13;align=center;verticalAlign=top;fontStyle=1;dashed=1;strokeColor=default;fontColor=default;fillStyle=auto;opacity=50;" vertex="1" parent="1">
@@ -137,6 +137,270 @@
                 </mxCell>
                 <mxCell id="58" value="FetchOne" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
                     <mxGeometry x="1065" y="1200" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="65" target="66">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="65" target="67">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="65" target="68">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="Program" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="1120" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="66" target="69">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="66" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="AddFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1120" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="MapFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1160.19" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="SeedFeaturesAsync" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1200" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="69" target="76">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="69" target="77">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="69" target="78">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="AddProductsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1120" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="AddBasketsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1160" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="76" target="82">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="76" target="83">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="AddFetchAll" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="1120" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="AddFetchOne" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="1160" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="AddDbContext" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="1200" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="AddScoped&amp;lt;FetchAll.Handler&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="2000" y="1120.19" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="AddSingleton&amp;lt;FetchAll.Mapper&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="2000" y="1160.19" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="600 px MAX width" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;align=center;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="1280" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="90" target="93">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="90" target="94">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="90" target="95">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="Program" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="920" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="93" target="99">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="93" target="100">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="AddFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="920" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="MapFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="960.19" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="SeedFeaturesAsync" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1000" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="99" target="101">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="99" target="102">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="99" target="103">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="AddProductsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="920" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="AddBasketsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="960" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="AddFetchAll" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="920" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="AddFetchOne" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="960" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="AddDbContext" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1850" y="1000" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="107" target="110">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="135" target="111">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="136" target="112">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="Program.cs" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="1360" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="110" target="116">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="110" target="117">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="Features.cs&lt;br&gt;AddFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1360" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="132" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="111" target="131">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="111" target="137">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="Features.cs&lt;br&gt;MapFeatures" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="1720" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="134" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="112" target="133">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="158" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="112" target="157">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="Features.cs&lt;br&gt;SeedFeaturesAsync" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1550" y="2000" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="116" target="118">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="116" target="119">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="116" target="120">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="Products.cs&lt;br&gt;AddProductsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1360" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="117" target="121">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="117" target="122">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="128" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="117" target="123">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="117" target="125">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="117" target="124">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="Baskets.cs&lt;br&gt;AddBasketsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1479.81" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="Products.FetchAll.cs&lt;br&gt;AddFetchAll" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1360" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="Products.FetchOne.cs&lt;br&gt;AddFetchOne" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1400" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="Products.cs&lt;br&gt;ProductContext" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1440" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="Baskets.AddItem.cs&lt;br&gt;AddAddItem" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1479.81" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="Baskets.FetchItems.cs&lt;br&gt;AddFetchItems" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1520" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="123" value="Baskets.RemoveItem.cs&lt;br&gt;AddRemoveItem" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1559.81" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="Baskets.cs&lt;br&gt;BasketContext" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1640" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="Baskets.UpdateQuantity.cs&lt;br&gt;AddUpdateQuantity" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1600" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="131" target="140">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="149" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="131" target="141">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="Products.cs&lt;br&gt;MapProductsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1720" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="133" value="Products.cs&lt;br&gt;SeedProductsAsync" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="2000" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" value="Program.cs" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="1720" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="Program.cs" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1400" y="2000" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="137" target="143">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="137" target="144">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="137" target="145">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" style="edgeStyle=elbowEdgeStyle;curved=1;html=1;" edge="1" parent="1" source="137" target="147">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="Baskets.cs&lt;br&gt;MapBasketsFeature" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="1800" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="140" value="Products.FetchAll.cs&lt;br&gt;MapFetchAll" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1720" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="141" value="Products.FetchOne.cs&lt;br&gt;MapFetchOne" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1760" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="143" value="Baskets.FetchItems.cs&lt;br&gt;MapFetchItems" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1800" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" value="Baskets.AddItem.cs&lt;br&gt;MapAddItem" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1840.19" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="145" value="Baskets.UpdateQuantity.cs&lt;br&gt;MapUpdateQuantity" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1880" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" value="Baskets.RemoveItem.cs&lt;br&gt;MapRemoveItem" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1920.19" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="157" value="Baskets.cs&lt;br&gt;SeedBasketsAsync" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;strokeColor=default;fillColor=default;fontSize=11;align=center;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="1700" y="2040" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
