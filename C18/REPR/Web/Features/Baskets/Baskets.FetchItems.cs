@@ -13,14 +13,9 @@ public partial class Baskets
         public record class Response(IEnumerable<Item> Items) : IEnumerable<Item>
         {
             public IEnumerator<Item> GetEnumerator()
-            {
-                return Items.GetEnumerator();
-            }
-
+                => Items.GetEnumerator();
             IEnumerator IEnumerable.GetEnumerator()
-            {
-                return ((IEnumerable)Items).GetEnumerator();
-            }
+                => ((IEnumerable)Items).GetEnumerator();
         }
 
         public record class Item(int ProductId, int Quantity);
