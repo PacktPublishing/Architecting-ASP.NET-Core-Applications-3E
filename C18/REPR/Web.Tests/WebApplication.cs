@@ -51,5 +51,4 @@ public class C18WebApplication : WebApplicationFactory<Program>
         var db = seedScope.ServiceProvider.GetRequiredService<TDbContext>();
         return seeder(db);
     }
-
 }

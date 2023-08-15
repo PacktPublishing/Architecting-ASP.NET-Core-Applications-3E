@@ -10,11 +10,10 @@ public partial class BasketsTest
     public class AddItemTest
     {
         [Fact]
-        public async Task Should_add_the_new_item_to_the_cart()
+        public async Task Should_add_the_new_item_to_the_basket()
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
             var client = application.CreateClient();
 
             // Act
@@ -68,7 +67,6 @@ public partial class BasketsTest
             Assert.True(productResponse.IsSuccessStatusCode);
         }
 
-
         [Fact]
         public async Task Should_return_a_ProblemDetails_with_a_Conflict_status_code()
         {
@@ -98,6 +96,5 @@ public partial class BasketsTest
             Assert.NotNull(dbItem);
             Assert.Equal(10, dbItem.Quantity);
         }
-
     }
 }
