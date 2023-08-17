@@ -1,3 +1,9 @@
+#undef MY_EXCEPTION_MIDDLEWARE
+#if MY_EXCEPTION_MIDDLEWARE
+using Microsoft.AspNetCore.Diagnostics;
+using Web;
+#endif
+
 using Microsoft.EntityFrameworkCore;
 using Web.Features;
 
@@ -15,8 +21,34 @@ builder.AddExceptionMapper(builder =>
 });
 builder.AddFeatures();
 
+#if MY_EXCEPTION_MIDDLEWARE
+builder.Services.AddSingleton<MyExceptionMiddleware>();
+#endif
+
 var app = builder.Build();
 app.UseExceptionMapper();
+
+#if MY_EXCEPTION_MIDDLEWARE
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Use(async (context, next) =>
+    {
+        var exceptionHandlerPathFeature = context.Features
+            .Get<IExceptionHandlerFeature>() ?? throw new NotSupportedException();
+        var logger = context.RequestServices
+            .GetRequiredService<ILoggerFactory>()
+            .CreateLogger("ExceptionHandler");
+        var exception = exceptionHandlerPathFeature.Error;
+        logger.LogWarning(
+            "An exception occurred: {message}",
+            exception.Message
+        );
+        await next(context);
+    });
+    errorApp.UseMiddleware<MyExceptionMiddleware>();
+});
+#endif
+
 app.MapFeatures();
 
 await app.SeedFeaturesAsync();
@@ -27,4 +59,3 @@ app.Run();
 // access it without granting internal visibility.
 #pragma warning disable CA1050 // Declare types in namespaces
 public partial class Program { }
-#pragma warning restore CA1050 // Declare types in namespaces
