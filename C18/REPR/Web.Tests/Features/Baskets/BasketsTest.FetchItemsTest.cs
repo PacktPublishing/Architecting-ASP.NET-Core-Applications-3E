@@ -11,11 +11,18 @@ public partial class BasketsTest
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
+            await application.SeedAsync<BasketContext>(async (db) =>
+            {
+                db.Items.RemoveRange(db.Items.ToArray());
+                db.Items.Add(new BasketItem(2, 1, 5));
+                db.Items.Add(new BasketItem(2, 3, 15));
+                await db.SaveChangesAsync();
+            });
             var client = application.CreateClient();
 
             // Act
-            var response = await client.GetFromJsonAsync<IEnumerable<FetchItems.Item>>("/baskets/2");
+            var response = await client
+                .GetFromJsonAsync<IEnumerable<FetchItems.Item>>("/baskets/2");
 
             // Assert
             Assert.NotNull(response);
@@ -36,11 +43,16 @@ public partial class BasketsTest
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
+            await application.SeedAsync<BasketContext>(async (db) =>
+            {
+                db.Items.RemoveRange(db.Items.ToArray());
+                await db.SaveChangesAsync();
+            });
             var client = application.CreateClient();
 
             // Act
-            var response = await client.GetFromJsonAsync<IEnumerable<FetchItems.Item>>("/baskets/5");
+            var response = await client
+                .GetFromJsonAsync<IEnumerable<FetchItems.Item>>("/baskets/5");
 
             // Assert
             Assert.NotNull(response);

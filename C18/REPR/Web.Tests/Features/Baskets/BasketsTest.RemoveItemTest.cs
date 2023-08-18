@@ -14,7 +14,15 @@ public partial class BasketsTest
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
+            await application.SeedAsync<BasketContext>(async db =>
+            {
+                db.Items.RemoveRange(db.Items.ToArray());
+                db.Items.Add(new BasketItem(1, 3, 30));
+                db.Items.Add(new BasketItem(2, 1, 5));
+                db.Items.Add(new BasketItem(2, 3, 15));
+                db.Items.Add(new BasketItem(3, 2, 18));
+                await db.SaveChangesAsync();
+            });
             var client = application.CreateClient();
 
             // Act
@@ -32,15 +40,15 @@ public partial class BasketsTest
             var db = seedScope.ServiceProvider.GetRequiredService<BasketContext>();
             var dbItem = db.Items.FirstOrDefault(x => x.CustomerId == 2 && x.ProductId == 1);
             Assert.Null(dbItem);
+            var remainingItems = db.Items.Count();
+            Assert.Equal(3, remainingItems);
         }
-
 
         [Fact]
         public async Task Should_return_a_ProblemDetails_with_a_NotFound_status_code()
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
             var client = application.CreateClient();
 
             // Act
@@ -60,6 +68,5 @@ public partial class BasketsTest
             var dbItem = db.Items.FirstOrDefault(x => x.CustomerId == 99);
             Assert.Null(dbItem);
         }
-
     }
 }

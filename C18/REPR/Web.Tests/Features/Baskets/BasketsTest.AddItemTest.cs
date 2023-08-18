@@ -72,26 +72,41 @@ public partial class BasketsTest
         {
             // Arrange
             await using var application = new C18WebApplication();
-            await application.SeedAsync<BasketContext>(SeederDelegateAsync);
+            await application.SeedAsync<BasketContext>(async db =>
+            {
+                db.Items.RemoveRange(db.Items);
+                db.Items.Add(new(
+                    CustomerId: 1,
+                    ProductId: 1,
+                    Quantity: 10
+                ));
+                await db.SaveChangesAsync();
+            });
             var client = application.CreateClient();
 
             // Act
             var response = await client.PostAsJsonAsync(
                 "/baskets",
-                new AddItem.Command(1, 1, 20)
+                new AddItem.Command(
+                    CustomerId: 1,
+                    ProductId: 1,
+                    Quantity: 20
+                )
             );
 
             // Assert the response
             Assert.NotNull(response);
             Assert.False(response.IsSuccessStatusCode);
             Assert.Equal(HttpStatusCode.Conflict, response.StatusCode);
-            var problem = await response.Content.ReadFromJsonAsync<ProblemDetails>();
+            var problem = await response.Content
+                .ReadFromJsonAsync<ProblemDetails>();
             Assert.NotNull(problem);
             Assert.Equal("The product \u00271\u0027 is already in your shopping cart.", problem.Title);
 
             // Assert the database state
             using var seedScope = application.Services.CreateScope();
-            var db = seedScope.ServiceProvider.GetRequiredService<BasketContext>();
+            var db = seedScope.ServiceProvider
+                .GetRequiredService<BasketContext>();
             var dbItem = db.Items.FirstOrDefault(x => x.CustomerId == 1 && x.ProductId == 1);
             Assert.NotNull(dbItem);
             Assert.Equal(10, dbItem.Quantity);
