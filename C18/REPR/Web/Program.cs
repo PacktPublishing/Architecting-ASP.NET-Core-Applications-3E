@@ -59,3 +59,21 @@ app.Run();
 // access it without granting internal visibility.
 #pragma warning disable CA1050 // Declare types in namespaces
 public partial class Program { }
+
+#if MY_EXCEPTION_MIDDLEWARE
+public class MyExceptionMiddleware : IMiddleware
+{
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    {
+        var exceptionHandlerPathFeature = context.Features
+            .Get<IExceptionHandlerFeature>() ?? throw new NotSupportedException();
+
+        var exception = exceptionHandlerPathFeature.Error;
+        await context.Response.WriteAsJsonAsync(new
+        {
+            Error = exception.Message
+        });
+        await next(context);
+    }
+}
+#endif
