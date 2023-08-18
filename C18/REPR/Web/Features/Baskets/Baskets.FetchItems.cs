@@ -72,5 +72,4 @@ public partial class Baskets
         );
         return endpoints;
     }
-
 }
