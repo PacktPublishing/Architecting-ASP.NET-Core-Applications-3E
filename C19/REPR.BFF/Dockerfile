@@ -8,8 +8,6 @@ USER app
 FROM mcr.microsoft.com/dotnet/sdk:8.0-preview AS build
 ARG configuration=Release
 WORKDIR /src
-# COPY ["C19/REPR.BFF/REPR.BFF.csproj", "REPR.BFF/"]
-# COPY ["C18/REPR/Web/Web.csproj", "REPR.Web/"]
 COPY C19/REPR.BFF ./REPR.BFF
 COPY C18/REPR/Web ./REPR.Web
 RUN dotnet remove "REPR.BFF/REPR.BFF.csproj" reference "..\..\C18\REPR\Web\Web.csproj"
