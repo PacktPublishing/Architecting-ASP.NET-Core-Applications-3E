@@ -1,5 +1,6 @@
 using Refit;
 using REPR.BFF;
+using System;
 using System.Collections.Concurrent;
 using System.Net;
 
@@ -26,6 +27,10 @@ app.MapGet(
     "api/cart",
     async (IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken) =>
     {
+        var logger = app.Services
+            .GetRequiredService<ILoggerFactory>()
+            .CreateLogger("GetCart")
+        ;
         var basket = await client.Baskets.FetchCustomerBasketAsync(
             currentUserService.Id,
             cancellationToken
@@ -33,9 +38,21 @@ app.MapGet(
         var result = new ConcurrentBag<BasketProduct>();
         await Parallel.ForEachAsync(basket, cancellationToken, async (item, cancellationToken) =>
         {
+            logger.LogTrace("Fetching product '{ProductId}'.", item.ProductId);
             var product = await client.Catalog.FetchProductAsync(item.ProductId, cancellationToken);
+            logger.LogTrace("Found product '{ProductId}' ({ProductName}).", item.ProductId, product.Name);
             result.Add(new BasketProduct(product.Id, product.Name, product.UnitPrice, item.Quantity));
         });
+        // Log example
+        // TODO: DELETE THIS
+        //trce: GetCart[0]
+        //      Fetching product '3'.
+        //trce: GetCart[0]
+        //      Fetching product '2'.
+        //trce: GetCart[0]
+        //      Found product '2'(Apple).
+        //trce: GetCart[0]
+        //      Found product '3'(Habanero Pepper).
         return result;
     }
 );
@@ -43,70 +60,78 @@ app.MapPost(
     "api/cart",
     async (UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken) =>
     {
-        // Remove the item from the cart when the quantity is 0
         if (item.Quantity == 0)
         {
-            try
-            {
-                var result = await client.Baskets.RemoveProductFromCart(
-                    new Web.Features.Baskets.RemoveItem.Command(
-                        currentUserService.Id,
-                        item.ProductId
-                    ),
-                    cancellationToken
-                );
-                return Results.Ok();
-            }
-            catch (ValidationApiException ex)
-            {
-                // If the product is not in the cart, it does not matter.
-                // If its another exception, we let it propagate up the stack.
-                if (ex.StatusCode != HttpStatusCode.NotFound)
-                {
-                    throw;
-                }
-            }
+            await RemoveItemFromCart(item, client, currentUserService, cancellationToken);
         }
-        try
+        else
         {
-            // Add the product to the cart
-            var result = await client.Baskets.AddProductToCart(
-                new Web.Features.Baskets.AddItem.Command(
-                    currentUserService.Id,
-                    item.ProductId,
-                    item.Quantity
-                ),
-                cancellationToken
-            );
+            await AddOrUpdateItem(item, client, currentUserService, cancellationToken);
         }
-        catch (ValidationApiException ex)
-        {
-            // If the error is not because the product is already in the cart,
-            // we let the exception propagate up the stack.
-            if (ex.StatusCode != HttpStatusCode.Conflict)
-            {
-                throw;
-            }
-
-            // Update the cart
-            var result = await client.Baskets.UpdateProductQuantity(
-                new Web.Features.Baskets.UpdateQuantity.Command(
-                    currentUserService.Id,
-                    item.ProductId,
-                    item.Quantity
-                ),
-                cancellationToken
-            );
-        }
-
-        // If we reached this point, we return 200 OK
         return Results.Ok();
     }
 );
 
-
 app.Run();
 
-public record class UpdateCartItem(int ProductId, int Quantity);
+static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken)
+{
+    try
+    {
+        var result = await client.Baskets.RemoveProductFromCart(
+            new Web.Features.Baskets.RemoveItem.Command(
+                currentUserService.Id,
+                item.ProductId
+            ),
+            cancellationToken
+        );
+    }
+    catch (ValidationApiException ex)
+    {
+        // If the product is not in the cart, it does not matter. In this case
+        // we don't want to display any error in the UI. If its another exception,
+        // we let it propagate up the stack.
+        if (ex.StatusCode != HttpStatusCode.NotFound)
+        {
+            throw;
+        }
+    }
+}
 
+static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken)
+{
+    try
+    {
+        // Add the product to the cart
+        var result = await client.Baskets.AddProductToCart(
+            new Web.Features.Baskets.AddItem.Command(
+                currentUserService.Id,
+                item.ProductId,
+                item.Quantity
+            ),
+            cancellationToken
+        );
+    }
+    catch (ValidationApiException ex)
+    {
+        // If the error is not because the product is already in the cart,
+        // we let the exception propagate up the stack.
+        if (ex.StatusCode != HttpStatusCode.Conflict)
+        {
+            throw;
+        }
+
+        // Update the cart
+        var result = await client.Baskets.UpdateProductQuantity(
+            new Web.Features.Baskets.UpdateQuantity.Command(
+                currentUserService.Id,
+                item.ProductId,
+                item.Quantity
+            ),
+            cancellationToken
+        );
+    }
+}
+
+public record class UpdateCartItem(int ProductId, int Quantity);
 public record class BasketProduct(int Id, string Name, decimal UnitPrice, int Quantity);
