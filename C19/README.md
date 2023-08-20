@@ -29,3 +29,7 @@ dotnet run --project REPR.BFF/REPR.BFF.csproj
 > If this happens while the application runs, you'll get an error similar to this: `The process cannot access the file '...\C18\REPR\ 
 Web\bin\Debug\net8.0\Web.exe' because it is being used by another process.`.
 > When this happens, hit `ctrl+C` to stop the app, wait for the build, then restart the service.
+
+# How to start the project from Visual Studio?
+
+You can use the `Docker Compose` target from Visual Studio and start the solution as usual.
