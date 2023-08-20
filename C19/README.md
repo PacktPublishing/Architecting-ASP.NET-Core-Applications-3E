@@ -1,4 +1,18 @@
-# How to start both projects?
+# How to start the project using Docker?
+
+From the `C19` directory:
+
+```bash
+docker-compose up
+```
+
+To shut it down, hit `ctrl+c`, then run:
+
+```bash
+docker-compose down
+```
+
+# How to start both projects manually?
 
 From the `C19` directory:
 

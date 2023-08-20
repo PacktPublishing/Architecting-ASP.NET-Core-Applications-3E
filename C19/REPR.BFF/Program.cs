@@ -5,13 +5,16 @@ using System.Collections.Concurrent;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
+var baseAddress = builder.Configuration
+    .GetValue<string>("WebAppBaseAddress") ?? throw new NotSupportedException();
+
 builder.Services
     .AddRefitClient<IC18WebBasketsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:7252"))
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseAddress))
 ;
 builder.Services
     .AddRefitClient<IC18WebProductsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:7252"))
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseAddress))
 ;
 builder.Services.AddTransient<IC18WebClient, DefaultWebClient>();
 builder.Services.AddScoped<ICurrentUserService, FakeCurrentUserService>();
