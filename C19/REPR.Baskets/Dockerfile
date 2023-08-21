@@ -9,22 +9,16 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-preview AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["REPR.BFF/REPR.BFF.csproj", "REPR.BFF/"]
 COPY ["REPR.Baskets/REPR.Baskets.csproj", "REPR.Baskets/"]
-COPY ["REPR.Products/REPR.Products.csproj", "REPR.Products/"]
-RUN dotnet restore "REPR.BFF/REPR.BFF.csproj"
+RUN dotnet restore "REPR.Baskets/REPR.Baskets.csproj"
 COPY . .
 WORKDIR "/src/REPR.Baskets"
-RUN rm appsettings*.json
-WORKDIR "/src/REPR.Products"
-RUN rm appsettings*.json
-WORKDIR "/src/REPR.BFF"
-RUN dotnet build "REPR.BFF.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "REPR.Baskets.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "REPR.BFF.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "REPR.Baskets.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "REPR.BFF.dll"]
+ENTRYPOINT ["dotnet", "REPR.Baskets.dll"]
