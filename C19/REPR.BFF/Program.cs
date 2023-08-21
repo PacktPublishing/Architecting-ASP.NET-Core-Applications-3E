@@ -5,16 +5,18 @@ using System.Collections.Concurrent;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
-var baseAddress = builder.Configuration
-    .GetValue<string>("WebAppBaseAddress") ?? throw new NotSupportedException();
+var basketsBaseAddress = builder.Configuration
+    .GetValue<string>("Downstream:Baskets:BaseAddress") ?? throw new NotSupportedException("Cannot start the program without a Baskets base address.");
+var productsBaseAddress = builder.Configuration
+    .GetValue<string>("Downstream:Products:BaseAddress") ?? throw new NotSupportedException("Cannot start the program without a Products base address.");
 
 builder.Services
     .AddRefitClient<IC18WebBasketsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseAddress))
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(basketsBaseAddress))
 ;
 builder.Services
     .AddRefitClient<IC18WebProductsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseAddress))
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri(productsBaseAddress))
 ;
 builder.Services.AddTransient<IC18WebClient, DefaultWebClient>();
 builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();

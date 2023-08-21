@@ -5,9 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-    <UserSecretsId>afd02ac3-6cdf-42d5-8127-1caf790741c3</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\C18\REPR\Web\Web.csproj" />
+    <ProjectReference Include="..\REPR.Baskets\REPR.Baskets.csproj" />
+    <ProjectReference Include="..\REPR.Products\REPR.Products.csproj" />
   </ItemGroup>
 
 </Project>

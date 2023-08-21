@@ -1,5 +1,5 @@
 ﻿@REPR.BFF_HostAddress = https://localhost:7254
-@REPR.BFF_HostAddress = http://localhost:5185
+# @REPR.BFF_HostAddress = http://localhost:5185
 
 GET {{REPR.BFF_HostAddress}}/api/catalog
 
