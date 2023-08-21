@@ -63,7 +63,7 @@ app.MapPost(
     "api/cart",
     async (UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
     {
-        if (item.Quantity == 0)
+        if (item.Quantity <= 0)
         {
             await RemoveItemFromCart(item, client, currentCustomer, cancellationToken);
         }
