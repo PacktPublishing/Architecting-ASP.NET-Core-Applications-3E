@@ -1,12 +1,12 @@
 ﻿namespace REPR.BFF;
 
-public interface ICurrentUserService
+public interface ICurrentCustomerService
 {
     int Id { get; }
 }
 
 
-public class FakeCurrentUserService : ICurrentUserService
+public class FakeCurrentCustomerService : ICurrentCustomerService
 {
     public int Id => 1;
 }

@@ -17,7 +17,7 @@ builder.Services
     .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseAddress))
 ;
 builder.Services.AddTransient<IC18WebClient, DefaultWebClient>();
-builder.Services.AddScoped<ICurrentUserService, FakeCurrentUserService>();
+builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();
 
 var app = builder.Build();
 
@@ -28,14 +28,14 @@ app.MapGet(
 );
 app.MapGet(
     "api/cart",
-    async (IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken) =>
+    async (IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
     {
         var logger = app.Services
             .GetRequiredService<ILoggerFactory>()
             .CreateLogger("GetCart")
         ;
         var basket = await client.Baskets.FetchCustomerBasketAsync(
-            currentUserService.Id,
+            currentCustomer.Id,
             cancellationToken
         );
         var result = new ConcurrentBag<BasketProduct>();
@@ -61,15 +61,15 @@ app.MapGet(
 );
 app.MapPost(
     "api/cart",
-    async (UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken) =>
+    async (UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
     {
         if (item.Quantity == 0)
         {
-            await RemoveItemFromCart(item, client, currentUserService, cancellationToken);
+            await RemoveItemFromCart(item, client, currentCustomer, cancellationToken);
         }
         else
         {
-            await AddOrUpdateItem(item, client, currentUserService, cancellationToken);
+            await AddOrUpdateItem(item, client, currentCustomer, cancellationToken);
         }
         return Results.Ok();
     }
@@ -77,13 +77,13 @@ app.MapPost(
 
 app.Run();
 
-static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken)
+static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
 {
     try
     {
         var result = await client.Baskets.RemoveProductFromCart(
             new Web.Features.Baskets.RemoveItem.Command(
-                currentUserService.Id,
+                currentCustomer.Id,
                 item.ProductId
             ),
             cancellationToken
@@ -101,14 +101,14 @@ static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, 
     }
 }
 
-static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICurrentUserService currentUserService, CancellationToken cancellationToken)
+static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
 {
     try
     {
         // Add the product to the cart
         var result = await client.Baskets.AddProductToCart(
             new Web.Features.Baskets.AddItem.Command(
-                currentUserService.Id,
+                currentCustomer.Id,
                 item.ProductId,
                 item.Quantity
             ),
@@ -127,7 +127,7 @@ static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICu
         // Update the cart
         var result = await client.Baskets.UpdateProductQuantity(
             new Web.Features.Baskets.UpdateQuantity.Command(
-                currentUserService.Id,
+                currentCustomer.Id,
                 item.ProductId,
                 item.Quantity
             ),
