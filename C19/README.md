@@ -1,5 +1,16 @@
 # How to start the project using Docker?
 
+## Configure HTTPS on Windows
+
+> Reference: https://learn.microsoft.com/en-us/aspnet/core/security/docker-compose-https
+
+```powershell
+dotnet dev-certs https -ep "$env:APPDATA\ASP.NET\Https\adpg-net8-chapter-19.pfx" -p devpassword
+dotnet dev-certs https --trust
+```
+
+## Build and start the apps
+
 From the `C19` directory:
 
 ```bash

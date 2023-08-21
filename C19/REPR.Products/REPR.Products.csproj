@@ -4,6 +4,9 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>685dd8a2-3649-474c-b7a9-f621ba69dbee</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
 
 
@@ -12,6 +15,7 @@
         <PackageReference Include="ForEvolve.ExceptionMapper" Version="3.0.29-gfb178e8663" />
         <PackageReference Include="ForEvolve.FluentValidation.AspNetCore.Http" Version="1.0.25" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0-preview.7.23375.4" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
         <PackageReference Include="Riok.Mapperly" Version="3.0.0" />
     </ItemGroup>
 
