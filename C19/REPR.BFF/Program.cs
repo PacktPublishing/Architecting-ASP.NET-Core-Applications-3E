@@ -46,16 +46,6 @@ app.MapGet(
             logger.LogTrace("Found product '{ProductId}' ({ProductName}).", item.ProductId, product.Name);
             result.Add(new BasketProduct(product.Id, product.Name, product.UnitPrice, item.Quantity));
         });
-        // Log example
-        // TODO: DELETE THIS
-        //trce: GetCart[0]
-        //      Fetching product '3'.
-        //trce: GetCart[0]
-        //      Fetching product '2'.
-        //trce: GetCart[0]
-        //      Found product '2'(Apple).
-        //trce: GetCart[0]
-        //      Found product '3'(Habanero Pepper).
         return result;
     }
 );
