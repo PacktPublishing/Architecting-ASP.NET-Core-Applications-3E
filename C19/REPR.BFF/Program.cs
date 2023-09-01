@@ -1,6 +1,5 @@
 using Refit;
 using REPR.BFF;
-using System;
 using System.Collections.Concurrent;
 using System.Net;
 
@@ -11,57 +10,81 @@ var productsBaseAddress = builder.Configuration
     .GetValue<string>("Downstream:Products:BaseAddress") ?? throw new NotSupportedException("Cannot start the program without a Products base address.");
 
 builder.Services
-    .AddRefitClient<IC18WebBasketsClient>()
+    .AddRefitClient<IBasketsClient>()
     .ConfigureHttpClient(c => c.BaseAddress = new Uri(basketsBaseAddress))
 ;
 builder.Services
-    .AddRefitClient<IC18WebProductsClient>()
+    .AddRefitClient<IProductsClient>()
     .ConfigureHttpClient(c => c.BaseAddress = new Uri(productsBaseAddress))
 ;
-builder.Services.AddTransient<IC18WebClient, DefaultWebClient>();
+builder.Services.AddTransient<IWebClient, DefaultWebClient>();
 builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();
 
 var app = builder.Build();
 
 app.MapGet(
     "api/catalog",
-    (IC18WebClient client, CancellationToken cancellationToken)
+    (IWebClient client, CancellationToken cancellationToken)
         => client.Catalog.FetchProductsAsync(cancellationToken)
 );
 app.MapGet(
+    "api/catalog/{productId}",
+    (int productId, IWebClient client, CancellationToken cancellationToken)
+        => client.Catalog.FetchProductAsync(new(productId), cancellationToken)
+);
+
+app.MapGet(
     "api/cart",
-    async (IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
+    async (IWebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
     {
         var logger = app.Services
             .GetRequiredService<ILoggerFactory>()
             .CreateLogger("GetCart")
         ;
         var basket = await client.Baskets.FetchCustomerBasketAsync(
-            currentCustomer.Id,
+            new(currentCustomer.Id),
             cancellationToken
         );
         var result = new ConcurrentBag<BasketProduct>();
         await Parallel.ForEachAsync(basket, cancellationToken, async (item, cancellationToken) =>
         {
             logger.LogTrace("Fetching product '{ProductId}'.", item.ProductId);
-            var product = await client.Catalog.FetchProductAsync(item.ProductId, cancellationToken);
+            var product = await client.Catalog.FetchProductAsync(
+                new(item.ProductId),
+                cancellationToken
+            );
             logger.LogTrace("Found product '{ProductId}' ({ProductName}).", item.ProductId, product.Name);
-            result.Add(new BasketProduct(product.Id, product.Name, product.UnitPrice, item.Quantity));
+            result.Add(new BasketProduct(
+                product.Id,
+                product.Name,
+                product.UnitPrice,
+                item.Quantity
+            ));
         });
         return result;
     }
 );
 app.MapPost(
     "api/cart",
-    async (UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
+    async (UpdateCartItem item, IWebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken) =>
     {
         if (item.Quantity <= 0)
         {
-            await RemoveItemFromCart(item, client, currentCustomer, cancellationToken);
+            await RemoveItemFromCart(
+                item,
+                client,
+                currentCustomer,
+                cancellationToken
+            );
         }
         else
         {
-            await AddOrUpdateItem(item, client, currentCustomer, cancellationToken);
+            await AddOrUpdateItem(
+                item,
+                client,
+                currentCustomer,
+                cancellationToken
+            );
         }
         return Results.Ok();
     }
@@ -69,7 +92,7 @@ app.MapPost(
 
 app.Run();
 
-static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
+static async Task RemoveItemFromCart(UpdateCartItem item, IWebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
 {
     try
     {
@@ -93,7 +116,7 @@ static async Task RemoveItemFromCart(UpdateCartItem item, IC18WebClient client, 
     }
 }
 
-static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
+static async Task AddOrUpdateItem(UpdateCartItem item, IWebClient client, ICurrentCustomerService currentCustomer, CancellationToken cancellationToken)
 {
     try
     {
@@ -129,4 +152,7 @@ static async Task AddOrUpdateItem(UpdateCartItem item, IC18WebClient client, ICu
 }
 
 public record class UpdateCartItem(int ProductId, int Quantity);
-public record class BasketProduct(int Id, string Name, decimal UnitPrice, int Quantity);
+public record class BasketProduct(int Id, string Name, decimal UnitPrice, int Quantity)
+{
+    public decimal TotalPrice => UnitPrice * Quantity;
+}
