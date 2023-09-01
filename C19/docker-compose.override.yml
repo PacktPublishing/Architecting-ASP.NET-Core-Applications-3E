@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  repr.bff:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/home/app/.aspnet/https/adpg-net8-chapter-19.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=devpassword
+      - Downstream__Baskets__BaseAddress=http://repr.baskets
+      - Downstream__Products__BaseAddress=http://repr.products
+    ports:
+      - "7254:443"
+      - "5175:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  repr.products:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/home/app/.aspnet/https/adpg-net8-chapter-19.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=devpassword
+    ports:
+      - "57362:443"
+      - "3906:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  repr.baskets:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/home/app/.aspnet/https/adpg-net8-chapter-19.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=devpassword
+    ports:
+      - "60280:443"
+      - "23026:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
