@@ -1,0 +1,53 @@
+﻿@REPR_BFF_HostAddress = https://localhost:7254
+
+GET {{REPR_BFF_HostAddress}}/api/catalog
+
+###
+
+GET {{REPR_BFF_HostAddress}}/api/catalog/3
+
+###
+
+GET {{REPR_BFF_HostAddress}}/api/cart
+
+###
+
+POST {{REPR_BFF_HostAddress}}/api/cart
+Content-Type: application/json
+
+{
+    "productId": 3, 
+    "quantity": 10
+}
+
+###
+
+POST {{REPR_BFF_HostAddress}}/api/cart
+Content-Type: application/json
+
+{
+    "productId": 2, 
+    "quantity": 5
+}
+
+###
+
+POST {{REPR_BFF_HostAddress}}/api/cart
+Content-Type: application/json
+
+{
+    "productId": 3, 
+    "quantity": 20
+}
+
+###
+
+POST {{REPR_BFF_HostAddress}}/api/cart
+Content-Type: application/json
+
+{
+    "productId": 2, 
+    "quantity": 0
+}
+
+###
