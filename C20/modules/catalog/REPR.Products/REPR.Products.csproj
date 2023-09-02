@@ -19,4 +19,9 @@
         <PackageReference Include="Riok.Mapperly" Version="3.0.0" />
     </ItemGroup>
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\REPR.Products.Contracts\REPR.Products.Contracts.csproj" />
+    </ItemGroup>
+
 </Project>

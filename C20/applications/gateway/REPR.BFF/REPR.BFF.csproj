@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\REPR.Baskets\REPR.Baskets.csproj" />
-    <ProjectReference Include="..\REPR.Products\REPR.Products.csproj" />
+    <ProjectReference Include="..\..\aggregator\REPR.API.Contracts\REPR.API.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
