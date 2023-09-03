@@ -1,6 +1,6 @@
 ﻿using ForEvolve.ExceptionMapper;
 
-namespace Web.Features;
+namespace REPR.Products;
 
 public class ProductNotFoundException : NotFoundException
 {

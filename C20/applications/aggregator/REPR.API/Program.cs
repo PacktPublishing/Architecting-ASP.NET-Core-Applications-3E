@@ -1,9 +1,13 @@
 using REPR.Baskets;
+using REPR.Products;
 using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddExceptionMapper();
-builder.AddBasketModule();
+builder
+    .AddBasketModule()
+    .AddProductsModule()
+;
 builder.Services.AddMassTransit(x =>
 {
     x.SetKebabCaseEndpointNameFormatter();
@@ -16,8 +20,8 @@ builder.Services.AddMassTransit(x =>
 });
 var app = builder.Build();
 app.UseExceptionMapper();
-app.MapBasketModule();
-
-//app.MapGet("/", () => "Hello World!");
-
+app
+    .MapBasketModule()
+    .MapProductsModule()
+;
 app.Run();
