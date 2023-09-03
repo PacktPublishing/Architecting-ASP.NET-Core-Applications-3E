@@ -1,11 +1,5 @@
-﻿using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
 using REPR.Products.Data;
 using REPR.Products.Features;
 using System.Reflection;
@@ -24,9 +18,9 @@ public static class ProductsModuleExtensions
 
             // Add features
             .AddFetchAll()
-            .AddFetchOne()
-            .AddCreate()
-            .AddDelete()
+            .AddFetchOneProduct()
+            .AddCreateProduct()
+            .AddDeleteProduct()
 
             // Add and configure db context
             .AddDbContext<ProductContext>(options => options
@@ -46,9 +40,9 @@ public static class ProductsModuleExtensions
 
             // Map endpoints
             .MapFetchAll()
-            .MapFetchOne()
-            .MapCreate()
-            .MapDelete()
+            .MapFetchOneProduct()
+            .MapCreateProduct()
+            .MapDeleteProduct()
         ;
         return endpoints;
     }

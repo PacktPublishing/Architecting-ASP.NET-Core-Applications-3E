@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace REPR.Products.Data;
+﻿namespace REPR.Products.Data;
 
 public class ProductContext : DbContext
 {
