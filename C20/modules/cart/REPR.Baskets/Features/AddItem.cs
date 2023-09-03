@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using REPR.Baskets.Data;
 using Riok.Mapperly.Abstractions;
-using System;
 
 namespace REPR.Baskets.Features;
 

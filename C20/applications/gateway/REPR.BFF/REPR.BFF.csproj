@@ -5,9 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-    <UserSecretsId>09568c6d-a60e-41aa-95b9-3a109653a1f8</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

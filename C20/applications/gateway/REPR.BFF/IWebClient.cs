@@ -1,5 +1,4 @@
 ﻿using Refit;
-using Web.Features;
 
 namespace REPR.BFF;
 

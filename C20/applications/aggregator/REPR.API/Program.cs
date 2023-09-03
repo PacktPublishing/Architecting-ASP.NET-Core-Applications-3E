@@ -1,6 +1,6 @@
+using MassTransit;
 using REPR.Baskets;
 using REPR.Products;
-using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddExceptionMapper();

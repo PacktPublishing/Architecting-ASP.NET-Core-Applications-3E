@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using REPR.Baskets.Data;
 using REPR.Products.Contracts;
-using System;
-using System.Threading;
 
 namespace REPR.Baskets.Features;
 
