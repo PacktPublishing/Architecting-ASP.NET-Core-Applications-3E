@@ -1,5 +1,4 @@
-﻿using REPR.Products.Contracts;
-using REPR.Products.Data;
+﻿using REPR.Products.Data;
 
 namespace REPR.Products.Features;
 

@@ -5,5 +5,5 @@ global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Routing;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.DependencyInjection;
-global using Riok.Mapperly.Abstractions;
 global using REPR.Products.Contracts;
+global using Riok.Mapperly.Abstractions;
