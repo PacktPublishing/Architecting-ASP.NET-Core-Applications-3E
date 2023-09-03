@@ -1,4 +1,5 @@
 using Refit;
+using REPR.Baskets.Contracts;
 using REPR.BFF;
 using System.Collections.Concurrent;
 using System.Net;
@@ -97,7 +98,7 @@ static async Task RemoveItemFromCart(UpdateCartItem item, IWebClient client, ICu
     try
     {
         var result = await client.Baskets.RemoveProductFromCart(
-            new Web.Features.Baskets.RemoveItem.Command(
+            new RemoveItemCommand(
                 currentCustomer.Id,
                 item.ProductId
             ),
@@ -122,7 +123,7 @@ static async Task AddOrUpdateItem(UpdateCartItem item, IWebClient client, ICurre
     {
         // Add the product to the cart
         var result = await client.Baskets.AddProductToCart(
-            new Web.Features.Baskets.AddItem.Command(
+            new AddItemCommand(
                 currentCustomer.Id,
                 item.ProductId,
                 item.Quantity
@@ -141,7 +142,7 @@ static async Task AddOrUpdateItem(UpdateCartItem item, IWebClient client, ICurre
 
         // Update the cart
         var result = await client.Baskets.UpdateProductQuantity(
-            new Web.Features.Baskets.UpdateQuantity.Command(
+            new UpdateQuantityCommand(
                 currentCustomer.Id,
                 item.ProductId,
                 item.Quantity

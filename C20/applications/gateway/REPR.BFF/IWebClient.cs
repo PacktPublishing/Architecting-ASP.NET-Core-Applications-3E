@@ -1,4 +1,6 @@
 ﻿using Refit;
+using REPR.Baskets.Contracts;
+using REPR.Products.Contracts;
 
 namespace REPR.BFF;
 
@@ -23,34 +25,46 @@ public class DefaultWebClient : IWebClient
 public interface IBasketsClient
 {
     [Get("/baskets/{query.CustomerId}")]
-    Task<IEnumerable<Baskets.FetchItems.Item>> FetchCustomerBasketAsync(
-        Baskets.FetchItems.Query query,
+    Task<IEnumerable<FetchItemsResponseItem>> FetchCustomerBasketAsync(
+        FetchItemsQuery query,
         CancellationToken cancellationToken);
 
     [Post("/baskets")]
-    Task<Baskets.AddItem.Response> AddProductToCart(
-        Baskets.AddItem.Command command,
+    Task<AddItemResponse> AddProductToCart(
+        AddItemCommand command,
         CancellationToken cancellationToken);
 
     [Delete("/baskets/{command.CustomerId}/{command.ProductId}")]
-    Task<Baskets.RemoveItem.Response> RemoveProductFromCart(
-        Baskets.RemoveItem.Command command,
+    Task<RemoveItemResponse> RemoveProductFromCart(
+        RemoveItemCommand command,
         CancellationToken cancellationToken);
 
     [Put("/baskets")]
-    Task<Baskets.UpdateQuantity.Response> UpdateProductQuantity(
-        Baskets.UpdateQuantity.Command command,
+    Task<UpdateQuantityResponse> UpdateProductQuantity(
+        UpdateQuantityCommand command,
         CancellationToken cancellationToken);
 }
 
 public interface IProductsClient
 {
     [Get("/products/{query.ProductId}")]
-    Task<Products.FetchOne.Response> FetchProductAsync(
-        Products.FetchOne.Query query,
+    Task<FetchOneProductResponse> FetchProductAsync(
+        FetchOneProductQuery query,
         CancellationToken cancellationToken);
 
     [Get("/products")]
-    Task<Products.FetchAll.Response> FetchProductsAsync(
+    Task<FetchAllProductsResponse> FetchProductsAsync(
         CancellationToken cancellationToken);
+
+    [Post("/products")]
+    Task<CreateProductResponse> CreateProductAsync(
+        CreateProductCommand command,
+        CancellationToken cancellationToken);
+
+    [Delete("/products/{command.ProductId}")]
+    Task<DeleteProductResponse> DeleteProductAsync(
+        DeleteProductCommand command,
+        CancellationToken cancellationToken);
+
+
 }
