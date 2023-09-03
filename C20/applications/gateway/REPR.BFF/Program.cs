@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.AddApiClient();
 builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();
 
 var app = builder.Build();
