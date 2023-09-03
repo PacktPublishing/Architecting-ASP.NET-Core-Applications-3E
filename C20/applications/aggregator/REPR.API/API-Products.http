@@ -1,0 +1,35 @@
+@Web_HostAddress = https://localhost:7164
+
+GET {{Web_HostAddress}}/products
+
+###
+
+POST {{Web_HostAddress}}/products
+Content-Type: application/json
+
+{
+    "name": "Banana", 
+    "unitPrice": 0.3
+}
+
+POST {{Web_HostAddress}}/products
+Content-Type: application/json
+
+{
+    "name": "Apple", 
+    "unitPrice": 0.79
+}
+
+POST {{Web_HostAddress}}/products
+Content-Type: application/json
+
+{
+    "name": "Habanero Pepper", 
+    "unitPrice": 0.99
+}
+
+###
+
+DELETE {{Web_HostAddress}}/products/2
+
+###

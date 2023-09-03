@@ -54,6 +54,6 @@ public static class BasketModuleExtensions
 
     public static void AddBasketModuleConsumers(this IRegistrationConfigurator configurator)
     {
-        configurator.AddConsumers(typeof(BasketModuleExtensions));
+        configurator.AddConsumers(typeof(ProductEventsConsumers));
     }
 }

@@ -25,6 +25,10 @@ public static class ProductsModuleExtensions
             // Add features
             .AddFetchAll()
             .AddFetchOne()
+            .AddCreate()
+            .AddDelete()
+
+            // Add and configure db context
             .AddDbContext<ProductContext>(options => options
                 .UseInMemoryDatabase("ProductContextMemoryDB")
                 .ConfigureWarnings(builder => builder.Ignore(InMemoryEventId.TransactionIgnoredWarning))
@@ -43,6 +47,8 @@ public static class ProductsModuleExtensions
             // Map endpoints
             .MapFetchAll()
             .MapFetchOne()
+            .MapCreate()
+            .MapDelete()
         ;
         return endpoints;
     }

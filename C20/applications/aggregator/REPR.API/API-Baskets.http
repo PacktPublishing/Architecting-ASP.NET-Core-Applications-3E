@@ -1,0 +1,53 @@
+@Web_HostAddress = https://localhost:7164
+
+GET {{Web_HostAddress}}/baskets/1
+
+###
+
+POST {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": 1, 
+    "productId": 3, 
+    "quantity": 10
+}
+
+###
+
+POST {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": 1, 
+    "productId": 2, 
+    "quantity": 4
+}
+
+###
+
+POST {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": 1, 
+    "productId": 5, 
+    "quantity": 99
+}
+
+###
+
+PUT {{Web_HostAddress}}/baskets
+Content-Type: application/json
+
+{
+    "customerId": 1, 
+    "productId": 3, 
+    "quantity": 15
+}
+
+###
+
+DELETE {{Web_HostAddress}}/baskets/1/3
+
+###

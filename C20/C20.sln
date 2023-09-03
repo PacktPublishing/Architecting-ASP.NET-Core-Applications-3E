@@ -31,11 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.BFF", "applications\ga
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aggregator", "aggregator", "{336AC74F-FA83-4DF2-839A-4EB1F3AF95B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.API.Tests", "applications\aggregator\REPR.API.Tests\REPR.API.Tests.csproj", "{2A8BE7BE-55B1-46AD-A8A4-BF19586E05BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.API.Tests", "applications\aggregator\REPR.API.Tests\REPR.API.Tests.csproj", "{2A8BE7BE-55B1-46AD-A8A4-BF19586E05BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.API.Contracts", "applications\aggregator\REPR.API.Contracts\REPR.API.Contracts.csproj", "{9CFF788D-23A7-49C5-B59E-14B46440BBCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.API.Contracts", "applications\aggregator\REPR.API.Contracts\REPR.API.Contracts.csproj", "{9CFF788D-23A7-49C5-B59E-14B46440BBCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.API", "applications\aggregator\REPR.API\REPR.API.csproj", "{88CB1568-D9EB-410A-89DD-EF7D8A0F31F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.API", "applications\aggregator\REPR.API\REPR.API.csproj", "{88CB1568-D9EB-410A-89DD-EF7D8A0F31F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,5 +107,8 @@ Global
 		{2A8BE7BE-55B1-46AD-A8A4-BF19586E05BD} = {336AC74F-FA83-4DF2-839A-4EB1F3AF95B9}
 		{9CFF788D-23A7-49C5-B59E-14B46440BBCE} = {336AC74F-FA83-4DF2-839A-4EB1F3AF95B9}
 		{88CB1568-D9EB-410A-89DD-EF7D8A0F31F1} = {336AC74F-FA83-4DF2-839A-4EB1F3AF95B9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4784CC3A-F0AA-4746-9E02-980FDF988B61}
 	EndGlobalSection
 EndGlobal
