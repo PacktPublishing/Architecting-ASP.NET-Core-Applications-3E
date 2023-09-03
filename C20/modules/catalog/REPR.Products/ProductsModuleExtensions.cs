@@ -46,28 +46,4 @@ public static class ProductsModuleExtensions
         ;
         return endpoints;
     }
-
-    private static async Task SeedProductsModuleAsync(this WebApplication app)
-    {
-        // TODO: update this to use commands instead so the events get triggered.
-        using var scope = app.Services.CreateScope();
-
-        var db = scope.ServiceProvider.GetRequiredService<ProductContext>();
-        db.Products.Add(new Product(
-            Name: "Banana",
-            UnitPrice: 0.30m,
-            Id: 1
-        ));
-        db.Products.Add(new Product(
-            Name: "Apple",
-            UnitPrice: 0.79m,
-            Id: 2
-        ));
-        db.Products.Add(new Product(
-            Name: "Habanero Pepper",
-            UnitPrice: 0.99m,
-            Id: 3
-        ));
-        await db.SaveChangesAsync();
-    }
 }

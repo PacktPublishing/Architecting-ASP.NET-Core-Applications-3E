@@ -1,3 +1,4 @@
+using ApiClient;
 using Refit;
 using REPR.Baskets.Contracts;
 using REPR.BFF;
@@ -5,20 +6,6 @@ using System.Collections.Concurrent;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
-var basketsBaseAddress = builder.Configuration
-    .GetValue<string>("Downstream:Baskets:BaseAddress") ?? throw new NotSupportedException("Cannot start the program without a Baskets base address.");
-var productsBaseAddress = builder.Configuration
-    .GetValue<string>("Downstream:Products:BaseAddress") ?? throw new NotSupportedException("Cannot start the program without a Products base address.");
-
-builder.Services
-    .AddRefitClient<IBasketsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(basketsBaseAddress))
-;
-builder.Services
-    .AddRefitClient<IProductsClient>()
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri(productsBaseAddress))
-;
-builder.Services.AddTransient<IWebClient, DefaultWebClient>();
 builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();
 
 var app = builder.Build();
