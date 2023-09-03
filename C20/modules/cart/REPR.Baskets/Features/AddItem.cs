@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using REPR.Baskets.Data;
 using Riok.Mapperly.Abstractions;
+using System;
 
 namespace REPR.Baskets.Features;
 
@@ -30,11 +31,26 @@ public static partial class AddItem
 
     public class Validator : AbstractValidator<Command>
     {
-        public Validator()
+        private readonly BasketContext _db;
+
+        public Validator(BasketContext db)
         {
+            _db = db ?? throw new ArgumentNullException(nameof(db));
+
             RuleFor(x => x.CustomerId).GreaterThan(0);
-            RuleFor(x => x.ProductId).GreaterThan(0);
+            RuleFor(x => x.ProductId)
+                .GreaterThan(0)
+                .MustAsync(ProductExistsAsync)
+                .WithMessage("The Product does not exist.")
+            ;
             RuleFor(x => x.Quantity).GreaterThan(0);
+        }
+
+        private async Task<bool> ProductExistsAsync(int productId, CancellationToken cancellationToken)
+        {
+            var product = await _db.Products
+                .FirstOrDefaultAsync(x => x.Id == productId, cancellationToken);
+            return product is not null;
         }
     }
 

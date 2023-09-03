@@ -8,6 +8,7 @@ public class BasketContext : DbContext
         : base(options) { }
 
     public DbSet<BasketItem> Items => Set<BasketItem>();
+    public DbSet<Product> Products => Set<Product>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

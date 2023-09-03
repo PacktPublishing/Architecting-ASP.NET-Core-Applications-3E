@@ -25,6 +25,7 @@
 
 
     <ItemGroup>
+      <ProjectReference Include="..\..\catalog\REPR.Products.Contracts\REPR.Products.Contracts.csproj" />
       <ProjectReference Include="..\REPR.Baskets.Contracts\REPR.Baskets.Contracts.csproj" />
     </ItemGroup>
 

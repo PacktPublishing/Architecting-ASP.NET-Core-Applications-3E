@@ -15,11 +15,11 @@ namespace REPR.Baskets;
 
 public static class BasketModuleExtensions
 {
-    public static IServiceCollection AddBasketModule(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddBasketModule(this WebApplicationBuilder builder)
     {
         // Register fluent validation
         builder.AddFluentValidationEndpointFilter();
-        return builder.Services
+        builder.Services
             .AddFluentValidationAutoValidation()
             .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
 
@@ -33,6 +33,7 @@ public static class BasketModuleExtensions
                 .ConfigureWarnings(builder => builder.Ignore(InMemoryEventId.TransactionIgnoredWarning))
             )
         ;
+        return builder;
     }
 
     public static IEndpointRouteBuilder MapBasketModule(this IEndpointRouteBuilder endpoints)
@@ -40,9 +41,9 @@ public static class BasketModuleExtensions
         var group = endpoints
             .MapGroup(nameof(Baskets).ToLower())
             .WithTags(nameof(Baskets))
-            .AddFluentValidationFilter();
-        ;
-        group
+            .AddFluentValidationFilter()
+
+            // Map endpoints
             .MapFetchItems()
             .MapAddItem()
             .MapUpdateQuantity()
