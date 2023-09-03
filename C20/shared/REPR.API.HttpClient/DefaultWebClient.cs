@@ -1,4 +1,4 @@
-﻿namespace ApiClient;
+﻿namespace REPR.API.HttpClient;
 
 public class DefaultWebClient : IWebClient
 {

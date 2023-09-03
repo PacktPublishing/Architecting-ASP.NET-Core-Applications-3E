@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\shared\ApiClient\ApiClient.csproj" />
+    <ProjectReference Include="..\..\..\shared\REPR.API.HttpClient\REPR.API.HttpClient.csproj" />
     <ProjectReference Include="..\..\aggregator\REPR.API.Contracts\REPR.API.Contracts.csproj" />
   </ItemGroup>
 

@@ -1,10 +1,10 @@
-using ApiClient;
+using REPR.API.HttpClient;
 using MassTransit;
 using REPR.Baskets;
 using REPR.Products;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.AddApiClient();
+builder.AddApiHttpClient();
 builder.AddExceptionMapper();
 builder
     .AddBasketModule()
@@ -20,6 +20,7 @@ builder.Services.AddMassTransit(x =>
 
     x.AddBasketModuleConsumers();
 });
+
 var app = builder.Build();
 app.UseExceptionMapper();
 app

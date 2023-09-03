@@ -1,7 +1,7 @@
 ﻿using Refit;
 using REPR.Products.Contracts;
 
-namespace ApiClient;
+namespace REPR.API.HttpClient;
 
 public interface IProductsClient
 {

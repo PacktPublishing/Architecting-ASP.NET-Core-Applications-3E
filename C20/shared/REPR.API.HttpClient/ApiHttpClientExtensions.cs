@@ -3,10 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
 
-namespace ApiClient;
-public static class ApiClientExtensions
+namespace REPR.API.HttpClient;
+public static class ApiHttpClientExtensions
 {
-    public static WebApplicationBuilder AddApiClient(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddApiHttpClient(this WebApplicationBuilder builder)
     {
         const string basketsBaseAddressKey = "Downstream:Baskets:BaseAddress";
         const string productsBaseAddressKey = "Downstream:Products:BaseAddress";
@@ -34,6 +34,6 @@ public class BaseAddressNotFoundException : NotSupportedException
     public BaseAddressNotFoundException(string key)
         : base($"Cannot find the following settings key: '{key}'. Cannot start the program without it.")
     {
-            
+
     }
 }

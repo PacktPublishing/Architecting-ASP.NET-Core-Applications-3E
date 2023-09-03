@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.Baskets.Contracts", "m
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{28180DA8-C20B-4299-87C1-0D24FBB0F83B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.BFF.Tests", "applications\gateway\REPR.BFF.Tests\REPR.BFF.Tests.csproj", "{51507ED4-9735-4BF3-AAF1-11CBFDC63FEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.BFF.Tests", "applications\gateway\REPR.BFF.Tests\REPR.BFF.Tests.csproj", "{51507ED4-9735-4BF3-AAF1-11CBFDC63FEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REPR.BFF", "applications\gateway\REPR.BFF\REPR.BFF.csproj", "{D429ADFD-DB81-43DE-8ACC-E090831C279B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.BFF", "applications\gateway\REPR.BFF\REPR.BFF.csproj", "{D429ADFD-DB81-43DE-8ACC-E090831C279B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aggregator", "aggregator", "{336AC74F-FA83-4DF2-839A-4EB1F3AF95B9}"
 EndProject
@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.API", "applications\ag
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{27C68DE6-BFC0-414C-92E4-A0D18E5FFDF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "shared\ApiClient\ApiClient.csproj", "{D5EF4FE6-39E7-4C6E-A770-DFEC37C002A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.API.HttpClient", "shared\REPR.API.HttpClient\REPR.API.HttpClient.csproj", "{D5EF4FE6-39E7-4C6E-A770-DFEC37C002A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

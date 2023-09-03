@@ -1,4 +1,4 @@
-using ApiClient;
+using REPR.API.HttpClient;
 using Refit;
 using REPR.Baskets.Contracts;
 using REPR.BFF;
@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.AddApiClient();
+builder.AddApiHttpClient();
 builder.Services.AddScoped<ICurrentCustomerService, FakeCurrentCustomerService>();
 
 var app = builder.Build();

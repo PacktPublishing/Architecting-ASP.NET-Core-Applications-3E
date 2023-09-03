@@ -1,7 +1,7 @@
 ﻿using Refit;
 using REPR.Baskets.Contracts;
 
-namespace ApiClient;
+namespace REPR.API.HttpClient;
 
 public interface IBasketsClient
 {
