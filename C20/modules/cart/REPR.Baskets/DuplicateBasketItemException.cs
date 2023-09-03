@@ -1,6 +1,6 @@
 ﻿using ForEvolve.ExceptionMapper;
 
-namespace Web.Features;
+namespace REPR.Baskets;
 
 public class DuplicateBasketItemException : ConflictException
 {

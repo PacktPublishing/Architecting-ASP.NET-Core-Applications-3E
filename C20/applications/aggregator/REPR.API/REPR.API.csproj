@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\modules\cart\REPR.Baskets\REPR.Baskets.csproj" />
+    <ProjectReference Include="..\..\..\modules\catalog\REPR.Products\REPR.Products.csproj" />
     <ProjectReference Include="..\REPR.API.Contracts\REPR.API.Contracts.csproj" />
   </ItemGroup>
 

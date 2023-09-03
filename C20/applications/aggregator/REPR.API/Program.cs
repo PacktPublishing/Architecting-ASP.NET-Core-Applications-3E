@@ -1,6 +1,23 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using REPR.Baskets;
+using MassTransit;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+builder.AddExceptionMapper();
+builder.AddBasketModule();
+builder.Services.AddMassTransit(x =>
+{
+    x.SetKebabCaseEndpointNameFormatter();
+    x.UsingInMemory((context, cfg) =>
+    {
+        cfg.ConfigureEndpoints(context);
+    });
+
+    x.AddBasketModuleConsumers();
+});
+var app = builder.Build();
+app.UseExceptionMapper();
+app.MapBasketModule();
+
+//app.MapGet("/", () => "Hello World!");
 
 app.Run();
