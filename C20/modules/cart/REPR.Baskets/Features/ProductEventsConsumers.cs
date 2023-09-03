@@ -1,8 +1,4 @@
-﻿using MassTransit;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using REPR.Baskets.Data;
-using REPR.Products.Contracts;
+﻿using REPR.Products.Contracts;
 
 namespace REPR.Baskets.Features;
 

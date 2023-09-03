@@ -1,13 +1,5 @@
-﻿using FluentValidation;
-using FluentValidation.AspNetCore;
-using MassTransit;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
-using REPR.Baskets.Data;
 using REPR.Baskets.Features;
 using System.Reflection;
 

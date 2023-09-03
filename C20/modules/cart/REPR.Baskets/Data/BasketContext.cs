@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace REPR.Baskets.Data;
+﻿namespace REPR.Baskets.Data;
 
 public class BasketContext : DbContext
 {
