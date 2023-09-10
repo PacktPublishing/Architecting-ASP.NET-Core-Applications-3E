@@ -30,9 +30,9 @@ public static class BasketModuleExtensions
 
     public static IEndpointRouteBuilder MapBasketModule(this IEndpointRouteBuilder endpoints)
     {
-        var group = endpoints
-            .MapGroup(nameof(Baskets).ToLower())
-            .WithTags(nameof(Baskets))
+        _ = endpoints
+            .MapGroup(Constants.ModuleName.ToLower())
+            .WithTags(Constants.ModuleName)
             .AddFluentValidationFilter()
 
             // Map endpoints

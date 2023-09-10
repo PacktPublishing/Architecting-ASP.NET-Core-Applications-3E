@@ -33,9 +33,9 @@ public static class ProductsModuleExtensions
 
     public static IEndpointRouteBuilder MapProductsModule(this IEndpointRouteBuilder endpoints)
     {
-        var group = endpoints
-            .MapGroup(nameof(Products).ToLower())
-            .WithTags(nameof(Products))
+        _ = endpoints
+            .MapGroup(Constants.ModuleName.ToLower())
+            .WithTags(Constants.ModuleName)
             .AddFluentValidationFilter()
 
             // Map endpoints

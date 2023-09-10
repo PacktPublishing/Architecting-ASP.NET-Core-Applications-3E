@@ -11,6 +11,7 @@ public class BasketContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.HasDefaultSchema(Constants.ModuleName.ToLower());
         modelBuilder
             .Entity<BasketItem>()
             .HasKey(x => new { x.CustomerId, x.ProductId })

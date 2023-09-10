@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
+        <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,6 +16,7 @@
         <PackageReference Include="ForEvolve.FluentValidation.AspNetCore.Http" Version="1.0.25" />
         <PackageReference Include="MassTransit" Version="8.1.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0-preview.7.23375.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0-preview.7.23375.4" />
         <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
         <PackageReference Include="Riok.Mapperly" Version="3.0.0" />
     </ItemGroup>
