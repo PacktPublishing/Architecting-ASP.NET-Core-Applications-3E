@@ -1,8 +1,5 @@
-﻿using FluentValidation.AspNetCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using REPR.Products.Data;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using REPR.Products.Features;
-using System.Reflection;
 
 namespace REPR.Products;
 
@@ -10,12 +7,7 @@ public static class ProductsModuleExtensions
 {
     public static WebApplicationBuilder AddProductsModule(this WebApplicationBuilder builder)
     {
-        // Register fluent validation
-        builder.AddFluentValidationEndpointFilter();
         builder.Services
-            .AddFluentValidationAutoValidation()
-            .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
-
             // Add features
             .AddFetchAll()
             .AddFetchOneProduct()

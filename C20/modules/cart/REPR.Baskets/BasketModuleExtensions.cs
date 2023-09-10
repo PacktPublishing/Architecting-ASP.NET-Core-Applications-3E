@@ -1,7 +1,5 @@
-﻿using FluentValidation.AspNetCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 using REPR.Baskets.Features;
-using System.Reflection;
 
 namespace REPR.Baskets;
 
@@ -9,17 +7,14 @@ public static class BasketModuleExtensions
 {
     public static WebApplicationBuilder AddBasketModule(this WebApplicationBuilder builder)
     {
-        // Register fluent validation
-        builder.AddFluentValidationEndpointFilter();
         builder.Services
-            .AddFluentValidationAutoValidation()
-            .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
-
             // Add features
             .AddAddItem()
             .AddFetchItems()
             .AddRemoveItem()
             .AddUpdateQuantity()
+
+            // Add and configure db context
             .AddDbContext<BasketContext>(options => options
                 .UseInMemoryDatabase("BasketContextMemoryDB")
                 .ConfigureWarnings(builder => builder.Ignore(InMemoryEventId.TransactionIgnoredWarning))

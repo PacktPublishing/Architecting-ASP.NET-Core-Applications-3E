@@ -2,8 +2,23 @@ using REPR.API.HttpClient;
 using MassTransit;
 using REPR.Baskets;
 using REPR.Products;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register fluent validation
+builder.AddFluentValidationEndpointFilter();
+builder.Services
+    .AddFluentValidationAutoValidation()
+    .AddValidatorsFromAssemblies(new[] {
+        Assembly.GetExecutingAssembly(),
+        Assembly.GetAssembly(typeof(BasketModuleExtensions)),
+        Assembly.GetAssembly(typeof(ProductsModuleExtensions)),
+    })
+;
+
 builder.AddApiHttpClient();
 builder.AddExceptionMapper();
 builder
