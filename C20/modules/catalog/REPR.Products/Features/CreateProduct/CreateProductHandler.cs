@@ -1,6 +1,4 @@
-﻿using REPR.Products.Data;
-
-namespace REPR.Products.Features;
+﻿namespace REPR.Products.Features;
 
 public class CreateProductHandler
 {

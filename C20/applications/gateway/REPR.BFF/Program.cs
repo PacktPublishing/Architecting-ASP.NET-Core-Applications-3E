@@ -1,5 +1,5 @@
-using REPR.API.HttpClient;
 using Refit;
+using REPR.API.HttpClient;
 using REPR.Baskets.Contracts;
 using REPR.BFF;
 using System.Collections.Concurrent;

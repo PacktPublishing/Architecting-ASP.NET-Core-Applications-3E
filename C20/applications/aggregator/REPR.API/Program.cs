@@ -1,10 +1,10 @@
-using REPR.API.HttpClient;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MassTransit;
+using REPR.API.HttpClient;
 using REPR.Baskets;
 using REPR.Products;
-using FluentValidation.AspNetCore;
 using System.Reflection;
-using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
