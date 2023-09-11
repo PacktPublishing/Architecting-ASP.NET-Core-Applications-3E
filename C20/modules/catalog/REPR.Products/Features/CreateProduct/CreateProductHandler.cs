@@ -19,8 +19,8 @@ public class CreateProductHandler
         var entry = _db.Products.Add(product);
         await _db.SaveChangesAsync(cancellationToken);
 
-        var productAdded = _mapper.MapToIntegrationEvent(entry.Entity);
-        await _bus.Publish(productAdded, CancellationToken.None);
+        var productCreated = _mapper.MapToIntegrationEvent(entry.Entity);
+        await _bus.Publish(productCreated, CancellationToken.None);
 
         var response = _mapper.MapToResponse(entry.Entity);
         return response;
