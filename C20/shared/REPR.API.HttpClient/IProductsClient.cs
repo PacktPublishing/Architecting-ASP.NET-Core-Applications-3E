@@ -23,6 +23,4 @@ public interface IProductsClient
     Task<DeleteProductResponse> DeleteProductAsync(
         DeleteProductCommand command,
         CancellationToken cancellationToken);
-
-
 }
