@@ -39,7 +39,7 @@ public class ProductEventsConsumers : IConsumer<ProductCreated>, IConsumer<Produ
         );
         if (item is null)
         {
-            _logger.LogWarning("The product does not {productId} exist.", context.Message.Id);
+            _logger.LogWarning("The product {productId} does not exist.", context.Message.Id);
             return;
         }
 
