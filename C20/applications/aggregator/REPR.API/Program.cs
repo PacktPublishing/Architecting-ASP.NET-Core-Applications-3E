@@ -51,7 +51,7 @@ app.MapGet("/", async (IWebClient client, CancellationToken cancellationToken) =
     await client.Catalog.CreateProductAsync(new("Habanero Pepper", 0.99m), cancellationToken);
     return new
     {
-        Message = "Application started and catalog seeded. Do not refresh this page or will reseed the catalog."
+        Message = "Application started and catalog seeded. Do not refresh this page, or it will reseed the catalog."
     };
 });
 
