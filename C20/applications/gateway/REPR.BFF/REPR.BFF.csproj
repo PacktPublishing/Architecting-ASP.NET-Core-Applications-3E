@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\REPR.API.HttpClient\REPR.API.HttpClient.csproj" />
+    <ProjectReference Include="..\..\aggregator\REPR.API.Contracts\REPR.API.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
