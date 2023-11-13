@@ -14,20 +14,11 @@ public static class DTOEndpoints
             .WithTags("Customer DTO")
             .WithOpenApi();
 
-        group.MapGet("/", GetCustomersSummaryAsync)
-            .WithName("GetAllCustomersSummary");
-
-        group.MapGet("/{customerId}", GetCustomerDetailsAsync)
-            .WithName("GetCustomerDetailsById");
-
-        group.MapPut("/{customerId}", UpdateCustomerAsync)
-            .WithName("UpdateCustomerWithDto");
-
-        group.MapPost("/", CreateCustomerAsync)
-            .WithName("CreateCustomerWithDto");
-
-        group.MapDelete("/{customerId}", DeleteCustomerAsync)
-            .WithName("DeleteCustomerWithDto");
+        group.MapGet("/", GetCustomersSummaryAsync);
+        group.MapGet("/{customerId}", GetCustomerDetailsAsync);
+        group.MapPut("/{customerId}", UpdateCustomerAsync);
+        group.MapPost("/", CreateCustomerAsync);
+        group.MapDelete("/{customerId}", DeleteCustomerAsync);
     }
 
     private static async Task<Ok<IEnumerable<CustomerSummary>>> GetCustomersSummaryAsync(
