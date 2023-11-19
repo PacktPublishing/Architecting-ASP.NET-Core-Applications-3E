@@ -7,14 +7,16 @@ public static class CustomersEndpoints
 {
     public static void MapCustomerEndpoints(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/raw/customers").WithTags(nameof(Customer));
+        var group = routes
+            .MapGroup("/raw/customers")
+            .WithTags("Customers Raw")
+        ;
 
         group.MapGet("/", async (ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
-            return await customerRepository.AllAsync(cancellationToken);
-        })
-        .WithName("GetAllCustomers")
-        .WithOpenApi();
+            return await customerRepository
+                .AllAsync(cancellationToken);
+        });
 
         group.MapGet("/{customerId}", async (int customerId, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
@@ -24,9 +26,7 @@ public static class CustomersEndpoints
                 return Results.NotFound();
             }
             return Results.Ok(customer);
-        })
-        .WithName("GetCustomerById")
-        .WithOpenApi();
+        });
 
         group.MapPut("/{customerId}", async (int customerId, Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
@@ -36,17 +36,13 @@ public static class CustomersEndpoints
                 return Results.NotFound();
             }
             return Results.Ok(updatedCustomer);
-        })
-        .WithName("UpdateCustomer")
-        .WithOpenApi();
+        });
 
         group.MapPost("/", async (Customer input, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
             var createdCustomer = await customerRepository.CreateAsync(input, cancellationToken);
             return TypedResults.Created($"/api/Customers/{createdCustomer.Id}", createdCustomer);
-        })
-        .WithName("CreateCustomer")
-        .WithOpenApi();
+        });
 
         group.MapDelete("/{customerId}", async (int customerId, ICustomerRepository customerRepository, CancellationToken cancellationToken) =>
         {
@@ -56,8 +52,6 @@ public static class CustomersEndpoints
                 return Results.NotFound();
             }
             return TypedResults.Ok(deletedCustomer);
-        })
-        .WithName("DeleteCustomer")
-        .WithOpenApi();
+        });
     }
 }

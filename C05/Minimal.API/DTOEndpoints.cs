@@ -11,9 +11,8 @@ public static class DTOEndpoints
     {
         var group = routes
             .MapGroup("/dto/customers")
-            .WithTags("Customer DTO")
-            .WithOpenApi();
-
+            .WithTags("Customers DTO")
+        ;
         group.MapGet("/", GetCustomersSummaryAsync);
         group.MapGet("/{customerId}", GetCustomerDetailsAsync);
         group.MapPut("/{customerId}", UpdateCustomerAsync);
