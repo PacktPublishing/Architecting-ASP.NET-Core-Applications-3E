@@ -11,9 +11,11 @@ public class CustomersController : ControllerBase
 {
     // GET: raw/customers
     [HttpGet]
-    public async Task<IEnumerable<Customer>> GetAllAsync(ICustomerRepository customerRepository)
+    public async Task<IEnumerable<Customer>> GetAllAsync(
+        ICustomerRepository customerRepository)
     {
-        return await customerRepository.AllAsync(HttpContext.RequestAborted);
+        return await customerRepository
+            .AllAsync(HttpContext.RequestAborted);
     }
 
     // GET raw/customers/5
