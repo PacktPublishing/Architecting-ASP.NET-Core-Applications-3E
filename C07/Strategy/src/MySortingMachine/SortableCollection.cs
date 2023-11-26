@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 
 namespace MySortingMachine;
 
-public sealed class SortableCollection : IEnumerable<string>
+public sealed class SortableCollection
 {
     private ISortStrategy _sortStrategy;
     
@@ -25,10 +24,4 @@ public sealed class SortableCollection : IEnumerable<string>
             .ToImmutableArray()
         ;
     }
-
-    public IEnumerator<string> GetEnumerator()
-        => Items.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator()
-        => ((IEnumerable)Items).GetEnumerator();
 }
