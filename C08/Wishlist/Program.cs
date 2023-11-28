@@ -1,12 +1,8 @@
-﻿using Microsoft.Extensions.Options;
-using Wishlist;
+﻿using Wishlist;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
-    .ConfigureOptions<InMemoryWishListOptions>()
-    .AddTransient<IValidateOptions<InMemoryWishListOptions>, InMemoryWishListOptions>()
-    .AddSingleton(serviceProvider => serviceProvider.GetRequiredService<IOptions<InMemoryWishListOptions>>().Value)
-
+    .AddSingleton<InMemoryWishListOptions>()
     .AddSingleton<IWishList, InMemoryWishList>()
 
     .AddEndpointsApiExplorer()

@@ -6,7 +6,6 @@ public class InMemoryLocationService : ILocationService
 {
     public async Task<IEnumerable<Location>> FetchAllAsync(CancellationToken cancellationToken)
     {
-        await Task.Delay(Random.Shared.Next(1, 100), cancellationToken);
         return new Location[] {
             new Location(1, "Paris", "FR"),
             new Location(2, "New York City", "US"),
