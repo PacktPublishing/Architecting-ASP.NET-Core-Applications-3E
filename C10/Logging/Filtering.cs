@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace Logging;
 
@@ -42,10 +43,17 @@ public class Filtering
         // Act
         service.Execute();
 
-        // Assert
+        // Assert that AssertableLogger received the two entries
         Assert.Collection(lines,
             line => Assert.Equal("[info] Service.Execute()", line),
             line => Assert.Equal("[warning] Service.Execute()", line)
+        );
+
+        // Assert that XunitTestOutputLogger received only the warning
+        var testOutputHelper = Assert.IsType<TestOutputHelper>(_output);
+        Assert.Equal(
+            "[warning] Service.Execute()",
+            testOutputHelper.Output.TrimEnd()
         );
     }
 
