@@ -11,7 +11,7 @@ public class ByPassingInterfaces
     {
         // Arrange
         var services = new ServiceCollection();
-        services.AddOptions<Options>()
+        services.AddOptions<MyOptions>()
             .Configure(o => o.Name = "John Doe");
         //
         // The following one liner does the same things,
@@ -20,25 +20,26 @@ public class ByPassingInterfaces
         //services.AddScoped(serviceProvider
         //    => serviceProvider.GetRequiredService<IOptionsSnapshot<Options>>().Value);
         //
-        services.AddScoped(serviceProvider => {
+        services.AddScoped(serviceProvider =>
+        {
             var snapshot = serviceProvider
-                .GetRequiredService<IOptionsSnapshot<Options>>();
+                .GetRequiredService<IOptionsSnapshot<MyOptions>>();
             return snapshot.Value;
         });
         var serviceProvider = services.BuildServiceProvider();
 
         // Act & Assert
         using var scope1 = serviceProvider.CreateScope();
-        var options1 = scope1.ServiceProvider.GetService<Options>();
-        var options2 = scope1.ServiceProvider.GetService<Options>();
+        var options1 = scope1.ServiceProvider.GetService<MyOptions>();
+        var options2 = scope1.ServiceProvider.GetService<MyOptions>();
         Assert.Same(options1, options2);
 
         using var scope2 = serviceProvider.CreateScope();
-        var options3 = scope2.ServiceProvider.GetService<Options>();
+        var options3 = scope2.ServiceProvider.GetService<MyOptions>();
         Assert.NotSame(options2, options3);
     }
 
-    private class Options
+    private class MyOptions
     {
         public string? Name { get; set; }
     }
