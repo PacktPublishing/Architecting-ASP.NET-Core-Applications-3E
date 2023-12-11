@@ -1,34 +1,31 @@
+# Architecting ASP.NET Core Applications, Third Edition
 
+<a href="https://www.packtpub.com/product/architecting-aspnet-core-applications-third-edition/9781805123385"><img src="cover.png?raw=true" alt="An Atypical ASP.NET Core 5 Design Patterns Guide" height="256px" align="right"></a>
 
+This is the code repository for [Architecting ASP.NET Core Applications](https://www.packtpub.com/product/architecting-aspnet-core-applications-third-edition/9781805123385), published by Packt. You can also purchase this book on [Amazon](https://adpg.link/buy8).
 
-# An Atypical ASP.NET Core 6 Design Patterns Guide, Second Edition
-
-<a href="https://www.packtpub.com/product/an-atypical-asp-net-core-6-design-patterns-guide-second-edition/9781803249841"><img src="cover.png?raw=true" alt="An Atypical ASP.NET Core 5 Design Patterns Guide" height="256px" align="right"></a>
-
-This is the code repository for [An Atypical ASP.NET Core 6 Design Patterns Guide](https://www.packtpub.com/product/an-atypical-asp-net-core-6-design-patterns-guide-second-edition/9781803249841), published by Packt.
-
-**A SOLID adventure into architectural principles and design patterns using .NET 6 and C# 10**
+**An atypical design patterns guide for .NET 8, C# 12, and beyond**
 
 ## What is this book about?
 
-Thoroughly updated for ASP.NET Core 6, with further coverage of microservices, data contracts, and event-driven architecture, this book gives you the tools to build and glue reliable components together to improve your programmatic masterpiece.
+Backend design like you’ve never seen it before – a guide to building SOLID ASP.NET Core web apps that stand the test of time. Featuring more Minimal APIs, more testing, more building blocks, and the modular monolith!
 
 This book covers the following exciting features:
 
-- Apply the SOLID principles for building flexible and maintainable software
-- Get to grasp .NET dependency Injection
-- Work with GoF design patterns such as strategy, decorator, façade, and composite
-- Explore the MVC patterns for designing web APIs and web applications using Razor
-- Discover layering techniques and tenets of clean architecture
-- Become familiar with CQRS and vertical slice architecture as an alternate to layering
-- Understand microservices and when they can benefit your applications
-- Build an ASP.NET user interfaces from server-side to client-side Blazor
+-   Apply the SOLID principles for building flexible and maintainable software
+-   Test your apps effectively with automated tests, including black-box testing
+-   Enter the path of ASP.NET Core dependency injection mastery
+-   Work with GoF design patterns such as strategy, decorator, facade, and composite
+-   Design REST APIs using Minimal APIs and MVC
+-   Discover layering techniques and the tenets of clean architecture
+-   Use feature-oriented techniques as an alternative to layering
+-   Explore microservices, CQRS, REPL, vertical slice architecture, and many more patterns
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/Atypical-ASP-NET-Design-Patterns-Guide/dp/1803249846) today!
+If you feel this book is for you, get your [copy](https://adpg.link/buy8) today!
 
 ## Instructions and Navigations
 
-All of the code is organized into folders. For example, Chapter02.
+The code is organized into folders. For example, C02 contains the code of Chapter 2.
 
 The code will look like the following:
 
@@ -48,23 +45,25 @@ public class InlineDataTest
 
 **Following is what you need for this book:**
 
-This design patterns book is for beginners as well as intermediate-level software and web developers with some knowledge of .NET who want to write flexible, maintainable, and robust code for building scalable web applications. Knowledge of C# programming and an understanding of web concepts like HTTP is necessary.
+This book is for intermediate-level ASP.NET Core developers who want to improve their C# app code structure. ASP.NET developers who want to modernize their knowledge and enhance their technical architecture skills will also like this book. It’s also a good refresher for those in software design roles with more experience looking to update their knowledge.
 
-With the following software and hardware list you can run all code files present in the book (Chapter 1-18).
+A good knowledge of C# programming and a basic understanding of web concepts is necessary to get the most out of this book, though some refreshers are included along the way.
 
 ### Software and Hardware List
 
+With the following software and hardware list you can run all code files present in the book (Chapter 1-20).
+
 | Chapter | Software required                         | OS required                        |
 | ------- | ----------------------------------------- | ---------------------------------- |
-| 1-18    | .NET 6                                    | Windows, Mac OS X, and Linux (Any) |
-| 1-18    | ASP.NET Core 6                            | Windows, Mac OS X, and Linux (Any) |
-| 1-18    | C# 10                                     | Windows, Mac OS X, and Linux (Any) |
-| 1-18    | xUnit                                     | Windows, Mac OS X, and Linux (Any) |
-| 1-18    | Multiple other .NET open source libraries | Windows, Mac OS X, and Linux (Any) |
+| 1-20    | .NET 8                                    | Windows, Mac OS X, and Linux (Any) |
+| 1-20    | ASP.NET Core 8                            | Windows, Mac OS X, and Linux (Any) |
+| 1-20    | C# 12                                     | Windows, Mac OS X, and Linux (Any) |
+| 1-20    | xUnit                                     | Windows, Mac OS X, and Linux (Any) |
+| 1-20    | Multiple other .NET open source libraries | Windows, Mac OS X, and Linux (Any) |
 
 ### Introduction
 
-This repository contains the code of `An Atypical ASP.NET Core 6 Design Patterns Guide`.
+This repository contains the code of _**Architecting ASP.NET Core Applications**: An atypical design patterns guide for .NET 8, C# 12, and beyond_.
 It also contains pointers to help you find your way around the repository.
 This repo is also there to rectify any mistake that could have been made in the book and missed during reviews.
 
@@ -75,65 +74,55 @@ Please open an issue if you find something missing from the instructions below o
 In the book, we have UML Class diagrams, UML Sequence Diagrams, and some non-UML diagrams.
 We assumed that most-developers would know about UML, so we decided not to add pages about it.
 
-The author used [diagrams.net (draw.io)](https://draw.io) to draw the diagrams (which is free and open-source).
+The author used [diagrams.net (draw.io)](https://draw.io) to draw the diagrams (which is free and open-source). You can use the [Draw.io extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) for VS Code to open the source diagrams, available in this repository.
 
 The following two articles should help you get started if you don't know UML:
 
--   [UML class-diagrams](https://net5.link/UML1)
--   [UML sequence-diagrams](https://net5.link/UML2)
+-   [UML: What is Class Diagram?](https://adpg.link/UML1)
+-   [UML: What is Sequence Diagram?](https://adpg.link/UML2)
 
 ### Getting Started
 
-1. You need a copy of `An Atypical ASP.NET Core 6 Design Patterns Guide` to make sense of the code projects as many projects start with bad code and get refactored into better ones.
-
-    - You can find [An Atypical ASP.NET Core 6 Design Patterns Guide](https://www.amazon.com/Atypical-ASP-NET-Design-Patterns-Guide/dp/1803249846) on Amazon.com
-
+1. You need a copy of `Architecting ASP.NET Core Applications` to make sense of the code projects as many projects start with bad code and get refactored into better ones.
+    - You can find [Architecting ASP.NET Core Applications](https://adpg.link/buy8) on Amazon.
 1. You need an IDE/Text Editor like Visual Studio or Visual Studio Code, but you could do without (not recommended).
-
-    - [Download Visual Studio](https://net5.link/VS)
-    - [Download Visual Studio Code](https://net5.link/VSC)
-
-1. You need .NET 6 SDK. If you installed Visual Studio, you should be fine. Otherwise, here is the link:
-
-    - [Download .NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+    - [Download Visual Studio](https://adpg.link/VS)
+    - [Download Visual Studio Code](https://adpg.link/VSCode)
+1. You need .NET 8 SDK. If you installed Visual Studio, you should be fine. Otherwise, here is the link:
+    - [Download .NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 With that in place, you should be good to go!
 
 ### Build and Test
 
 All projects and solutions can be built using the .NET CLI or Visual Studio.
-You can find the most useful commands in the introduction chapter, under `Running and building your program` or online.
+You can find the most useful commands in the introduction chapter, under _**Running and building your program**_ or online.
 
-The two commands that you will need are:
+The commands you will need the most are:
 
+-   `dotnet new {INSERT_TEMPLATE_HERE}` to create a new project or solution. For example:
+    -   `dotnet new web`
+    -   `dotnet new sln`
+    -   `dotnet new xunit`
 -   `dotnet build` to build a project or solution
--   `dotnet test` to run a test project or all tests of all test projects of a solution.
+-   `dotnet run` to run an application
+-   `dotnet test` to run one or more test project.
 
-### Content/Code
+# Content/Code
 
 Throughout the book, there are many projects, and many are copies with a little update done to them, so they may look a lot alike.
-Here, we will build a list that maps harder to find code to its file or directory in the Git repository.
-If you find something missing, erroneous, or hard to find, please open an issue and let us know.
+If you find something missing, erroneous, or hard to find, please open an issue and let us know, so we can mitigate the issues.
 
-### Contribute
+# Contribute
 
 Please open an issue if you find some missing docs, errors in the source code, or a divergence between the book and the source code.
 
 For more information, check out the [Code of conduct](CODE_OF_CONDUCT.md).
 
-### Related products <Other books you may enjoy>
+# Get to Know the Author
 
--   C# 10 and .NET 6 – Modern Cross-Platform Development, Sixth Edition [[Packt]](https://www.packtpub.com/product/c-10-and-net-6-modern-cross-platform-development-sixth-edition/9781801077361) [[Amazon]](https://www.amazon.com/10-NET-Cross-Platform-Development-websites/dp/1801077363)
+**Carl-Hugo Marcotte** is a software craftsman who has developed digital products professionally since 2005, while his coding journey started around 1989 for fun. He has a bachelor’s degree in computer science.
 
--   Software Architecture with C# 10 and .NET 6, Third Edition [[Packt]](https://www.packtpub.com/product/software-architecture-with-c-10-and-net-6-third-edition/9781803235257) [[Amazon]](https://www.amazon.com/Software-Architecture-NET-solutions-microservices/dp/180323525X)
+He has acquired a solid background in software architecture and expertise in ASP.NET Core through creating a wide range of web and cloud applications, from custom e-commerce websites to enterprise applications. He served many customers as an independent consultant, taught programming, and is now a Principal Architect at Export Development Canada.
 
-## Get to Know the Author
-
-**Carl-Hugo Marcotte**
-has been developing, designing, and architecting web applications professionally since 2005, wrote his first line of code at about eight years old, and holds a bachelor's degree in computer science.
-After working at a firm for a few years, he became an independent consultant, where he developed projects of different sizes for SMEs and educational institutions. He is now a Senior Solutions Architect at Export Development Canada and is passionate about software architecture, C#, ASP.NET Core, and the Cloud.
-He loves to share his knowledge, which led him to teaching programming, blogging, and creating, maintaining and contributing to multiple open-source projects.
-### Download a free PDF
-
- <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
-<p align="center"> <a href="https://packt.link/free-ebook/9781803249841">https://packt.link/free-ebook/9781803249841 </a> </p>
+Passionate about C#, ASP.NET Core, AI, automation, and Cloud computing, he fosters collaboration and the open-source ethos, sharing his expertise with the tech community.
