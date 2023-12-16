@@ -9,7 +9,7 @@ on:
       - LICENSE
       - '**.yml'
       - '**.drawio'
-      - '2ndEd/**'
+      - 'Diagrams/**'
 
   pull_request:
     branches:
@@ -19,7 +19,7 @@ on:
       - LICENSE
       - '**.yml'
       - '**.drawio'
-      - '2ndEd/**'
+      - 'Diagrams/**'
 
   workflow_dispatch:
 
