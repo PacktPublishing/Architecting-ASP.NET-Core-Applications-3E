@@ -1,4 +1,4 @@
-﻿@ChainOfResponsibility_HostAddress = https://localhost:10001
+﻿@ChainOfResponsibility_HostAddress = https://localhost:10002
 
 POST {{ChainOfResponsibility_HostAddress}}/handle
 Content-Type: application/json

@@ -1,0 +1,13 @@
+﻿@TemplateMethod_HostAddress = https://localhost:10004
+
+GET {{TemplateMethod_HostAddress}}/search/1
+###
+
+GET {{TemplateMethod_HostAddress}}/search/10
+###
+
+GET {{TemplateMethod_HostAddress}}/search/11
+###
+
+GET {{TemplateMethod_HostAddress}}/search/123
+###
