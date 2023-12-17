@@ -1,5 +1,4 @@
-﻿using System.Text;
-using TemplateMethod;
+﻿using TemplateMethod;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
@@ -10,30 +9,31 @@ builder.Services
 ;
 
 var app = builder.Build();
+app.MapGet("/search/{number}", SearchForIndex);
 app.MapGet("/", (IEnumerable<SearchMachine> searchMachines) =>
 {
-    var sb = new StringBuilder();
-    var elementsToFind = new int[] { 1, 10, 11 };
-    foreach (var searchMachine in searchMachines)
-    {
-        var typeName = searchMachine.GetType().Name;
-        var heading = $"Current search machine is {typeName}";
-        sb.AppendLine("".PadRight(heading.Length, '='));
-        sb.AppendLine(heading);
-        foreach (var value in elementsToFind)
-        {
-            var index = searchMachine.IndexOf(value);
-            var wasFound = index.HasValue;
-            if (wasFound)
-            {
-                sb.AppendLine($"The element '{value}' was found at index {index!.Value}.");
-            }
-            else
-            {
-                sb.AppendLine($"The element '{value}' was not found.");
-            }
-        }
-    }
-    return sb.ToString();
+    var results = new List<SearchResult>();
+    results.AddRange(SearchForIndex(1, searchMachines));
+    results.AddRange(SearchForIndex(11, searchMachines));
+    results.AddRange(SearchForIndex(123, searchMachines));
+    return results;
 });
 app.Run();
+
+IEnumerable<SearchResult> SearchForIndex(int number, IEnumerable<SearchMachine> searchMachines)
+{
+    foreach (var searchMachine in searchMachines)
+    {
+        var name = searchMachine.GetType().Name;
+        var index = searchMachine.IndexOf(number);
+        var found = index.HasValue;
+        yield return new SearchResult(number, name, found, index);
+    }
+}
+
+public record class SearchResult(
+    int SearchedNumber,
+    string Name,
+    bool Found,
+    int? Index
+);
