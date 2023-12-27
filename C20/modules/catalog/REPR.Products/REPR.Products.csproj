@@ -15,14 +15,14 @@
         <PackageReference Include="ForEvolve.ExceptionMapper" Version="3.0.29-gfb178e8663" />
         <PackageReference Include="ForEvolve.FluentValidation.AspNetCore.Http" Version="1.0.25" />
         <PackageReference Include="MassTransit" Version="8.1.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0-preview.7.23375.4" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0-preview.7.23375.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
         <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
         <PackageReference Include="Riok.Mapperly" Version="3.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\REPR.Products.Contracts\REPR.Products.Contracts.csproj" />
+        <ProjectReference Include="..\REPR.Products.Contracts\REPR.Products.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
