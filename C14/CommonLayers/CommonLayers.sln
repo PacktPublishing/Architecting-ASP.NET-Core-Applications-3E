@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "domain-layers", "domain-layers\domain-layers.csproj", "{CDFDA4C7-2F84-4AA1-B3D8-9DAA6434BB8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLayers", "DomainLayers\DomainLayers.csproj", "{CDFDA4C7-2F84-4AA1-B3D8-9DAA6434BB8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "data-layer", "data-layer\data-layer.csproj", "{C77F9B77-B5C5-4913-B297-6D163B8E8DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C77F9B77-B5C5-4913-B297-6D163B8E8DBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
