@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Json;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Http.Json;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -67,18 +68,20 @@ app.MapGet(
 );
 app.MapGet(
     "/multiple-errors-with-value",
-    object (OperationResult.MultipleErrorsWithValue.Executor executor) =>
+    Results<Ok<string>, BadRequest<string[]>> (OperationResult.MultipleErrorsWithValue.Executor executor) =>
     {
         var result = executor.Operation();
         if (result.Succeeded)
         {
             // Handle the success
-            return $"Operation succeeded with a value of '{result.Value}'.";
+            return TypedResults.Ok(
+                $"Operation succeeded with a value of '{result.Value}'."
+            );
         }
         else
         {
             // Handle the failure
-            return result.Errors;
+            return TypedResults.BadRequest(result.Errors.ToArray());
         }
     }
 );
