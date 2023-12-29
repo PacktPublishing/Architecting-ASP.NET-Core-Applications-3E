@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="CKinMkFbDKcQTunNenve" name="Operation Result">
-        <mxGraphModel dx="2151" dy="1416" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1237" dy="677" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="03mLGJdyYgZ_ywSVlZDO-0"/>
                 <mxCell id="03mLGJdyYgZ_ywSVlZDO-1" parent="03mLGJdyYgZ_ywSVlZDO-0"/>
@@ -41,13 +41,13 @@
                     <mxGeometry x="480" y="120" width="120" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-1" value="OperationResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="03mLGJdyYgZ_ywSVlZDO-1">
-                    <mxGeometry x="950" y="145" width="190" height="52" as="geometry"/>
+                    <mxGeometry x="890" y="145" width="190" height="52" as="geometry"/>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-2" value="«read-only» + Succeeded: bool" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=Helvetica;" vertex="1" parent="Xs377tFSFdaaj3lOK2G9-1">
                     <mxGeometry y="26" width="190" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-3" value="Executor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="03mLGJdyYgZ_ywSVlZDO-1">
-                    <mxGeometry x="680" y="132" width="190" height="52" as="geometry"/>
+                    <mxGeometry x="650" y="132" width="190" height="52" as="geometry"/>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-4" value="+ Operation(): OperationResult" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Xs377tFSFdaaj3lOK2G9-3">
                     <mxGeometry y="26" width="190" height="26" as="geometry"/>
@@ -65,13 +65,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-7" value="Operation() returns a new OperationResult();" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="03mLGJdyYgZ_ywSVlZDO-1">
-                    <mxGeometry x="630" y="224" width="130" height="38" as="geometry"/>
+                    <mxGeometry x="510" y="210" width="130" height="38" as="geometry"/>
                 </mxCell>
                 <mxCell id="Xs377tFSFdaaj3lOK2G9-8" style="rounded=0;elbow=vertical;html=1;jettySize=auto;orthogonalLoop=1;dashed=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="03mLGJdyYgZ_ywSVlZDO-1" source="Xs377tFSFdaaj3lOK2G9-7" target="Xs377tFSFdaaj3lOK2G9-4">
                     <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="650" y="192"/>
-                        </Array>
                         <mxPoint x="990" y="211" as="sourcePoint"/>
                         <mxPoint x="640" y="211" as="targetPoint"/>
                     </mxGeometry>
@@ -87,6 +84,9 @@
                         <mxPoint x="1220" y="530" as="sourcePoint"/>
                         <mxPoint x="1270" y="480" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="c7yLOaiAUyr-EBwmqqI6-0" value="600 px MAX width" style="rounded=0;whiteSpace=wrap;html=1;sketch=0;fontSize=12;align=center;fontStyle=1" vertex="1" parent="03mLGJdyYgZ_ywSVlZDO-1">
+                    <mxGeometry x="480" y="40" width="600" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
