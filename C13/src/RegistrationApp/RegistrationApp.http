@@ -1,0 +1,9 @@
+﻿@RegistrationApp_HostAddress = https://localhost:7227
+
+// Return 200 OK: registration succeeded!
+POST {{RegistrationApp_HostAddress}}/concerts/1/register
+
+###
+
+// Return 400 Bad Request: The registration to the concert failed.
+POST {{RegistrationApp_HostAddress}}/concerts/2/register
