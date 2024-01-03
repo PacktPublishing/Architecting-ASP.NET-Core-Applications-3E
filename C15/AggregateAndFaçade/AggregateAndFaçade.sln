@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AggregateServices", "AggregateServices\AggregateServices.csproj", "{6EB15389-8241-4E5B-AF7F-F5748B639BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MappingFacade", "MappingFacade\MappingFacade.csproj", "{FA3A4917-09E3-4DFD-A191-11CD18DD7A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{68D86FE5-B0D8-4DA3-B08F-EE8F4BC812FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EB15389-8241-4E5B-AF7F-F5748B639BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB15389-8241-4E5B-AF7F-F5748B639BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB15389-8241-4E5B-AF7F-F5748B639BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB15389-8241-4E5B-AF7F-F5748B639BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3A4917-09E3-4DFD-A191-11CD18DD7A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3A4917-09E3-4DFD-A191-11CD18DD7A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3A4917-09E3-4DFD-A191-11CD18DD7A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3A4917-09E3-4DFD-A191-11CD18DD7A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D86FE5-B0D8-4DA3-B08F-EE8F4BC812FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D86FE5-B0D8-4DA3-B08F-EE8F4BC812FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D86FE5-B0D8-4DA3-B08F-EE8F4BC812FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D86FE5-B0D8-4DA3-B08F-EE8F4BC812FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
