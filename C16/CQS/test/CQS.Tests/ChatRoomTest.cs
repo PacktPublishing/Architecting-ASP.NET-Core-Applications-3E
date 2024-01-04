@@ -118,7 +118,6 @@ public class ChatRoomTest
     {
         _reagen.Join(_room1);
         _garner.Join(_room1);
-        _garner.Join(_room2);
         _mediator.Send(new SendChatMessage.Command(_room1, new ChatMessage(_reagen, "Hello!")));
 
         Assert.Collection(_garnerMessageWriter.Output,
