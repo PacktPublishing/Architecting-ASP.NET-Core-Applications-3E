@@ -11,6 +11,52 @@ namespace VerticalApp.Features.Stocks;
 
 public class StocksTest
 {
+    public class EFCoreErrors
+    {
+        [Fact]
+        public async Task Erroneous_testing_methodology()
+        {
+            // Arrange
+            await using var application = new VerticalAppApplication();
+            using var sharedScope = application.Services.CreateScope();
+            var db = sharedScope.ServiceProvider.GetRequiredService<ProductContext>();
+            var product = db.Products.First();
+            var productId = product.Id;
+
+            // Act
+            product.Name = "Never Persisted";
+
+            // Assert (error)
+            var p = db.Products.Find(productId);
+            Assert.NotNull(p);
+            Assert.Equal("Never Persisted", p.Name);
+        }
+
+        [Fact]
+        [Trait("FailureExpected", "true")]
+        public async Task Erroneous_testing_methodology_fixed()
+        {
+            // Arrange
+            await using var application = new VerticalAppApplication();
+            using var sharedScope = application.Services.CreateScope();
+            var db = sharedScope.ServiceProvider.GetRequiredService<ProductContext>();
+            var product = db.Products.First();
+            var productId = product.Id;
+
+            // Act
+            product.Name = "Never Persisted";
+
+            // Assert (correct)
+            using var assertScope = application.Services.CreateScope();
+            var assertDb = assertScope.ServiceProvider.GetRequiredService<ProductContext>();
+            var p2 = assertDb.Products.Find(productId);
+            Assert.NotNull(p2);
+            Assert.Equal("Never Persisted", p2.Name);
+        }
+    }
+
+
+
     private static async Task SeederDelegate(ProductContext db)
     {
         db.Products.RemoveRange(db.Products.ToArray());
