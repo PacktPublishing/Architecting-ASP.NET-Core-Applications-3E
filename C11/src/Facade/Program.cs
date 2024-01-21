@@ -1,11 +1,12 @@
-﻿using OpaqueFacadeSubSystem.Abstractions;
+﻿using Facade;
+using OpaqueFacadeSubSystem.Abstractions;
 using TransparentFacadeSubSystem.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
+    //.AddSingleton<IInventoryService, UpdatedInventoryService>()
     .AddOpaqueFacadeSubSystem()
     .AddTransparentFacadeSubSystem()
-    //.AddSingleton<IComponentB, UpdatedComponentB>()
 ;
 
 var app = builder.Build();
