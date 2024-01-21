@@ -1,0 +1,28 @@
+﻿@Facade_HostAddress = https://localhost:9004
+
+GET {{Facade_HostAddress}}/opaque/CheckOrderStatus/123
+###
+
+POST {{Facade_HostAddress}}/opaque/PlaceOrder
+Content-Type: application/json
+
+{
+    "productId": "P12345", 
+    "quantity": 5
+}
+
+###
+
+GET {{Facade_HostAddress}}/transparent/CheckOrderStatus/123
+
+###
+
+POST {{Facade_HostAddress}}/transparent/PlaceOrder
+Content-Type: application/json
+
+{
+    "productId": "P12345", 
+    "quantity": 5
+}
+
+###

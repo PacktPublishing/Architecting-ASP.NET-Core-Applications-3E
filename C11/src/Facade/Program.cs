@@ -4,37 +4,32 @@ using TransparentFacadeSubSystem.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
+    //.AddSingleton<IInventoryService, UpdatedInventoryService>()
     .AddOpaqueFacadeSubSystem()
     .AddTransparentFacadeSubSystem()
-    //.AddSingleton<IComponentB, UpdatedComponentB>()
 ;
 
 var app = builder.Build();
-app.MapGet("/", (HttpContext context) =>
-new[] {
-    $"https://{context.Request.Host}/opaque/a",
-    $"https://{context.Request.Host}/opaque/b",
-    $"https://{context.Request.Host}/transparent/a",
-    $"https://{context.Request.Host}/transparent/b"
-});
-app.MapGet(
-    "/opaque/a",
-    (IOpaqueFacade opaqueFacade)
-        => opaqueFacade.ExecuteOperationA()
+app.MapPost(
+    "/opaque/PlaceOrder",
+    (PlaceOrder order, IECommerceOpaqueFacade eCommerceOpaqueFacade)
+        => eCommerceOpaqueFacade.PlaceOrder(order.ProductId, order.Quantity)
 );
 app.MapGet(
-    "/opaque/b",
-    (IOpaqueFacade opaqueFacade)
-        => opaqueFacade.ExecuteOperationB()
+    "/opaque/CheckOrderStatus/{orderId}",
+    (int orderId, IECommerceOpaqueFacade eCommerceOpaqueFacade)
+        => eCommerceOpaqueFacade.CheckOrderStatus(orderId)
+);
+app.MapPost(
+    "/transparent/PlaceOrder",
+    (PlaceOrder order, IECommerceTransparentFacade eCommerceTransparentFacade)
+        => eCommerceTransparentFacade.PlaceOrder(order.ProductId, order.Quantity)
 );
 app.MapGet(
-    "/transparent/a",
-    (ITransparentFacade transparentFacade)
-        => transparentFacade.ExecuteOperationA()
-);
-app.MapGet(
-    "/transparent/b",
-    (ITransparentFacade transparentFacade)
-        => transparentFacade.ExecuteOperationB()
+    "/transparent/CheckOrderStatus/{orderId}",
+    (int orderId, IECommerceTransparentFacade eCommerceTransparentFacade)
+        => eCommerceTransparentFacade.CheckOrderStatus(orderId)
 );
 app.Run();
+
+public record class PlaceOrder(string ProductId, int Quantity);
