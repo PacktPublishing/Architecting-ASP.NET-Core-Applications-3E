@@ -7,8 +7,8 @@ public static class StartupExtensions
 {
     public static IServiceCollection AddOpaqueFacadeSubSystem(this IServiceCollection services)
     {
-        services.AddSingleton<IOpaqueFacade>(serviceProvider
-            => new OpaqueFacade(new ComponentA(), new ComponentB(), new ComponentC()));
+        services.AddSingleton<IECommerceOpaqueFacade>(serviceProvider
+            => new ECommerceFacade(new InventoryService(), new OrderProcessingService(), new ShippingService()));
         return services;
     }
 }
