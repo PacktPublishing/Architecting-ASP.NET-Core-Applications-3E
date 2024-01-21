@@ -1,7 +1,7 @@
 ﻿namespace OpaqueFacadeSubSystem;
 
 // Subsystem: Shipping
-public class ShippingService
+internal class ShippingService
 {
     public void ScheduleShipping(int orderId)
     {

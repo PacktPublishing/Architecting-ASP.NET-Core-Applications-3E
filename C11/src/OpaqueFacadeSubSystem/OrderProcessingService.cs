@@ -1,7 +1,7 @@
 ﻿namespace OpaqueFacadeSubSystem;
 
 // Subsystem: Order Processing
-public class OrderProcessingService
+internal class OrderProcessingService
 {
     public int CreateOrder(string productId, int quantity)
     {

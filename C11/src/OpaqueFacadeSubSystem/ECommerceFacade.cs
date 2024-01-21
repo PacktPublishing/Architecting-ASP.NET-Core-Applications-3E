@@ -8,7 +8,7 @@ public class ECommerceFacade : IECommerceOpaqueFacade
     private readonly OrderProcessingService _orderProcessingService;
     private readonly ShippingService _shippingService;
 
-    public ECommerceFacade(InventoryService inventoryService, OrderProcessingService orderProcessingService, ShippingService shippingService)
+    internal ECommerceFacade(InventoryService inventoryService, OrderProcessingService orderProcessingService, ShippingService shippingService)
     {
         _inventoryService = inventoryService ?? throw new ArgumentNullException(nameof(inventoryService));
         _orderProcessingService = orderProcessingService ?? throw new ArgumentNullException(nameof(orderProcessingService));

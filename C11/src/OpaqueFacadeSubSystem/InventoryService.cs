@@ -1,7 +1,7 @@
 ﻿namespace OpaqueFacadeSubSystem;
 
 // Subsystem: Inventory
-public class InventoryService
+internal class InventoryService
 {
     public bool CheckStock(string productId, int quantity)
     {
