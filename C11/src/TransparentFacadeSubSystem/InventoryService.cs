@@ -1,7 +1,9 @@
-﻿namespace TransparentFacadeSubSystem;
+﻿using TransparentFacadeSubSystem.Abstractions;
+
+namespace TransparentFacadeSubSystem;
 
 // Subsystem: Inventory
-public class InventoryService
+public class InventoryService : IInventoryService
 {
     public bool CheckStock(string productId, int quantity)
     {

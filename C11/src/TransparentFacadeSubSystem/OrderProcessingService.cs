@@ -1,7 +1,9 @@
-﻿namespace TransparentFacadeSubSystem;
+﻿using TransparentFacadeSubSystem.Abstractions;
+
+namespace TransparentFacadeSubSystem;
 
 // Subsystem: Order Processing
-public class OrderProcessingService
+public class OrderProcessingService : IOrderProcessingService
 {
     public int CreateOrder(string productId, int quantity)
     {

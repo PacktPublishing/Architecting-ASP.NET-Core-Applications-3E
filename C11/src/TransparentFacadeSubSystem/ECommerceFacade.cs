@@ -4,11 +4,11 @@ namespace TransparentFacadeSubSystem;
 
 public class ECommerceFacade : IECommerceTransparentFacade
 {
-    private readonly InventoryService _inventoryService;
-    private readonly OrderProcessingService _orderProcessingService;
-    private readonly ShippingService _shippingService;
+    private readonly IInventoryService _inventoryService;
+    private readonly IOrderProcessingService _orderProcessingService;
+    private readonly IShippingService _shippingService;
 
-    public ECommerceFacade(InventoryService inventoryService, OrderProcessingService orderProcessingService, ShippingService shippingService)
+    public ECommerceFacade(IInventoryService inventoryService, IOrderProcessingService orderProcessingService, IShippingService shippingService)
     {
         _inventoryService = inventoryService ?? throw new ArgumentNullException(nameof(inventoryService));
         _orderProcessingService = orderProcessingService ?? throw new ArgumentNullException(nameof(orderProcessingService));

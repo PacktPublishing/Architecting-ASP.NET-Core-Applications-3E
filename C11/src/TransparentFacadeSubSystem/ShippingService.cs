@@ -1,7 +1,9 @@
-﻿namespace TransparentFacadeSubSystem;
+﻿using TransparentFacadeSubSystem.Abstractions;
+
+namespace TransparentFacadeSubSystem;
 
 // Subsystem: Shipping
-public class ShippingService
+public class ShippingService : IShippingService
 {
     public void ScheduleShipping(int orderId)
     {
