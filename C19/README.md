@@ -29,15 +29,15 @@ From the `C19` directory:
 
 ```bash
 # In one terminal
-cd REPR.Baskets
+cd Baskets
 dotnet run
 
 # In a second terminal
-cd REPR.Products
+cd Products
 dotnet run
 
 # In a third terminal
-cd REPR.BFF
+cd BFF
 dotnet run
 ```
 

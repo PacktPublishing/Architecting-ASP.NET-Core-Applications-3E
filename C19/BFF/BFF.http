@@ -1,18 +1,18 @@
-﻿@REPR_BFF_HostAddress = https://localhost:7254
+﻿@BFF_HostAddress = https://localhost:7254
 
-GET {{REPR_BFF_HostAddress}}/api/catalog
-
-###
-
-GET {{REPR_BFF_HostAddress}}/api/catalog/3
+GET {{BFF_HostAddress}}/api/catalog
 
 ###
 
-GET {{REPR_BFF_HostAddress}}/api/cart
+GET {{BFF_HostAddress}}/api/catalog/3
 
 ###
 
-POST {{REPR_BFF_HostAddress}}/api/cart
+GET {{BFF_HostAddress}}/api/cart
+
+###
+
+POST {{BFF_HostAddress}}/api/cart
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-POST {{REPR_BFF_HostAddress}}/api/cart
+POST {{BFF_HostAddress}}/api/cart
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
 
 ###
 
-POST {{REPR_BFF_HostAddress}}/api/cart
+POST {{BFF_HostAddress}}/api/cart
 Content-Type: application/json
 
 {
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 ###
 
-POST {{REPR_BFF_HostAddress}}/api/cart
+POST {{BFF_HostAddress}}/api/cart
 Content-Type: application/json
 
 {

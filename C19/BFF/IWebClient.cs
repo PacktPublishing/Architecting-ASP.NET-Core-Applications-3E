@@ -1,7 +1,7 @@
 ﻿using Refit;
 using Web.Features;
 
-namespace REPR.BFF;
+namespace BFF;
 
 public interface IWebClient
 {
