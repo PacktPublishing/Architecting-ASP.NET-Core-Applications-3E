@@ -1,5 +1,5 @@
 using Refit;
-using REPR.BFF;
+using BFF;
 using System.Collections.Concurrent;
 using System.Net;
 

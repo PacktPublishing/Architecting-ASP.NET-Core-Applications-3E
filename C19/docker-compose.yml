@@ -1,25 +1,23 @@
 version: '3.4'
 
 services:
-  repr.bff:
-    image: ${DOCKER_REGISTRY-}reprbff
+  bff:
+    image: ${DOCKER_REGISTRY-}bff
     build:
       context: .
-      dockerfile: REPR.BFF/Dockerfile
+      dockerfile: BFF/Dockerfile
     depends_on:
-      - repr.products
-      - repr.baskets
+      - products
+      - baskets
 
-  repr.products:
-    image: ${DOCKER_REGISTRY-}reprproducts
+  products:
+    image: ${DOCKER_REGISTRY-}products
     build:
       context: .
-      dockerfile: REPR.Products/Dockerfile
+      dockerfile: Products/Dockerfile
 
-
-  repr.baskets:
-    image: ${DOCKER_REGISTRY-}reprbaskets
+  baskets:
+    image: ${DOCKER_REGISTRY-}baskets
     build:
       context: .
-      dockerfile: REPR.Baskets/Dockerfile
-
+      dockerfile: Baskets/Dockerfile

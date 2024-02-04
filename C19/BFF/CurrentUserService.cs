@@ -1,4 +1,4 @@
-﻿namespace REPR.BFF;
+﻿namespace BFF;
 
 public interface ICurrentCustomerService
 {

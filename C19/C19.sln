@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.BFF", "REPR.BFF\REPR.BFF.csproj", "{6D0DFAFD-8DC0-4A1A-B4D8-30C112BAE2CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BFF", "BFF\BFF.csproj", "{6D0DFAFD-8DC0-4A1A-B4D8-30C112BAE2CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.Products", "REPR.Products\REPR.Products.csproj", "{CD58F3A1-8704-43B6-9D50-663D5E4D983C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products", "Products\Products.csproj", "{CD58F3A1-8704-43B6-9D50-663D5E4D983C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REPR.Baskets", "REPR.Baskets\REPR.Baskets.csproj", "{0BE8C1B4-802E-4627-8720-705450127336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Baskets", "Baskets\Baskets.csproj", "{0BE8C1B4-802E-4627-8720-705450127336}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3B2C8F99-B173-4082-A780-D88E9F092A3F}"
 EndProject

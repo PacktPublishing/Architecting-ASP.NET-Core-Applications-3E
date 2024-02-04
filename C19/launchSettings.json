@@ -4,9 +4,9 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "repr.bff": "StartDebugging",
-        "repr.products": "StartDebugging",
-        "repr.baskets": "StartDebugging"
+        "bff": "StartDebugging",
+        "products": "StartDebugging",
+        "baskets": "StartDebugging"
       }
     }
   }
