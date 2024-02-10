@@ -22,6 +22,8 @@ if (app.Environment.IsDevelopment())
     //app.UseSwaggerUI(); // <-- Light (default) version of Swagger UI
 }
 
+app.MapGet("most-basic-delegate", () => { });
+
 app.MapCustomerEndpoints();
 app.MapCustomerDtoEndpoints();
 app.MapMinimalEndpoints();
