@@ -254,6 +254,42 @@ public static class MinimalEndpoints
         );
     }
 
+    private static void LeveragingEndpointFilters(IEndpointRouteBuilder app)
+    {
+        var groupWithAnEndpointFilter = app.MapGroup("leveraging-endpoint-filters")
+            .WithTags("Leveraging Endpoint Filters")
+            .AddEndpointFilter<GoodRatingFilter>()
+        ;
+        groupWithAnEndpointFilter
+            .MapGet("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+        ;
+        groupWithAnEndpointFilter
+            .MapGet("good-rating/{rating}-{review}", (Rating rating, string review)
+                => TypedResults.Ok(new { Rating = rating, Review = review }))
+        ;
+
+        var appOrGroupA = app.MapGroup("appOrGroupA");
+        appOrGroupA
+            .MapGet("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter<GoodRatingFilter>();
+        ;
+
+        var appOrGroupB = app.MapGroup("appOrGroupB");
+        appOrGroupB
+            .MapPut("good-rating/{rating}", (Rating rating)
+                => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter<GoodRatingFilter>();
+        ;
+
+
+        app.MapGet("good-rating/{rating}", (Rating rating)
+            => TypedResults.Ok(new { Rating = rating }))
+            .AddEndpointFilter<GoodRatingFilter>()
+        ;
+    }
+
     private static void MapFilterEndpoints(IEndpointRouteBuilder app)
     {
         var filterGroup = app.MapGroup("filters").WithTags("Filter Endpoints");
