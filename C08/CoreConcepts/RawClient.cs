@@ -1,15 +1,15 @@
-﻿namespace CoreConcepts;
-public class RawClient
+﻿namespace CoreConcepts.Raw;
+public class Client
 {
     public void Operation()
     {
         // Direct control over dependency
-        var service = new RawService(); // Dependency
+        var service = new Service(); // Dependency
         service.ExecuteSomeTask();
     }
 }
 
-public class RawService
+public class Service
 {
     public void ExecuteSomeTask()
         => throw new NotImplementedException();
