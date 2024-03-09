@@ -154,5 +154,5 @@ static async Task AddOrUpdateItem(UpdateCartItem item, IWebClient client, ICurre
 public record class UpdateCartItem(int ProductId, int Quantity);
 public record class BasketProduct(int Id, string Name, decimal UnitPrice, int Quantity)
 {
-    public decimal TotalPrice => UnitPrice * Quantity;
+    public decimal TotalPrice { get; } = UnitPrice * Quantity;
 }
