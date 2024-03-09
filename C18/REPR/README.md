@@ -1,7 +1,7 @@
 # Test coverage
 
 The initial test coverage report indicates 97.2% Line Coverage and 63.1% Branch coverage for the Web assembly.
-Most of the not tested branches are related to the constructor injection guards that we have no unit tests for.
+Most of the untested branches are related to the constructor injection guards that we have no unit tests for.
 
 ## How to collect code coverage
 
