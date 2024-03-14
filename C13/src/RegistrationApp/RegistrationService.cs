@@ -36,7 +36,11 @@ public record class ConcertRegistrationResult
     public bool RegistrationSucceeded { get; init; }
 
     public User User { get; init; } = null!;
+    //public required User User { get; init; } // Alternative
+
     public Concert Concert { get; init; } = null!;
+    //public required Concert Concert { get; init; } // Alternative
+
     public string? ConfirmationNumber { get; init; }
     public string? ErrorMessage { get; init; }
 
