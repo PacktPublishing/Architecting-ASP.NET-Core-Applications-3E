@@ -1,4 +1,4 @@
-# Appendix A
+# Appendix
 
 This appendix describes different C# features that we use or are related to topics we use in the book. I cannot cover all C# features in an appendix, but I did my best to pick the most relevant ones.
 
