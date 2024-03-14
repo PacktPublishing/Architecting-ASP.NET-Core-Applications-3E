@@ -1,8 +1,8 @@
-## Older C# features
+# Older C# features
 
 This section covers a list of C# features that are useful, less known, or I want to make sure you are aware of since we are leveraging or mentioning them in the book.
 
-### The null-coalescing operator (C# 2.0)
+## The null-coalescing operator (C# 2.0)
 
 The null-coalescing (??) operator is a binary operator written using the following syntax: `result = left ?? right`. It expresses to use the right value when the left value is null. Otherwise, the left value is used.
 
@@ -20,7 +20,7 @@ static string ValueOrDefault(string? value, string defaultValue)
 
 The `ValueOrDefault` method returns `defaultValue` when `value` is null; otherwise, it returns `value`. Executing that program outputs the following:
 
-```
+```text
 Default value
 Some value
 ```
@@ -40,9 +40,44 @@ static string ValueOrDefaultPlain(string? value, string defaultValue)
 
 Interesting Fact: C# 2.0 is also the version they added generics, which were a very welcome addition. Try to imagine C# without generics.
 
-### Expression-bodied member (C# 6-7)
+## The null-coalescing assignment operator (C# 8)
 
-Expression-bodied members allow us to write an expression (a line of code) after the arrow operator (=>) instead of the body of that member (delimited by {}). We can write methods, properties, constructors, finalizers, and indexers this way.
+The null-coalescing assignment operator in C# 8, denoted as `??=`, further simplifies working with `null` values. This operator assigns the right-hand value to the left-hand variable only if the left-hand variable is null. The syntax is `variable ??= value`.
+
+Consider a simple console application using the null-coalescing assignment operator:
+
+```csharp
+string? message = null;
+message ??= "Default message";
+Console.WriteLine(message);
+
+message ??= "Another message";
+Console.WriteLine(message);
+```
+
+In this example, the first `??=` operation assigns `"Default message"` to `message` variable because the `message` variable is initially `null`. The second `??=` operation does nothing because `message` already has a non-null value. The output will be:
+
+```text
+Default message
+Default message
+```
+
+The null-coalescing assignment operator reduces the need for more verbose conditional checks and assignments, like:
+
+```csharp
+if (message == null)
+{
+    message = "Default message";
+}
+```
+
+By using the `??=` operator, we maintain concise and more readable code, especially when initializing or defaulting variables that might not have been assigned yet. This operator is a convenient way to ensure variables have non-null values before we use them further in our programs.
+
+We use the null-coalescing assignment operator in Chapter 7 in a couple of Singleton pattern examples.
+
+## Expression-bodied member (C# 6-7)
+
+Expression-bodied members allow us to write an expression (a line of code) after the arrow operator (`=>`) instead of the body of that member (delimited by `{}`). We can write methods, properties, constructors, finalizers, and indexers this way.
 
 Here is a small program that leverages this capability:
 
@@ -63,7 +98,7 @@ public class Restaurant
 
 Executing the program yields:
 
-```
+```text
 Restaurant: The Cool Place
 Restaurant: The Even Cooler Place
 ```
@@ -96,7 +131,7 @@ As we can see from the preceding example, expression-bodied members allow us to 
 
 Note: I find that expression-bodied members reduce readability when the right-hand expression is complex. I rarely use expression-bodied constructors and finalizers as I find they make the code harder to read. However, read-only properties and methods can benefit from this construct as long as the right-hand expression is simple.
 
-### Throw expressions (C# 7.0)
+## Throw expressions (C# 7.0)
 
 This feature allows us to use the throw statement as an expression, giving us the possibility to throw exceptions on the right side of the null-coalescing operator (??).
 
@@ -142,7 +177,7 @@ This makes the intent a little more explicit but does not assign the value to th
 
 ---
 
-### Tuples (C# 7.0+)
+## Tuples (C# 7.0+)
 
 A tuple is a type that allows returning multiple values from a method or stores multiple values in a variable without declaring a type and without using the dynamic type. Since C# 7.0, tuple support has greatly improved.
 
@@ -270,7 +305,7 @@ For example, “I want to calculate the sales tax rate of the specified product�
 
 An excellent alternative to tuples for public APIs is record classes, keeping additional code minimal.
 
-### Default literal expressions (C# 7.1)
+## Default literal expressions (C# 7.1)
 
 Default literal expressions were introduced in C# 7.1 and allow us to reduce the amount of code required to use default value expressions.
 
@@ -351,7 +386,7 @@ It is important to note that the default value of reference types (classes) is n
 
 default value. C# 10 introduces the ability to define a default parameterless constructor to value types, which initializes that struct’s default instance when using the `default` keyword, overriding the preceding assertion about default fields. Moreover, many built-in types have custom default values; for example, the default for numeric types and enum is `0`, while a `bool` is `false`.
 
-### Switch expressions (C# 8)
+## Switch expressions (C# 8)
 
 This feature was introduced in C# 8 and is named switch expressions. Previously, we had to write this (code taken from the Strategy pattern code sample from Chapter 6, "Understanding the Strategy, Abstract Factory, and Singleton Design Patterns"):
 
@@ -398,7 +433,7 @@ That makes the code shorter and simpler. Once you get used to it, I find this ne
 
 **Note:** Switch expressions also support pattern matching introduced in C# 7. C# received more pattern matching features in subsequent versions. We are not covering pattern matching here.
 
-### Discards (C# 7)
+## Discards (C# 7)
 
 Discards were introduced in C# 7. In the following example (code taken from the GitHub repo associated with the Strategy pattern code sample from Chapter 6, "Understanding the Strategy, Abstract Factory, and Singleton Design Patterns"), the discard became the default case of the switch (see the highlighted line):
 
@@ -435,7 +470,7 @@ if (bool.TryParse("true", out _))
 
 In that last code block, we only want to do something if the input is a Boolean, but we do not use the Boolean value itself, which is a great scenario for a discard variable.
 
-### Async main (C# 7.1)
+## Async main (C# 7.1)
 
 From C# 7.1 onward, a console application can have an async `Main` method, which is very convenient as more and more code is becoming asynchronous. This new feature allows the use of `await` directly in the `Main()` method without any quirks.
 
