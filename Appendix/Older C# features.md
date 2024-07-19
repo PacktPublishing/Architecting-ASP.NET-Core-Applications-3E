@@ -65,7 +65,7 @@ Default message
 The null-coalescing assignment operator reduces the need for more verbose conditional checks and assignments, like:
 
 ```csharp
-if (message == null)
+if (message is null)
 {
     message = "Default message";
 }
@@ -87,10 +87,12 @@ Console.WriteLine(new Restaurant("The Even Cooler Place"));
 
 public class Restaurant
 {
-    public readonly string _name;
+    private readonly string _name;
     public Restaurant(string name)
         => _name = name;
+
     public string Name => _name; // read-only property
+
     public override string ToString()
         => $"Restaurant: {Name}";
 }
@@ -108,7 +110,7 @@ The equivalent with bodies would be the following code:
 ```csharp
 public class RestaurantWithBody
 {
-    public readonly string _name;
+    private readonly string _name;
     public RestaurantWithBody(string name)
     {
         _name = name;
@@ -258,9 +260,7 @@ public void TuplesEquality()
 }
 ```
 
-If you don’t like to access the tuple
-
-’s members using the dot (.) notation, we can also deconstruct them into variables:
+If you don’t like to access the tuple’s members using the dot (.) notation, we can also deconstruct them into variables:
 
 ```csharp
 [Fact]
@@ -382,9 +382,7 @@ public (object, string, bool) MethodThatReturnATuple()
 }
 ```
 
-It is important to note that the default value of reference types (classes) is null, but the default of value types (struct) is an instance of that struct with all its fields initialized to their respective
-
-default value. C# 10 introduces the ability to define a default parameterless constructor to value types, which initializes that struct’s default instance when using the `default` keyword, overriding the preceding assertion about default fields. Moreover, many built-in types have custom default values; for example, the default for numeric types and enum is `0`, while a `bool` is `false`.
+It is important to note that the default value of reference types (classes) is null, but the default of value types (struct) is an instance of that struct with all its fields initialized to their respective default value. C# 10 introduces the ability to define a default parameterless constructor to value types, which initializes that struct’s default instance when using the `default` keyword, overriding the preceding assertion about default fields. Moreover, many built-in types have custom default values; for example, the default for numeric types and enum is `0`, while a `bool` is `false`.
 
 ## Switch expressions (C# 8)
 

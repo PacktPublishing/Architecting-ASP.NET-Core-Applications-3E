@@ -53,13 +53,16 @@ List<string> list3 = new(capacity: 10);
 var obj = new MyClass(new());
 AnotherClass anotherObj = new() { Name = "My Name" };
 
-public class MyClass {
+public class MyClass
+{
     public MyClass(AnotherClass property)
         => Property = property;
+
     public AnotherClass Property { get; }
 }
 
-public class AnotherClass {
+public class AnotherClass
+{
     public string? Name { get; init; }
 }
 ```
@@ -87,8 +90,9 @@ public class Counter
 
 Without a constructor, it is impossible to initialize the `Count` property, so we can’t initialize an instance like this:
 
-````csharp
+```csharp
 var counter = new Counter { Count = 2 };
+```
 
 That’s the use case that init-only properties enable. We can rewrite the `Counter` class to make use of that by using the `init` keyword like this:
 
@@ -97,7 +101,7 @@ public class Counter
 {
     public int Count { get; init; }
 }
-````
+```
 
 With that in place, we can now use it like this:
 
@@ -284,3 +288,7 @@ Is 'employee1' the same as 'employee3'? False
 Record classes are a great new addition that creates immutable types in a few keystrokes. Furthermore, they support deconstruction and implement equality comparison that compares the value of properties, not whether the instances are the same, simplifying our lives in many cases.
 
 Init-only properties can also benefit regular classes if one prefers class initializers to constructors.
+
+```
+
+```

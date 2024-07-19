@@ -4,7 +4,7 @@ Console.WriteLine(new Restaurant("The Even Cooler Place"));
 
 public class Restaurant
 {
-    public readonly string _name;
+    private readonly string _name;
     public Restaurant(string name)
         => _name = name;
 
@@ -17,7 +17,7 @@ public class Restaurant
 
 public class RestaurantWithBody
 {
-    public readonly string _name;
+    private readonly string _name;
     public RestaurantWithBody(string name)
     {
         _name = name;
