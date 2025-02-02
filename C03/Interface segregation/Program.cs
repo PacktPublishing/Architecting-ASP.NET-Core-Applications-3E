@@ -7,7 +7,7 @@ ReadProducts(publicProductReader);
 ReadProducts(privateProductRepository);
 
 // Error: Cannot convert from PublicProductReader to IProductWriter
-// ModifyProducts(publicProductReader); // Invalid
+// WriteProducts(publicProductReader); // Invalid
 WriteProducts(privateProductRepository);
 
 ReadAndWriteProducts(privateProductRepository, privateProductRepository);
