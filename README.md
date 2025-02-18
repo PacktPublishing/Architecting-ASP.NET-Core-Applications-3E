@@ -6,6 +6,10 @@ This is the code repository for [Architecting ASP.NET Core Applications](https:/
 
 **An atypical design patterns guide for .NET 8, C# 12, and beyond**
 
+## IMPORTANT—Errata
+
+Please visite the [Errata](errata.md) page for corrections.
+
 ## What is this book about?
 
 Backend design like you’ve never seen it before – a guide to building SOLID ASP.NET Core web apps that stand the test of time. Featuring more Minimal APIs, more testing, more building blocks, and the modular monolith!
