@@ -1,3 +1,6 @@
+
+<b><p align='center'>[![Packt Sale](https://static.packt-cdn.com/assets/images/humble+bundle/mega_bundle_dot_net_2.png)](https://www.humblebundle.com/books/c-and-net-mega-bundle-packt-books?view=tXxHRda-uIQk?utm_medium=affiliate)</p></b> 
+
 # Architecting ASP.NET Core Applications, Third Edition
 
 <a href="https://www.packtpub.com/product/architecting-aspnet-core-applications-third-edition/9781805123385"><img src="cover.png?raw=true" alt="An Atypical ASP.NET Core 5 Design Patterns Guide" height="256px" align="right"></a>
